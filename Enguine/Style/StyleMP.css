@@ -1,0 +1,192 @@
+
+
+#Opers{
+    width: 620px;
+    border: solid 1px blue ;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 5px;
+}
+
+#Operadors{
+width: 300px;
+left: 0px;
+border-radius: 15px;
+margin-bottom: 5px;
+}
+
+#Ajudantes{
+    width: 300px;
+    left: 50%; 
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+
+#Operador{
+    float: left;
+    width: 305px;
+    }
+
+    #ajudante{
+    float: left;        
+    }
+
+    #Job{
+        border: solid 1px blue;
+        border-radius: 15px;
+        width: 290px;
+        padding: 5px;
+        padding-left: 20px;
+        margin: 5px;
+        /* float: left;  */
+     
+    }
+
+    #produto{
+        position: absolute;
+        border: solid 1px blue;
+        border-radius: 15px;
+        width: 290px;
+        padding: 5px;
+        padding-left: 20px;
+        margin: 5px;
+        float: left; 
+        height: 250px;
+        padding-top: 15px;
+        padding-bottom: 0px;
+        top: 65px;
+        left: 335px;
+    }
+
+    #Gramatura{
+        width: 200px;
+        border-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    #Papel{
+        width: 208px; 
+        border-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    #Tamanho{
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+    #Rotacao{
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+    #Peso{
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+
+    #Gramatura:focus{
+        border-radius: 0px;    
+        background-color: rgb(186, 218, 216);
+    }
+
+    #Papel:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px;    
+    }
+
+    #Tamanho:focus{
+        background-color: rgb(186, 218, 216);
+    border-radius: 0px;    
+    }
+    #Rotacao:focus{
+         background-color: rgb(186, 218, 216);
+        border-radius: 0px;    
+    }
+    #Peso:focus{
+         background-color: rgb(186, 218, 216);
+        border-radius: 0px;    
+    }
+
+    #Data{
+        margin-bottom: 7px;
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+    }
+
+    #H_inicio{
+        margin-bottom: 7px;
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+    }
+
+    #H_fim{
+        margin-bottom: 7px;
+        width: 200px; 
+        border-radius: 15px;
+        border: 1px solid black;
+    }
+
+    #Data:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
+    }
+
+    #H_inicio:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
+    }
+
+    #H_fim:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
+    }
+
+    #Operadors:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
+    }
+    #Ajudantes:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
+    }
+
+    #mae{
+        width: 630px;
+        border: 1px solid blue;
+    }
+
+    #Parada{
+        border: solid 1px blue;
+        border-radius: 15px;
+        width: 290px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+       
+    }
+
+    #Bt_Parada{
+        margin-bottom: 5px;
+        border: solid 1px black;
+        width: 130px;
+        padding: 5px;
+        border-radius: 15px;
+          
+    }
