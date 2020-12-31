@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleMP.css">
 </head>
 <body>
-
+<div id="Title">
+<h3>Lançamentos da MP</h3>
+</div>
 <?php
 print "<div id =\"Mae\">";
 
@@ -125,7 +127,7 @@ print "</div>";
 
 print "<div id=\"Parada\" calss=\"Parada\">";
 print "<div id=\"lines\"></iv>";
-print "<button type=\"button\" onclick=\"addInput('lines')\">Adicionar Manutenção</button>";
+print "<button type=\"button\" onclick=\"addInput('lines')\" id=\"BtAdd\">Adicionar Manutenção</button>";
 print "</div>";
 
 
@@ -194,25 +196,197 @@ print "<input type=\"number\" id=\"Peso\" name=\"Peso\" min=\"1\" max=\"700\" re
 print "</div>"; 
 $conn->close();
 
-
-print "<input type=\"submit\" value=\"Enviar\">";
-print "</form>";
 print "</div>";
+
+print "<div id=\"Buttons\">";
+print "<input type=\"submit\" value=\"Enviar\">";
+print "<button type=\"button\"id=\"BtAddm\">Teste</button>";
+print "</div>";
+print "<input type=\"time\" name=\"TempProd\" id=\"TempProd\">";
+print "<input type=\"time\" name=\"TempG\" id=\"TempG\" >";
+print "<input type=\"time\" name=\"TempF\" id=\"TempF\" >";
+print "</form>";
 ?>
+
+<div>
+  <div id="Tmp"></div>
+</div>
+
+
+
+
 
 <script>
 var line = 1;
+var Adicted = 0;
 function addInput(divName) {
   var newdiv = document.createElement('div');
-  newdiv.innerHTML  = '['+line +']';
-  newdiv.innerHTML += '<input type="text" name="text'+line +'_1" id="text'+line +'_1">';
-  newdiv.innerHTML += '<input type="text" name="text'+line +'_2" id="text'+line +'_2">';
+  newdiv.innerHTML  = '<br></br>['+line +']';
+  newdiv.innerHTML += '<hr>';
+  newdiv.innerHTML += '<label for="Pddesc">Descrição da parada</label>';
+  newdiv.innerHTML += '<br>';
+  newdiv.innerHTML += '<textarea name="Pddesc'+line +'_1" id="Pddesc'+line +'_1" cols="30" rows="10" required></textarea> ';
+  newdiv.innerHTML += '<br>';
+  newdiv.innerHTML += '<label for="PdIni">Hora Inicial</label>';
+  newdiv.innerHTML += '<br>';
+  newdiv.innerHTML += '<input type="time" name="PdIni'+line +'_1" id="PdIni'+line +'_1" required>';
+  newdiv.innerHTML += '<br>';
+  newdiv.innerHTML += '<label for="PdFin">Hora Final</label>';
+  newdiv.innerHTML += '<br>';
+  newdiv.innerHTML += '<input type="time" name="PdFin'+line +'_2" id="PdFin'+line +'_2" required>';
+  newdiv.innerHTML += '<input type="time" name="TemPar'+line +'_2" id="TemPar'+line +'_2">';
   document.getElementById(divName).appendChild(newdiv);
   line++;
+  Adicted=Adicted+1;
+  alert('Adicionado Manutenção: '+Adicted);
 }
-addInput('lines');
+
+
+function pad(num) {
+return ("0"+num).slice(-2);
+}
+// _____________________________________________________________________
+function diffTime(start,end) {
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + e[0]*60,
+   diff = eMin-sMin;
+  if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+}  
+// _______________________________________________________________________
+function diffTimeVid(start,end) {
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0]+25)*60,
+   diff = eMin-sMin;
+  if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+}  
+// _______________________________________________________________________
+
+document.getElementById('BtAddm').onclick=function() {
+
+if (document.getElementById('H_inicio').value < 
+      document.getElementById('H_fim').value
+) {
+
+  alert('Tempo de Fabricação de: '+ diffTime(
+      document.getElementById('H_inicio').value, 
+      document.getElementById('H_fim').value
+  ));
+ document.getElementById('TempProd').value = diffTime(
+      document.getElementById('H_inicio').value, 
+      document.getElementById('H_fim').value
+  );
+}else{
+  alert('Tempo de Fabricação de: '+ diffTimeVid(
+      document.getElementById('H_inicio').value, 
+      (document.getElementById('H_fim').value)
+  ));
+  document.getElementById('TempProd').value = diffTime(
+      document.getElementById('H_inicio').value, 
+      document.getElementById('H_fim').value
+  )};
+
+var i = 1;
+
+for (Cont=0;Cont<(line+1);Cont++){
+  if (document.getElementById('PdIni'+i +'_1')!=null) {
+  if (document.getElementById('PdIni'+i +'_1').value < 
+      document.getElementById('PdFin'+i +'_2').value
+) {
+
+  alert('Tempo de Manutenção '+i+' de: '+ diffTime(
+      document.getElementById('PdIni'+i +'_1').value, 
+      document.getElementById('PdFin'+i +'_2').value
+  ));
+ document.getElementById('TemPar'+i +'_2').value = diffTime(
+      document.getElementById('PdIni'+i +'_1').value, 
+      document.getElementById('PdFin'+i +'_2').value
+  );
+}else{
+  alert('Tempo de Manutenção '+i+' de: '+ diffTimeVid(
+      document.getElementById('PdIni'+i +'_1').value, 
+      (document.getElementById('PdFin'+i +'_2').value)
+  ));
+  document.getElementById('TemPar'+i +'_2').value = diffTime(
+      document.getElementById('PdIni'+i +'_1').value, 
+      document.getElementById('PdFin'+i +'_2').value
+  )}
+  i++;
+  }
+      
+}
+var Time2 = '00:00';
+var y = 1;
+var Time1 = document.getElementById('TempProd').value;
+for (num=0;num<line;num++){
+  if (document.getElementById('TemPar'+y +'_2')!=null) {
+
+Time2 = SunTime(
+  document.getElementById('TemPar'+y +'_2').value, 
+  Time2
+); 
+}
+y++;
+}
+
+function SunTime(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin+sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+document.getElementById('TempG').value = Time2;
+alert('tempo total de manutenção: '+Time2);
+
+
+function Reduct1(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin-sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+  function Reduct2(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0]+25)*60,
+   diff = eMin-sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+if (
+  document.getElementById('TempProd').value <
+  document.getElementById('TempG').value)
+  { 
+    alert('Tempo de Manutenção maior que o Tempo de Fabricação Verificar Erro.');
+  }
+else
+{
+  var Time3  = Reduct1(
+  document.getElementById('TempG').value,
+  document.getElementById('TempProd').value
+);
+}
+ document.getElementById('TempF').value = Time3;
+ alert('tempo real Produtivo: '+Time3+'\ '+document.getElementById('TempG').value+'\ '+document.getElementById('TempProd').value);
+}
 
 </script>
-    
+
+
 </body>
 </html>
