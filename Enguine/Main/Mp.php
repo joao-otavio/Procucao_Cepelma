@@ -7,13 +7,30 @@
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleMP.css">
 </head>
 <body>
-<div id="Title">
-<h3>Lançamentos da MP</h3>
-</div>
 <?php
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT Jumb FROM producao_mp";
+$result = $conn->query($sql);
+$NumJUmb = mysqli_num_rows ($result) +1;
+
+$conn->close();
+
+print "<div id=\"Title\">";
+print "<h3>Lançamentos da MP - Jumbo: $NumJUmb</h3>";
+print "</div>";
 print "<div id =\"Mae\">";
 
-print "<form action=\"\">";
+print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\">";
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
@@ -53,7 +70,7 @@ if ($result->num_rows > 0) {
         // $MyArray = [];
         if ($Cod <> "") {
         // array_push($MyArray, [$Cod, $Nome, $Scan]);
-        print "<option value=\"$Cod,\">$Nome</option>";
+        print "<option value=\"$Nome,\">$Nome</option>";
         }else {
             while($row = mysqli_fetch_array($result)) {
                 $Element = "$row[1],$row[2],";
@@ -93,7 +110,7 @@ if ($result->num_rows > 0) {
         // $MyArray = [];
         if ($Cod <> "") {
         // array_push($MyArray, [$Cod, $Nome, $Scan]);
-        print "<option value=\"$Cod,\">$Nome</option>";
+        print "<option value=\"$Nome,\">$Nome</option>";
         }else {
             while($row = mysqli_fetch_array($result)) {
                 $Element = "$row[1],$row[2],";
@@ -163,7 +180,7 @@ print "<select name=\"Papel\" id=\"Papel\" required>";
         // $MyArray = [];
         if ($Cod <> "") {
         // array_push($MyArray, [$Cod, $Nome, $Scan]);
-        print "<option value=\"$CodP,\">$TipoP</option>";
+        print "<option value=\"$TipoP\">$TipoP</option>";
         }else {
             while($row = mysqli_fetch_array($result)) {
                 $Element = "$row[1],$row[2],";
@@ -200,33 +217,23 @@ $conn->close();
 print "</div>";
 
 print "<div id=\"Buttons\">";
-print "<input type=\"submit\" value=\"Enviar\">";
+print "<input type=\"submit\" value=\"Enviar\" name=\"Submit\">";
 print "<button type=\"button\"id=\"BtAddm\">Teste</button>";
 print "</div>";
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<br>"; 
-print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\">";
-print "<input type=\"text\" name=\"TempG\" id=\"TempG\" >";
-print "<input type=\"text\" name=\"TempF\" id=\"TempF\" >";
-print "<input type=\"number\" name=\"GramaturaG\" id=\"GramaturaG\" >";
-print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" >";
-print "<input type=\"number\" name=\"GramaturaC\" id=\"GramaturaC\" >";
+print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\" hidden>";
+print "<input type=\"text\" name=\"TempG\" id=\"TempG\" hidden>";
+print "<input type=\"text\" name=\"TempF\" id=\"TempF\" hidden>";
+print "<input type=\"text\" name=\"GramaturaG\" id=\"GramaturaG\" hidden>";
+print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" hidden>";
+print "<input type=\"text\" name=\"GramaturaC\" id=\"GramaturaC\" hidden>";
+print "<input type=\"text\" name=\"NumMan\" id=\"NumMan\" hidden>";
+print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" hidden>";
 print "</form>";
 ?>
 
 <div>
   <div id="Tmp"></div>
 </div>
-
-
-
-
 
 <script>
 var line = 1;
@@ -237,20 +244,21 @@ function addInput(divName) {
   newdiv.innerHTML += '<hr>';
   newdiv.innerHTML += '<label for="Pddesc">Descrição da parada</label>';
   newdiv.innerHTML += '<br>';
-  newdiv.innerHTML += '<textarea name="Pddesc'+line +'_1" id="Pddesc'+line +'_1" cols="30" rows="10" required></textarea> ';
+  newdiv.innerHTML += '<textarea name="Pddesc'+line +'_1" id="Pddesc'+line +'_1" cols="30" rows="10" class= \"Pddesc\" required></textarea> ';
   newdiv.innerHTML += '<br>';
   newdiv.innerHTML += '<label for="PdIni">Hora Inicial</label>';
   newdiv.innerHTML += '<br>';
-  newdiv.innerHTML += '<input type="time" name="PdIni'+line +'_1" id="PdIni'+line +'_1" required>';
+  newdiv.innerHTML += '<input type="time" name="PdIni'+line +'_1" id="PdIni'+line +'_1" class= \"PdIni\" required>';
   newdiv.innerHTML += '<br>';
   newdiv.innerHTML += '<label for="PdFin">Hora Final</label>';
   newdiv.innerHTML += '<br>';
-  newdiv.innerHTML += '<input type="time" name="PdFin'+line +'_2" id="PdFin'+line +'_2" required>';
-  newdiv.innerHTML += '<input type="time" name="TemPar'+line +'_2" id="TemPar'+line +'_2">';
+  newdiv.innerHTML += '<input type="time" name="PdFin'+line +'_2" id="PdFin'+line +'_2" class= \"PdFin\" required>';
+  newdiv.innerHTML += '<input type="time" name="TemPar'+line +'_2" id="TemPar'+line +'_2" hidden>';
   document.getElementById(divName).appendChild(newdiv);
   line++;
   Adicted=Adicted+1;
-  alert('Adicionado Manutenção: '+Adicted);
+  // alert('Adicionado Manutenção: '+Adicted);
+  document.getElementById('NumMan').value = Adicted;
 }
 
 
@@ -429,7 +437,6 @@ var GramaturaMedia = z*10;
 document.getElementById('GramaturaC').value = GramaturaMedia;
 alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 }
-
 </script>
 
 

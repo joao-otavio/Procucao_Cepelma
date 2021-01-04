@@ -236,31 +236,31 @@ margin-bottom: 5px;
         background-color: rgb(148, 233, 227);
     }
 
-    #PdIni{
+    .PdIni{
         margin-bottom: 7px;
         width: 200px; 
         border-radius: 15px;
         border: 1px solid black;
     }
 
-    #PdFin{
+    .PdFin{
         margin-bottom: 7px;
         width: 200px; 
         border-radius: 15px;
         border: 1px solid black;
     }
 
-    #Pddesc:focus{
+    .Pddesc:focus{
         background-color: rgb(186, 218, 216);
     }
 
-    #PdIni:focus{
+    .PdIni:focus{
         background-color: rgb(186, 218, 216);
         border-radius: 0px; 
         border: 1px solid black;
     }
 
-    #PdFin:focus{
+    .dFin:focus{
         background-color: rgb(186, 218, 216);
         border-radius: 0px; 
         border: 1px solid black;
