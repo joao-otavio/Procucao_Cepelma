@@ -180,7 +180,8 @@ print "<br>";
 
 print "<label for=\"Gramatura\">Gramatura: </label>";
 print "<br>"; 
-print "<input type=\"number\" id=\"Gramatura\" name=\"Gramatura\" min=\"1\" max=\"120\" required>";  
+print "<input type=\"number\" id=\"Gramatura1\" name=\"Gramatura1\" min=\"1\" max=\"120\" required>";
+print "<input type=\"number\" id=\"Gramatura2\" name=\"Gramatura2\" min=\"1\" max=\"120\" required>";
 print "<br>"; 
 print "<label for=\"Tamanho\">Tamanho: </label>";
 print "<br>"; 
@@ -202,9 +203,20 @@ print "<div id=\"Buttons\">";
 print "<input type=\"submit\" value=\"Enviar\">";
 print "<button type=\"button\"id=\"BtAddm\">Teste</button>";
 print "</div>";
-print "<input type=\"time\" name=\"TempProd\" id=\"TempProd\">";
-print "<input type=\"time\" name=\"TempG\" id=\"TempG\" >";
-print "<input type=\"time\" name=\"TempF\" id=\"TempF\" >";
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<br>"; 
+print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\">";
+print "<input type=\"text\" name=\"TempG\" id=\"TempG\" >";
+print "<input type=\"text\" name=\"TempF\" id=\"TempF\" >";
+print "<input type=\"number\" name=\"GramaturaG\" id=\"GramaturaG\" >";
+print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" >";
+print "<input type=\"number\" name=\"GramaturaC\" id=\"GramaturaC\" >";
 print "</form>";
 ?>
 
@@ -383,6 +395,39 @@ else
 }
  document.getElementById('TempF').value = Time3;
  alert('tempo real Produtivo: '+Time3+'\ '+document.getElementById('TempG').value+'\ '+document.getElementById('TempProd').value);
+
+var grang = 0;
+var gran1 =   document.getElementById('Gramatura1').value;
+var gran2 =   document.getElementById('Gramatura2').value;
+
+if (gran1 < gran2) {
+  grang = (parseInt(gran1) + parseInt(gran2))/2;
+  document.getElementById('Gramatura1').value = gran1;
+  document.getElementById('Gramatura2').value = gran2;
+  document.getElementById('GramaturaG').value = grang;
+  document.getElementById('GramaturaB').value = gran1+'/'+gran2;
+  alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+}else{
+  grang = (parseInt(gran1) + parseInt(gran2))/2;
+  document.getElementById('Gramatura1').value = gran2;
+  document.getElementById('Gramatura2').value = gran1;
+  document.getElementById('GramaturaG').value = grang;
+  document.getElementById('GramaturaB').value = gran2+'/'+gran1;
+  alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+}
+
+var PesV = document.getElementById('Peso').value;
+var TamV = document.getElementById('Tamanho').value;
+var RotV = document.getElementById('Rotacao').value;
+var s = Time3.split(":"), TempoV = +s[1] + s[0]*60;
+
+var w = parseInt(TamV) / 100;
+var x = ((parseInt(RotV)*113)/2000);
+var y = parseInt(TempoV) / 60;
+var z = (parseInt(PesV)/(parseInt(w)+parseInt(x)+parseInt(y)));
+var GramaturaMedia = z*10;
+document.getElementById('GramaturaC').value = GramaturaMedia;
+alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 }
 
 </script>

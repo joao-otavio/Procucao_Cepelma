@@ -59,9 +59,18 @@ margin-bottom: 5px;
         left: 335px;
     }
 
-    #Gramatura{
-        width: 200px;
-        border-radius: 15px;
+    #Gramatura1{
+        width: 98px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border: 1px solid black;
+        margin-bottom: 5px;
+    }
+    
+    #Gramatura2{
+        width: 98px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
         border: 1px solid black;
         margin-bottom: 5px;
     }
@@ -92,8 +101,14 @@ margin-bottom: 5px;
         margin-bottom: 5px;
     }
 
-    #Gramatura:focus{
-        border-radius: 0px;    
+    #Gramatura2:focus{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background-color: rgb(186, 218, 216);
+    }
+    #Gramatura1:focus{
+        border-top-left-radius: 0px;    
+        border-bottom-left-radius: 0px;
         background-color: rgb(186, 218, 216);
     }
 
