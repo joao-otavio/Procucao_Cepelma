@@ -268,12 +268,94 @@ margin-bottom: 5px;
 
     #Buttons{
         position: absolute;
-        width: 290px;
+        width: 305px;
         border: solid 1px blue ;
         border-radius: 15px;
         padding: 5px;
-        padding-left: 20px;
+        padding-top: 5px;
+        /* padding-left: 20px; */
         margin: 7px;  
         left: 335px;  
-        top: 410px;   
+        top: 410px; 
+        height: 40px;  
+    }
+
+    #BtConcNext{
+        position: absolute;
+        top: 1px;
+        border-radius: 15px;
+        width: 100px;
+        border: solid 1px black;
+        background-color: rgb(186, 218, 216);
+        padding: 4px;
+        margin: 3px;
+        margin-top: 10px;
+        
+    }
+
+    #BtConcNext:hover{
+        border-radius: 0;
+        width: 100px;
+        border: solid 1px black;
+        background-color: rgb(148, 233, 227);
+    }
+
+    #BtConcNext:focus{
+        border-radius: 0;
+        width: 100px;
+        border: solid 1px black;
+        background-color: rgb(148, 233, 227);
+    }
+
+    #Find{
+        position: absolute;
+        width: 300px;
+        border: solid 1px blue ;
+        border-radius: 15px;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        /* padding-left: 20px; */
+        margin: 7px;  
+        left: 335px;  
+        top: 470px; 
+    }
+    
+    #BtFind{
+        position: absolute;
+        top: 10px;
+        /* border-radius: 15px; */
+        width: 80px;
+        border: solid 1px black;
+        background-color: rgb(186, 218, 216);
+        
+    }
+
+    #BtFind:hover{
+        border-radius: 0;
+        width: 80px;
+        border: solid 1px black;
+        background-color: rgb(148, 233, 227);
+    }
+
+    #BtFind:focus{
+        border-radius: 0;
+        width: 80px;
+        border: solid 1px black;
+        background-color: rgb(148, 233, 227);
+    }
+
+    
+    #TxFind{
+        margin-bottom: 7px;
+        width: 200px; 
+        /* border-radius: 15px; */
+        border: 1px solid black;
+    }
+
+    #TxFind:focus{
+        background-color: rgb(186, 218, 216);
+        border-radius: 0px; 
+        border: 1px solid black;
     }

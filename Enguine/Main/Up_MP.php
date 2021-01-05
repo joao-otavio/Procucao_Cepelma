@@ -1,5 +1,15 @@
-<?php
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<?php
 $myDateTime = DateTime::createFromFormat('Y-m-d',$_POST['Data']);
 $Data = $myDateTime->format('d/m/Y');
 
@@ -144,5 +154,7 @@ for ($i=0; $i < $Quant_Para; $i++) {
       $line = $line +1;
 }
 
-
+echo "<script>window.close();</script>";
 ?>
+</body>
+</html>

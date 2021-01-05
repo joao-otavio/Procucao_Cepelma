@@ -30,7 +30,7 @@ print "<h3>Lançamentos da MP - Jumbo: $NumJUmb</h3>";
 print "</div>";
 print "<div id =\"Mae\">";
 
-print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\">";
+print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\" target=\"blank\" id=\"PostFom\">";
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
@@ -51,7 +51,7 @@ $result = $conn->query($sql);
 
 $MyArray = array();
 if ($result->num_rows > 0) {
-  print "<label for=\"Operador\" id=\"Operadors\">Operador: </label>";
+  print "<label for=\"Operadors\" id=\"Operadors\">Operador: </label>";
   print "<br>";
   print "<select name=\"Operador\" id=\"Operadors\" required>";
   print "<option value=\"0\"></option>";
@@ -217,9 +217,18 @@ $conn->close();
 print "</div>";
 
 print "<div id=\"Buttons\">";
-print "<input type=\"submit\" value=\"Enviar\" name=\"Submit\">";
-print "<button type=\"button\"id=\"BtAddm\">Teste</button>";
+print "<input type=\"submit\" value=\"Enviar\" name=\"Submit\" hidden>";
+print "<button type=\"button\"id=\"BtAddm\" hidden>Teste</button>";
+print "<a href=\"#\" type=\"button\"id=\"BtConcNext\">Lançar Proximo</a>";
 print "</div>";
+
+print "<div id=\"Find\">";
+print "<input Type=\"number\" id=\"TxFind\">";
+print "<button type=\"button\"id=\"BtFind\" >Buscar</button>";
+print "</div>";
+
+
+
 print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\" hidden>";
 print "<input type=\"text\" name=\"TempG\" id=\"TempG\" hidden>";
 print "<input type=\"text\" name=\"TempF\" id=\"TempF\" hidden>";
@@ -236,8 +245,11 @@ print "</form>";
 </div>
 
 <script>
+  document.getElementById("Operadors").focus;
 var line = 1;
 var Adicted = 0;
+
+
 function addInput(divName) {
   var newdiv = document.createElement('div');
   newdiv.innerHTML  = '<br></br>['+line +']';
@@ -437,6 +449,194 @@ var GramaturaMedia = z*10;
 document.getElementById('GramaturaC').value = GramaturaMedia;
 alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 }
+
+
+// 2 Adicionando dados e refazendo tela ___________________________________________
+
+document.getElementById('BtConcNext').onclick=function() {
+
+if (document.getElementById('H_inicio').value < 
+      document.getElementById('H_fim').value
+) {
+
+  // alert('Tempo de Fabricação de: '+ diffTime(
+  //     document.getElementById('H_inicio').value, 
+  //     document.getElementById('H_fim').value
+  // ));
+ document.getElementById('TempProd').value = diffTime(
+      document.getElementById('H_inicio').value, 
+      document.getElementById('H_fim').value
+  );
+}else{
+  // alert('Tempo de Fabricação de: '+ diffTimeVid(
+  //     document.getElementById('H_inicio').value, 
+  //     (document.getElementById('H_fim').value)
+  // ));
+  document.getElementById('TempProd').value = diffTime(
+      document.getElementById('H_inicio').value, 
+      document.getElementById('H_fim').value
+  )};
+
+var i = 1;
+
+for (Cont=0;Cont<(line+1);Cont++){
+  if (document.getElementById('PdIni'+i +'_1')!=null) {
+  if (document.getElementById('PdIni'+i +'_1').value < 
+      document.getElementById('PdFin'+i +'_2').value
+) {
+
+  // alert('Tempo de Manutenção '+i+' de: '+ diffTime(
+  //     document.getElementById('PdIni'+i +'_1').value, 
+  //     document.getElementById('PdFin'+i +'_2').value
+  // ));
+ document.getElementById('TemPar'+i +'_2').value = diffTime(
+      document.getElementById('PdIni'+i +'_1').value, 
+      document.getElementById('PdFin'+i +'_2').value
+  );
+}else{
+  // alert('Tempo de Manutenção '+i+' de: '+ diffTimeVid(
+  //     document.getElementById('PdIni'+i +'_1').value, 
+  //     (document.getElementById('PdFin'+i +'_2').value)
+  // ));
+  document.getElementById('TemPar'+i +'_2').value = diffTime(
+      document.getElementById('PdIni'+i +'_1').value, 
+      document.getElementById('PdFin'+i +'_2').value
+  )}
+  i++;
+  }
+      
+}
+var Time2 = '00:00';
+var y = 1;
+var Time1 = document.getElementById('TempProd').value;
+for (num=0;num<line;num++){
+  if (document.getElementById('TemPar'+y +'_2')!=null) {
+
+Time2 = SunTime(
+  document.getElementById('TemPar'+y +'_2').value, 
+  Time2
+); 
+}
+y++;
+}
+
+function SunTime(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin+sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+document.getElementById('TempG').value = Time2;
+// alert('tempo total de manutenção: '+Time2);
+
+
+function Reduct1(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin-sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+  function Reduct2(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0]+25)*60,
+   diff = eMin-sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+if (
+  document.getElementById('TempProd').value <
+  document.getElementById('TempG').value)
+  { 
+    // alert('Tempo de Manutenção maior que o Tempo de Fabricação Verificar Erro.');
+  }
+else
+{
+  var Time3  = Reduct1(
+  document.getElementById('TempG').value,
+  document.getElementById('TempProd').value
+);
+}
+ document.getElementById('TempF').value = Time3;
+ // alert('tempo real Produtivo: '+Time3+'\ '+document.getElementById('TempG').value+'\ '+document.getElementById('TempProd').value);
+
+var grang = 0;
+var gran1 =   document.getElementById('Gramatura1').value;
+var gran2 =   document.getElementById('Gramatura2').value;
+
+if (gran1 < gran2) {
+  grang = (parseInt(gran1) + parseInt(gran2))/2;
+  document.getElementById('Gramatura1').value = gran1;
+  document.getElementById('Gramatura2').value = gran2;
+  document.getElementById('GramaturaG').value = grang;
+  document.getElementById('GramaturaB').value = gran1+'/'+gran2;
+  // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+}else{
+  grang = (parseInt(gran1) + parseInt(gran2))/2;
+  document.getElementById('Gramatura1').value = gran2;
+  document.getElementById('Gramatura2').value = gran1;
+  document.getElementById('GramaturaG').value = grang;
+  document.getElementById('GramaturaB').value = gran2+'/'+gran1;
+  // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+}
+
+var PesV = document.getElementById('Peso').value;
+var TamV = document.getElementById('Tamanho').value;
+var RotV = document.getElementById('Rotacao').value;
+var s = Time3.split(":"), TempoV = +s[1] + s[0]*60;
+
+var w = parseInt(TamV) / 100;
+var x = ((parseInt(RotV)*113)/2000);
+var y = parseInt(TempoV) / 60;
+var z = (parseInt(PesV)/(parseInt(w)+parseInt(x)+parseInt(y)));
+var GramaturaMedia = z*10;
+document.getElementById('GramaturaC').value = GramaturaMedia;
+// alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
+
+document.getElementById("PostFom").submit();
+
+var Init = document.getElementById("H_fim").value;
+var Dt = document.getElementById("Data").value;
+var Tp = document.getElementById("Papel").value;
+var Gran1 = document.getElementById("Gramatura1").value;
+var Gran2 = document.getElementById("Gramatura2").value;
+var Tmn = document.getElementById("Tamanho").value;
+var Rot = document.getElementById("Rotacao").value;
+var Ps = document.getElementById("Peso").value;
+var Op = document.getElementById("Operadors").value;
+var Aj = document.getElementById("Ajudantes").value;
+
+document.location.reload(true);
+
+document.getElementById("H_fim").value = Init ;
+document.getElementById("Data").value = Dt ;
+document.getElementById("Papel").value = Tp;
+document.getElementById("Gramatura1").value = Gran1;
+document.getElementById("Gramatura2").value = Gran2;
+document.getElementById("Tamanho").value = Tmn;
+document.getElementById("Rotacao").value = Rot;
+document.getElementById("Peso").value = Ps;
+document.getElementById("Operadors").value = Op;
+document.getElementById("Ajudantes").value = Aj;
+}
+
+document.getElementById('BtFind').onclick=function() {
+var Jumb_Busca = document.getElementById('TxFind').value;
+
+
+
+}
+
 </script>
 
 
