@@ -62,6 +62,5 @@
          }
      };
      xmlreq.send(null);
-
-var table = document.getElementById("Table");
 }
+

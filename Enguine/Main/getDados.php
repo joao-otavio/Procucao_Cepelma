@@ -70,17 +70,58 @@ $return.= "<td>" . utf8_encode($linha["Gram_Calc"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["Gram_Prim"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["Gram_Seg"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["Quant_Para"]) . "</td>";
-$return.= "<td>" . utf8_encode($linha["Operador"]) . "</td>";
-$return.= "<td>" . utf8_encode($linha["Ajudante"]) . "</td>";
+$return.= "<td>" . $linha["Operador"] . "</td>";
+$return.= "<td>" . $linha["Ajudante"] . "</td>";
 $return.= "</tr>";
+$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"PshEdit()\">Confirmar dados</Button:";
+}
+echo $return.="</tbody></table>"; 
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+// Create connectionW
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$sql = "SELECT Descricao, H_Inicial, H_Final, Temp_Total FROM paradas_mp where Jum = '$nome'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+
+  $tabela = "<table border='1' id = 'Table2'>
+  <thead>
+      <tr>
+          <th>Descricao</th>
+          <th>H_Inicial</th> 
+          <th>H_Final</th>
+          <th>Temp_Total</th>
+       </tr>
+  </thead>
+  <tbody>
+  <tr>"; 
+$i = 1;
+$return = "$tabela";
+// Captura os dados da consulta e inseri na tabela HTML
+while ($linha = mysqli_fetch_array($result)) {
+$return.= "<td class ='Mn$i'>" . $linha["Descricao"] . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["H_Inicial"]) . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["H_Final"]) . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["Temp_Total"]) . "</td>";
+$return.= "</tr>";
+$i = $i +1;
 }
 echo $return.="</tbody></table>"; 
 
 
-
   } else {
       // Se a consulta não retornar nenhum valor, exibi mensagem para o usuário
-      echo "Não foram encontrados registros! Jumbo = ".$nome;
+      echo "Não foram encontradas Paradas!";
   }
+}
 }
 ?>

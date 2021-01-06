@@ -12,7 +12,6 @@
 <script src="/ProdCepelma/Enguine/Main/ajax.js"></script>
 
 <?php
-
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
@@ -30,7 +29,7 @@ $NumJUmb = mysqli_num_rows ($result) +1;
 $conn->close();
 
 print "<div id=\"Title\">";
-print "<h3>Lançamentos da MP - Jumbo: $NumJUmb</h3>";
+print "<h3 id = \"Titles\">Lançamentos da MP - Jumbo: $NumJUmb</h3>";
 print "</div>";
 print "<div id =\"Mae\">";
 
@@ -55,7 +54,7 @@ $result = $conn->query($sql);
 
 $MyArray = array();
 if ($result->num_rows > 0) {
-  print "<label for=\"Operadors\" id=\"Operadors\">Operador: </label>";
+  print "<label for=\"Operadors\">Operador: </label>";
   print "<br>";
   print "<select name=\"Operador\" id=\"Operadors\" required>";
   print "<option value=\"0\"></option>";
@@ -74,7 +73,7 @@ if ($result->num_rows > 0) {
         // $MyArray = [];
         if ($Cod <> "") {
         // array_push($MyArray, [$Cod, $Nome, $Scan]);
-        print "<option value=\"$Nome,\">$Nome</option>";
+        print "<option value=\"$Nome\">$Nome</option>";
         }else {
             while($row = mysqli_fetch_array($result)) {
                 $Element = "$row[1],$row[2],";
@@ -95,7 +94,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
-  print "<label for=\"Ajudante\" id=\"Ajudantes\">Ajudante: </label>";
+  print "<label for=\"Ajudante\">Ajudante: </label>";
   print "<br>"; 
   print "<select name=\"Ajudante\" id=\"Ajudantes\" required>";
   print "<option value=\"0\"></option>";
@@ -114,7 +113,7 @@ if ($result->num_rows > 0) {
         // $MyArray = [];
         if ($Cod <> "") {
         // array_push($MyArray, [$Cod, $Nome, $Scan]);
-        print "<option value=\"$Nome,\">$Nome</option>";
+        print "<option value=\"$Nome\">$Nome</option>";
         }else {
             while($row = mysqli_fetch_array($result)) {
                 $Element = "$row[1],$row[2],";
@@ -229,6 +228,7 @@ print "</div>";
 print "<div id=\"Find\">";
 print "<input Type=\"number\" id=\"TxFind\" min=\"1\" max=\"1000000\">";
 print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" onclick=\"getDados()\">Buscar</button>";
+print "<a href=\"#\" type=\"button\"id=\"BtAtualizar\">Lançar Proximo</a>";
 print "</div>";
 
 print "<div id=\"test\">";
@@ -240,8 +240,8 @@ print "<input type=\"text\" name=\"TempF\" id=\"TempF\" hidden>";
 print "<input type=\"text\" name=\"GramaturaG\" id=\"GramaturaG\" hidden>";
 print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" hidden>";
 print "<input type=\"text\" name=\"GramaturaC\" id=\"GramaturaC\" hidden>";
-print "<input type=\"text\" name=\"NumMan\" id=\"NumMan\" hidden>";
-print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" hidden>";
+print "<input type=\"text\" name=\"NumMan\" id=\"NumMan\" >";
+print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" >";
 print "</form>";
 ?>
 
@@ -637,6 +637,80 @@ document.getElementById("Peso").value = Ps;
 document.getElementById("Operadors").value = Op;
 document.getElementById("Ajudantes").value = Aj;
 }
+function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
+    data_formatada = data.substr(6,4) + '-' + data.substr(3,2) + '-' + data.substr(0,2);
+    return new Date(data_formatada);
+}
+function PshEdit(){
+let linhas = document.getElementsByTagName("td");
+var Jumbt = linhas[0].innerHTML;
+var DataP = linhas[1].innerHTML;
+var H_inicio = linhas[2].innerHTML;
+var H_Fim  = linhas[3].innerHTML;
+var Tipo = linhas[4].innerHTML;
+var Tamanho  = linhas[5].innerHTML;
+var Rotacao  = linhas[6].innerHTML;
+var Peso  = linhas[7].innerHTML;
+var Temp_Fabr  = linhas[8].innerHTML;
+var Temp_Para  = linhas[9].innerHTML;
+var Temp_Prod  = linhas[10].innerHTML;
+var Gram_Med  = linhas[11].innerHTML;
+var Gram_Str  = linhas[12].innerHTML;
+var Gram_Calc  = linhas[13].innerHTML;
+var Gram_Prim  = linhas[14].innerHTML;
+var Gram_Seg  = linhas[15].innerHTML;
+var Quant_Para  = linhas[16].innerHTML;
+var Operador  = linhas[17].innerHTML;
+var Ajudante  = linhas[18].innerHTML;
+formata_data(DataP);
+document.getElementById("Data").value = data_formatada;
+document.getElementById("H_inicio").value = H_inicio;
+document.getElementById("H_fim").value = H_Fim;
+document.getElementById("Papel").value = Tipo;
+document.getElementById("Tamanho").value = Tamanho;
+document.getElementById("Peso").value = Peso;
+document.getElementById("Rotacao").value = Rotacao;
+document.getElementById("Gramatura1").value = Gram_Prim;
+document.getElementById("Gramatura2").value = Gram_Seg;
+document.getElementById("Operadors").value = Operador;
+document.getElementById("Ajudantes").value = Ajudante;
+
+for (i=0;i<Quant_Para;i++) {  
+addInput('lines');
+}
+var y = 1;
+for (i=0;i<Quant_Para;i++) {
+var list = document.getElementsByClassName("Mn"+y);
+
+Array.prototype.forEach.call(list, function(el) {
+
+    console.log(el.tagName);
+});
+var Descricao = list[0].innerHTML;
+var H_Inicial = list[1].innerHTML;
+var H_Final  = list[2].innerHTML;
+var Temp_Total = list[3].innerHTML;
+
+document.getElementById("Pddesc"+y+"_1").value = Descricao;
+document.getElementById("PdIni"+y+"_1").value = H_Inicial;
+document.getElementById("PdFin"+y+"_2").value = H_Final;
+y = y +1;
+}
+function DeletTables(){
+document.getElementById("test").innerHTML = "";
+document.getElementById("Find").hidden = true;
+document.getElementById('PostFom').action = 'UpDate_Mp.php';
+document.getElementById("Titles").innerText = "EDIÇÃO DE ROLO da MP - Jumbo: " + Jumbt;
+document.getElementById("NumJum").value = Jumbt;
+}
+DeletTables();
+
+}
+
+
+
+
+
 </script>
 </body>
 </html>
