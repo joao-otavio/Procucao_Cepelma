@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MP</title>
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleMP.css">
+
 </head>
 <body>
+
+<script src="/ProdCepelma/Enguine/Main/ajax.js"></script>
+
 <?php
 
 $servername = "localhost:3308";
@@ -223,11 +227,12 @@ print "<a href=\"#\" type=\"button\"id=\"BtConcNext\">Lançar Proximo</a>";
 print "</div>";
 
 print "<div id=\"Find\">";
-print "<input Type=\"number\" id=\"TxFind\">";
-print "<button type=\"button\"id=\"BtFind\" >Buscar</button>";
+print "<input Type=\"number\" id=\"TxFind\" min=\"1\" max=\"1000000\">";
+print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" onclick=\"getDados()\">Buscar</button>";
 print "</div>";
 
-
+print "<div id=\"test\">";
+print "</div>";
 
 print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\" hidden>";
 print "<input type=\"text\" name=\"TempG\" id=\"TempG\" hidden>";
@@ -245,6 +250,9 @@ print "</form>";
 </div>
 
 <script>
+
+document.getElementById("test").src="/ProdCepelma/Enguine/Main/ajax.js";
+
   document.getElementById("Operadors").focus;
 var line = 1;
 var Adicted = 0;
@@ -629,16 +637,6 @@ document.getElementById("Peso").value = Ps;
 document.getElementById("Operadors").value = Op;
 document.getElementById("Ajudantes").value = Aj;
 }
-
-document.getElementById('BtFind').onclick=function() {
-var Jumb_Busca = document.getElementById('TxFind').value;
-
-
-
-}
-
 </script>
-
-
 </body>
 </html>
