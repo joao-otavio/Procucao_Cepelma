@@ -364,3 +364,70 @@ margin-bottom: 5px;
         position: absolute;
         top: 600px;
     }
+  #Confirm{
+    border-radius: 15px;
+    width: 150px;
+    border: solid 1px black;
+    background-color: rgb(186, 218, 216);
+}
+
+#Confirm:hover{
+    border-radius: 0;
+    width: 200px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+}
+
+#Confirm:focus{
+    border-radius: 0;
+    width: 200px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 3px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 5px;
+    padding: 3px;
+    text-align: center; 
+    vertical-align: middle;
+  }
+
+  #BtCancelar{
+    position: absolute;
+    top: 1px;
+    border-radius: 15px;
+    width: 100px;
+    border: solid 1px black;
+    background-color: rgb(186, 218, 216);
+    padding: 4px;
+    margin: 3px;
+    margin-top: 10px;
+    left: 120px;
+    
+}
+
+#BtCancelar:hover{
+    border-radius: 0;
+    width: 100px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+}
+
+#BtCancelar:focus{
+    border-radius: 0;
+    width: 100px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+}
+
+a:link{ 
+ text-decoration:none; 
+ text-align: center;
+} 

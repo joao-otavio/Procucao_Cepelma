@@ -155,6 +155,7 @@ for ($i=0; $i < $Quant_Para; $i++) {
 }
 
 echo "<script>window.close();</script>";
+echo "<script>document.write('<a href=\"' + document.referrer + '\">Go Back</a>');</script>";
 ?>
 </body>
 </html>

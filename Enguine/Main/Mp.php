@@ -222,13 +222,13 @@ print "</div>";
 print "<div id=\"Buttons\">";
 print "<input type=\"submit\" value=\"Enviar\" name=\"Submit\" hidden>";
 print "<button type=\"button\"id=\"BtAddm\" hidden>Teste</button>";
-print "<a href=\"#\" type=\"button\"id=\"BtConcNext\">Lançar Proximo</a>";
+print "<a href=\"#\" type=\"button\"id=\"BtConcNext\">Concluir</a>";
+print "<a href=\"#\" type=\"button\"id=\"BtCancelar\">Cancelar</a>";
 print "</div>";
 
 print "<div id=\"Find\">";
 print "<input Type=\"number\" id=\"TxFind\" min=\"1\" max=\"1000000\">";
 print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" onclick=\"getDados()\">Buscar</button>";
-print "<a href=\"#\" type=\"button\"id=\"BtAtualizar\">Lançar Proximo</a>";
 print "</div>";
 
 print "<div id=\"test\">";
@@ -240,8 +240,8 @@ print "<input type=\"text\" name=\"TempF\" id=\"TempF\" hidden>";
 print "<input type=\"text\" name=\"GramaturaG\" id=\"GramaturaG\" hidden>";
 print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" hidden>";
 print "<input type=\"text\" name=\"GramaturaC\" id=\"GramaturaC\" hidden>";
-print "<input type=\"text\" name=\"NumMan\" id=\"NumMan\" >";
-print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" >";
+print "<input type=\"text\" name=\"NumMan\" id=\"NumMan\" hidden>";
+print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" hidden>";
 print "</form>";
 ?>
 
@@ -253,7 +253,7 @@ print "</form>";
 
 document.getElementById("test").src="/ProdCepelma/Enguine/Main/ajax.js";
 
-  document.getElementById("Operadors").focus;
+document.getElementById("Operadors").focus;
 var line = 1;
 var Adicted = 0;
 
@@ -636,6 +636,8 @@ document.getElementById("Rotacao").value = Rot;
 document.getElementById("Peso").value = Ps;
 document.getElementById("Operadors").value = Op;
 document.getElementById("Ajudantes").value = Aj;
+// Objet reload
+window.location.reload(true);
 }
 function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
     data_formatada = data.substr(6,4) + '-' + data.substr(3,2) + '-' + data.substr(0,2);
@@ -704,12 +706,16 @@ document.getElementById("Titles").innerText = "EDIÇÃO DE ROLO da MP - Jumbo: "
 document.getElementById("NumJum").value = Jumbt;
 }
 DeletTables();
+}
 
+function CancelEdit(){
+  window.location.reload(true);
 }
 
 
-
-
+document.getElementById('BtCancelar').onclick=function() {
+  window.location.reload(true);
+}
 
 </script>
 </body>

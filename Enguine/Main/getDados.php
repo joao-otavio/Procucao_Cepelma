@@ -27,23 +27,23 @@ if (isset($_GET["TxFind"])) {
     $tabela = "<table border='1' id = 'Table'>
     <thead>
         <tr>
-            <th>Jumb</th>
+            <th>Jumbo</th>
             <th>Data</th> 
-            <th>H_INICIO</th>
-            <th>H_FIM</th>
+            <th>H. Inicio</th>
+            <th>H. Fim</th>
             <th>Tipo</th>
             <th>Tamanho</th>
             <th>Rotacao</th>
             <th>Peso</th>
-            <th>Temp_Fabr</th>
-            <th>Temp_Para</th>
-            <th>Temp_Prod</th>
-            <th>Gram_Med</th>
-            <th>Gram_Str</th>
-            <th>Gram_Calc</th>
-            <th>Gram_Prim</th>
-            <th>Gram_Seg</th>
-            <th>Quant_Para</th>
+            <th>T. Fabricação</th>
+            <th>T. Parada</th>
+            <th>T. Produtivo</th>
+            <th>G. Media</th>
+            <th>G. Produto</th>
+            <th>G. Calculada</th>
+            <th>G. Prime</th>
+            <th>G. Segund</th>
+            <th>Q. Paradas</th>
             <th>Operador</th>
             <th>Ajudante</th>
         </tr>
@@ -73,7 +73,8 @@ $return.= "<td>" . utf8_encode($linha["Quant_Para"]) . "</td>";
 $return.= "<td>" . $linha["Operador"] . "</td>";
 $return.= "<td>" . $linha["Ajudante"] . "</td>";
 $return.= "</tr>";
-$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"PshEdit()\">Confirmar dados</Button:";
+$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"PshEdit()\">Confirmar dados</Button>";
+$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"CancelEdit()\">Cancelar</Button>";
 }
 echo $return.="</tbody></table>"; 
 
@@ -119,9 +120,12 @@ echo $return.="</tbody></table>";
 
 
   } else {
-      // Se a consulta não retornar nenhum valor, exibi mensagem para o usuário
+ 
       echo "Não foram encontradas Paradas!";
   }
+}else {
+ 
+  echo "Não foi encontrado este Registro!";
 }
 }
 ?>
