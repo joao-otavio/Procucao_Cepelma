@@ -644,6 +644,17 @@ function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
     return new Date(data_formatada);
 }
 function PshEdit(){
+
+  var txt;
+  var Tolkit_encode = document.getElementById("Tolkit").value;
+  var person = prompt("Insira o codigo Tolk:","");
+  if (person == null || person == "") {
+    txt = "Cancelado pelo usuario!";
+  } else {
+if (person == Tolkit_encode) {
+document.getElementById("BtConcNext").style.display="initial";
+document.getElementById("BtCancelar").style.display="initial";  
+
 let linhas = document.getElementsByTagName("td");
 var Jumbt = linhas[0].innerHTML;
 var DataP = linhas[1].innerHTML;
@@ -706,6 +717,13 @@ document.getElementById("Titles").innerText = "EDIÇÃO DE ROLO da MP - Jumbo: "
 document.getElementById("NumJum").value = Jumbt;
 }
 DeletTables();
+
+txt = "Liberado acesso de edição para usuario";
+}else{
+txt = "Codigo do Token Invalido!";
+}
+  alert(txt);
+}
 }
 
 function CancelEdit(){

@@ -4,6 +4,31 @@
 if (isset($_GET["TxFind"])) {
   $nome = $_GET["TxFind"];
 
+
+
+  $servername = "localhost:3308";
+  $username = "root";
+  $password = "";
+  $dbname = "producao";
+  // Create connectionW
+  
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  $sql = "SELECT Tokit FROM tolkit;";
+  $result = $conn->query($sql);
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  
+  if ($result->num_rows > 0) {
+    while($row = mysqli_fetch_array($result)) {
+   
+      $Tolkit = $row[0];
+      print "<input type=\"text\" name=\"Tolkit\" id=\"Tolkit\" value =\"$Tolkit\" hidden>";
+    }
+  }
+
   // Conexao com o banco de dados
   $servername = "localhost:3308";
   $username = "root";
@@ -120,12 +145,13 @@ echo $return.="</tbody></table>";
 
 
   } else {
- 
-      echo "Não foram encontradas Paradas!";
+       echo "Não foram encontradas Paradas!";
   }
 }else {
  
   echo "Não foi encontrado este Registro!";
+  echo "<br>";
+  echo "<Button type=\"button\" id = \"Confirm\" onclick=\"CancelEdit()\">Cancelar</Button>";
 }
 }
 ?>

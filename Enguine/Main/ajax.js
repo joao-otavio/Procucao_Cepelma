@@ -32,6 +32,10 @@
 
 
  function getDados() {
+
+    document.getElementById("BtConcNext").style.display="none";
+    document.getElementById("BtCancelar").style.display="none";  
+
      // Declaração de Variáveis
      var nome   = document.getElementById("TxFind").value;
      var result = document.getElementById("test");

@@ -10,6 +10,8 @@
 <body>
 
 <?php
+
+
 $myDateTime = DateTime::createFromFormat('Y-m-d',$_POST['Data']);
 $Data = $myDateTime->format('d/m/Y');
 $H_INICIO = $_POST['H_inicio'];
@@ -104,7 +106,7 @@ if (mysqli_query($conn, $sql)) {
   mysqli_close($conn);
 
 
-
+ 
 $line =1;
 for ($i=0; $i < $Quant_Para; $i++) { 
 
@@ -154,6 +156,46 @@ for ($i=0; $i < $Quant_Para; $i++) {
       $line = $line +1;
 }
 
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+// Create connectionW
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$sql = "TRUNCATE TABLE tolkit;";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+while($row = mysqli_fetch_array($result)) {
+  }
+}
+$int = rand(100000,999999);
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+// Create connectionW
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+$sql = "INSERT INTO tolkit 
+( 
+  Tokit
+) 
+VALUES
+(
+   '$int'
+)";
+if (mysqli_query($conn, $sql)) {
+}
 echo "<script>window.close();</script>";
 echo "<script>document.write('<a href=\"' + document.referrer + '\">Go Back</a>');</script>";
 ?>
