@@ -232,6 +232,7 @@ print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" onclick=\"getDados()
 print "</div>";
 
 print "<div id=\"test\">";
+print "<input type=\"text\" hidden>";
 print "</div>";
 
 print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\" hidden>";
@@ -616,29 +617,10 @@ document.getElementById('GramaturaC').value = GramaturaMedia;
 // alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 
 document.getElementById("PostFom").submit();
-location.reload();
-var Init = document.getElementById("H_fim").value;
-var Dt = document.getElementById("Data").value;
-var Tp = document.getElementById("Papel").value;
-var Gran1 = document.getElementById("Gramatura1").value;
-var Gran2 = document.getElementById("Gramatura2").value;
-var Tmn = document.getElementById("Tamanho").value;
-var Rot = document.getElementById("Rotacao").value;
-var Ps = document.getElementById("Peso").value;
-var Op = document.getElementById("Operadors").value;
-var Aj = document.getElementById("Ajudantes").value;
-
-document.getElementById("H_fim").value = Init ;
-document.getElementById("Data").value = Dt ;
-document.getElementById("Papel").value = Tp;
-document.getElementById("Gramatura1").value = Gran1;
-document.getElementById("Gramatura2").value = Gran2;
-document.getElementById("Tamanho").value = Tmn;
-document.getElementById("Rotacao").value = Rot;
-document.getElementById("Peso").value = Ps;
-document.getElementById("Operadors").value = Op;
-document.getElementById("Ajudantes").value = Aj;
-// Objet reload
+window.location.reload(true);
+clearstatcache();
+window.location.replace(window.location.pathname +"Mp.php");
+document.getElementById('Titles').innerText = "Lançamentos da MP - Jumbo: <?php echo $NumJUmb; ?>";
 
 }
 function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
