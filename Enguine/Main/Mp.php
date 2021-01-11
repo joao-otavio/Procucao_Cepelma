@@ -612,7 +612,7 @@ document.getElementById('GramaturaC').value = GramaturaMedia;
 // alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 
 document.getElementById("PostFom").submit();
-
+location.reload();
 var Init = document.getElementById("H_fim").value;
 var Dt = document.getElementById("Data").value;
 var Tp = document.getElementById("Papel").value;
@@ -623,8 +623,6 @@ var Rot = document.getElementById("Rotacao").value;
 var Ps = document.getElementById("Peso").value;
 var Op = document.getElementById("Operadors").value;
 var Aj = document.getElementById("Ajudantes").value;
-
-document.location.reload(true);
 
 document.getElementById("H_fim").value = Init ;
 document.getElementById("Data").value = Dt ;
@@ -637,7 +635,7 @@ document.getElementById("Peso").value = Ps;
 document.getElementById("Operadors").value = Op;
 document.getElementById("Ajudantes").value = Aj;
 // Objet reload
-window.location.reload(true);
+
 }
 function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
     data_formatada = data.substr(6,4) + '-' + data.substr(3,2) + '-' + data.substr(0,2);

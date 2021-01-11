@@ -153,7 +153,6 @@ for ($i=0; $i < $Quant_Para; $i++) {
       mysqli_close($conn);
       $line = $line +1;
 }
-
 echo "<script>window.close();</script>";
 echo "<script>document.write('<a href=\"' + document.referrer + '\">Go Back</a>');</script>";
 ?>
