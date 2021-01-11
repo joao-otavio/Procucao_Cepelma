@@ -260,6 +260,8 @@ var Adicted = 0;
 
 function addInput(divName) {
   var newdiv = document.createElement('div');
+  var vrb = "'Dv"+line +"M'"
+  newdiv.id = "Dv"+line +"M";
   newdiv.innerHTML  = '<br></br>['+line +']';
   newdiv.innerHTML += '<hr>';
   newdiv.innerHTML += '<label for="Pddesc">Descrição da parada</label>';
@@ -274,6 +276,8 @@ function addInput(divName) {
   newdiv.innerHTML += '<br>';
   newdiv.innerHTML += '<input type="time" name="PdFin'+line +'_2" id="PdFin'+line +'_2" class= \"PdFin\" required>';
   newdiv.innerHTML += '<input type="time" name="TemPar'+line +'_2" id="TemPar'+line +'_2" hidden>';
+  newdiv.innerHTML += '<br>';
+newdiv.innerHTML += '<button type="button" onclick="excInput('+vrb+')" id="BtAdd">Excluir ['+line +']</button>';
   document.getElementById(divName).appendChild(newdiv);
   line++;
   Adicted=Adicted+1;
@@ -733,6 +737,10 @@ document.getElementById('BtCancelar').onclick=function() {
   window.location.reload(true);
 }
 
+
+function excInput(DivExc){
+document.getElementById(DivExc).innerHTML = "";
+}
 </script>
 </body>
 </html>
