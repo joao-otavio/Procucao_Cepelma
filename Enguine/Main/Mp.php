@@ -33,7 +33,7 @@ print "<h3 id = \"Titles\">Lançamentos da MP - Jumbo: $NumJUmb</h3>";
 print "</div>";
 print "<div id =\"Mae\">";
 
-print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\" target=\"blank\" id=\"PostFom\">";
+print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\"  id=\"PostFom\">";
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
   print "<label for=\"Operadors\">Operador: </label>";
   print "<br>";
   print "<select name=\"Operador\" id=\"Operadors\" required>";
-  print "<option value=\"0\"></option>";
+  print "<option value=\"\"></option>";
  
   while($row = mysqli_fetch_array($result)) {
  
@@ -97,7 +97,7 @@ if ($result->num_rows > 0) {
   print "<label for=\"Ajudante\">Ajudante: </label>";
   print "<br>"; 
   print "<select name=\"Ajudante\" id=\"Ajudantes\" required>";
-  print "<option value=\"0\"></option>";
+  print "<option value=\"\"></option>";
  
   while($row = mysqli_fetch_array($result)) {
  
@@ -169,7 +169,7 @@ if ($result->num_rows > 0) {
   print "<label for=\"Papel\">Tipo de Papel: </label>";
 print "<br>"; 
 print "<select name=\"Papel\" id=\"Papel\" required>";
-  print "<option value=\"0\"></option>";
+  print "<option value=\"\"></option>";
  
   while($row = mysqli_fetch_array($result)) {
  
@@ -220,10 +220,10 @@ $conn->close();
 print "</div>";
 
 print "<div id=\"Buttons\">";
-print "<input type=\"submit\" value=\"Enviar\" name=\"Submit\" hidden>";
+print "<input type=\"submit\" id=\"BtConcNext\" value=\"Enviar\" name=\"Subt\">";
 print "<button type=\"button\"id=\"BtAddm\" hidden>Teste</button>";
-print "<a href=\"#\" type=\"button\"id=\"BtConcNext\">Concluir</a>";
-print "<a href=\"#\" type=\"button\"id=\"BtCancelar\">Cancelar</a>";
+print "<a href=\"#\" type=\"button\"id=\"BtConcNext\" Name=\"X1\" hidden>Concluir</a>";
+print "<a href=\"#\" type=\"button\"id=\"BtCancelar\" Name=\"X2\">Cancelar</a>";
 print "</div>";
 
 print "<div id=\"Find\">";
@@ -466,163 +466,167 @@ alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia);
 
 // 2 Adicionando dados e refazendo tela ___________________________________________
 
-document.getElementById('BtConcNext').onclick=function() {
+                  document.getElementById('BtConcNext').onclick=function() {
 
-if (document.getElementById('H_inicio').value < 
-      document.getElementById('H_fim').value
-) {
+                  if (document.getElementById('H_inicio').value < 
+                        document.getElementById('H_fim').value
+                  ) {
 
-  // alert('Tempo de Fabricação de: '+ diffTime(
-  //     document.getElementById('H_inicio').value, 
-  //     document.getElementById('H_fim').value
-  // ));
- document.getElementById('TempProd').value = diffTime(
-      document.getElementById('H_inicio').value, 
-      document.getElementById('H_fim').value
-  );
-}else{
-  // alert('Tempo de Fabricação de: '+ diffTimeVid(
-  //     document.getElementById('H_inicio').value, 
-  //     (document.getElementById('H_fim').value)
-  // ));
-  document.getElementById('TempProd').value = diffTime(
-      document.getElementById('H_inicio').value, 
-      document.getElementById('H_fim').value
-  )};
+                    // alert('Tempo de Fabricação de: '+ diffTime(
+                    //     document.getElementById('H_inicio').value, 
+                    //     document.getElementById('H_fim').value
+                    // ));
+                  document.getElementById('TempProd').value = diffTime(
+                        document.getElementById('H_inicio').value, 
+                        document.getElementById('H_fim').value
+                    );
+                  }else{
+                    // alert('Tempo de Fabricação de: '+ diffTimeVid(
+                    //     document.getElementById('H_inicio').value, 
+                    //     (document.getElementById('H_fim').value)
+                    // ));
+                    document.getElementById('TempProd').value = diffTime(
+                        document.getElementById('H_inicio').value, 
+                        document.getElementById('H_fim').value
+                    )};
 
-var i = 1;
+                  var i = 1;
 
-for (Cont=0;Cont<(line+1);Cont++){
-  if (document.getElementById('PdIni'+i +'_1')!=null) {
-  if (document.getElementById('PdIni'+i +'_1').value < 
-      document.getElementById('PdFin'+i +'_2').value
-) {
+                  for (Cont=0;Cont<(line+1);Cont++){
+                    if (document.getElementById('PdIni'+i +'_1')!=null) {
+                    if (document.getElementById('PdIni'+i +'_1').value < 
+                        document.getElementById('PdFin'+i +'_2').value
+                  ) {
 
-  // alert('Tempo de Manutenção '+i+' de: '+ diffTime(
-  //     document.getElementById('PdIni'+i +'_1').value, 
-  //     document.getElementById('PdFin'+i +'_2').value
-  // ));
- document.getElementById('TemPar'+i +'_2').value = diffTime(
-      document.getElementById('PdIni'+i +'_1').value, 
-      document.getElementById('PdFin'+i +'_2').value
-  );
-}else{
-  // alert('Tempo de Manutenção '+i+' de: '+ diffTimeVid(
-  //     document.getElementById('PdIni'+i +'_1').value, 
-  //     (document.getElementById('PdFin'+i +'_2').value)
-  // ));
-  document.getElementById('TemPar'+i +'_2').value = diffTime(
-      document.getElementById('PdIni'+i +'_1').value, 
-      document.getElementById('PdFin'+i +'_2').value
-  )}
-  i++;
-  }
-      
-}
-var Time2 = '00:00';
-var y = 1;
-var Time1 = document.getElementById('TempProd').value;
-for (num=0;num<line;num++){
-  if (document.getElementById('TemPar'+y +'_2')!=null) {
+                    // alert('Tempo de Manutenção '+i+' de: '+ diffTime(
+                    //     document.getElementById('PdIni'+i +'_1').value, 
+                    //     document.getElementById('PdFin'+i +'_2').value
+                    // ));
+                  document.getElementById('TemPar'+i +'_2').value = diffTime(
+                        document.getElementById('PdIni'+i +'_1').value, 
+                        document.getElementById('PdFin'+i +'_2').value
+                    );
+                  }else{
+                    // alert('Tempo de Manutenção '+i+' de: '+ diffTimeVid(
+                    //     document.getElementById('PdIni'+i +'_1').value, 
+                    //     (document.getElementById('PdFin'+i +'_2').value)
+                    // ));
+                    document.getElementById('TemPar'+i +'_2').value = diffTime(
+                        document.getElementById('PdIni'+i +'_1').value, 
+                        document.getElementById('PdFin'+i +'_2').value
+                    )}
+                    i++;
+                    }
+                        
+                  }
+                  var Time2 = '00:00';
+                  var y = 1;
+                  var Time1 = document.getElementById('TempProd').value;
+                  for (num=0;num<line;num++){
+                    if (document.getElementById('TemPar'+y +'_2')!=null) {
 
-Time2 = SunTime(
-  document.getElementById('TemPar'+y +'_2').value, 
-  Time2
-); 
-}
-y++;
-}
+                  Time2 = SunTime(
+                    document.getElementById('TemPar'+y +'_2').value, 
+                    Time2
+                  ); 
+                  }
+                  y++;
+                  }
 
-function SunTime(start,end){
-  var s = start.split(":"), sMin = +s[1] + s[0]*60,
-      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
-   diff = eMin+sMin;
-   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
-  var h = Math.floor(diff / 60),
-      m = diff % 60;
-  return "" + pad(h) + ":" + pad(m);
-  }
+                  function SunTime(start,end){
+                    var s = start.split(":"), sMin = +s[1] + s[0]*60,
+                        e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+                    diff = eMin+sMin;
+                    if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+                    var h = Math.floor(diff / 60),
+                        m = diff % 60;
+                    return "" + pad(h) + ":" + pad(m);
+                    }
 
-document.getElementById('TempG').value = Time2;
-// alert('tempo total de manutenção: '+Time2);
+                  document.getElementById('TempG').value = Time2;
+                  // alert('tempo total de manutenção: '+Time2);
 
 
-function Reduct1(start,end){
-  var s = start.split(":"), sMin = +s[1] + s[0]*60,
-      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
-   diff = eMin-sMin;
-   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
-  var h = Math.floor(diff / 60),
-      m = diff % 60;
-  return "" + pad(h) + ":" + pad(m);
-  }
+                  function Reduct1(start,end){
+                    var s = start.split(":"), sMin = +s[1] + s[0]*60,
+                        e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+                    diff = eMin-sMin;
+                    if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+                    var h = Math.floor(diff / 60),
+                        m = diff % 60;
+                    return "" + pad(h) + ":" + pad(m);
+                    }
 
-  function Reduct2(start,end){
-  var s = start.split(":"), sMin = +s[1] + s[0]*60,
-      e =   end.split(":"), eMin = +e[1] + (e[0]+25)*60,
-   diff = eMin-sMin;
-   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
-  var h = Math.floor(diff / 60),
-      m = diff % 60;
-  return "" + pad(h) + ":" + pad(m);
-  }
+                    function Reduct2(start,end){
+                    var s = start.split(":"), sMin = +s[1] + s[0]*60,
+                        e =   end.split(":"), eMin = +e[1] + (e[0]+25)*60,
+                    diff = eMin-sMin;
+                    if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+                    var h = Math.floor(diff / 60),
+                        m = diff % 60;
+                    return "" + pad(h) + ":" + pad(m);
+                    }
 
-if (
-  document.getElementById('TempProd').value <
-  document.getElementById('TempG').value)
-  { 
-    // alert('Tempo de Manutenção maior que o Tempo de Fabricação Verificar Erro.');
-  }
-else
-{
-  var Time3  = Reduct1(
-  document.getElementById('TempG').value,
-  document.getElementById('TempProd').value
-);
-}
- document.getElementById('TempF').value = Time3;
- // alert('tempo real Produtivo: '+Time3+'\ '+document.getElementById('TempG').value+'\ '+document.getElementById('TempProd').value);
+                  if (
+                    document.getElementById('TempProd').value <
+                    document.getElementById('TempG').value)
+                    { 
+                      // alert('Tempo de Manutenção maior que o Tempo de Fabricação Verificar Erro.');
+                    }
+                  else
+                  {
+                    var Time3  = Reduct1(
+                    document.getElementById('TempG').value,
+                    document.getElementById('TempProd').value
+                  );
+                  }
+                  document.getElementById('TempF').value = Time3;
+                  // alert('tempo real Produtivo: '+Time3+'\ '+document.getElementById('TempG').value+'\ '+document.getElementById('TempProd').value);
 
-var grang = 0;
-var gran1 =   document.getElementById('Gramatura1').value;
-var gran2 =   document.getElementById('Gramatura2').value;
+                  var grang = 0;
+                  var gran1 =   document.getElementById('Gramatura1').value;
+                  var gran2 =   document.getElementById('Gramatura2').value;
 
-if (gran1 < gran2) {
-  grang = (parseInt(gran1) + parseInt(gran2))/2;
-  document.getElementById('Gramatura1').value = gran1;
-  document.getElementById('Gramatura2').value = gran2;
-  document.getElementById('GramaturaG').value = grang;
-  document.getElementById('GramaturaB').value = gran1+'/'+gran2;
-  // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
-}else{
-  grang = (parseInt(gran1) + parseInt(gran2))/2;
-  document.getElementById('Gramatura1').value = gran2;
-  document.getElementById('Gramatura2').value = gran1;
-  document.getElementById('GramaturaG').value = grang;
-  document.getElementById('GramaturaB').value = gran2+'/'+gran1;
-  // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
-}
+                  if (gran1 < gran2) {
+                    grang = (parseInt(gran1) + parseInt(gran2))/2;
+                    document.getElementById('Gramatura1').value = gran1;
+                    document.getElementById('Gramatura2').value = gran2;
+                    document.getElementById('GramaturaG').value = grang;
+                    document.getElementById('GramaturaB').value = gran1+'/'+gran2;
+                    // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+                  }else{
+                    grang = (parseInt(gran1) + parseInt(gran2))/2;
+                    document.getElementById('Gramatura1').value = gran2;
+                    document.getElementById('Gramatura2').value = gran1;
+                    document.getElementById('GramaturaG').value = grang;
+                    document.getElementById('GramaturaB').value = gran2+'/'+gran1;
+                    // alert('Gramatura 1: '+ gran1 +' ,Gramatura 2: '+gran2 + ' ,Gramatura Media: '+ grang);
+                  }
 
-var PesV = document.getElementById('Peso').value;
-var TamV = document.getElementById('Tamanho').value;
-var RotV = document.getElementById('Rotacao').value;
-var s = Time3.split(":"), TempoV = +s[1] + s[0]*60;
+                  var PesV = document.getElementById('Peso').value;
+                  var TamV = document.getElementById('Tamanho').value;
+                  var RotV = document.getElementById('Rotacao').value;
+                  var s = Time3.split(":"), TempoV = +s[1] + s[0]*60;
 
-var w = parseInt(TamV) / 100;
-var x = ((parseInt(RotV)*113)/2000);
-var y = parseInt(TempoV) / 60;
-var z = (parseInt(PesV)/(parseInt(w)+parseInt(x)+parseInt(y)));
-var GramaturaMedia = z*10;
-document.getElementById('GramaturaC').value = GramaturaMedia;
-// alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
+                  var w = parseInt(TamV) / 100;
+                  var x = ((parseInt(RotV)*113)/2000);
+                  var y = parseInt(TempoV) / 60;
+                  var z = (parseInt(PesV)/(parseInt(w)+parseInt(x)+parseInt(y)));
+                  var GramaturaMedia = z*10;
+                  document.getElementById('GramaturaC').value = GramaturaMedia;
+                  // // alert(w + ' ' + x+ ' ' +y+ ' ' +z+ ' ' +GramaturaMedia); 
 
-document.getElementById("PostFom").submit();
-window.location.reload(true);
-clearstatcache();
-window.location.replace(window.location.pathname +"Mp.php");
-document.getElementById('Titles').innerText = "Lançamentos da MP - Jumbo: <?php echo $NumJUmb; ?>";
+                  // // document.forms["LcMp"].submit();
 
-}
+                  // // window.location.reload(true);
+                  // // clearstatcache();
+                  
+                  // document.getElementById('Titles').innerText = "Lançamentos da MP - Jumbo: <?php echo $NumJUmb; ?>";
+                  
+                }
+
+
+
 function formata_data(data) { // dd/mm/yyyy -> yyyy-mm-dd
     data_formatada = data.substr(6,4) + '-' + data.substr(3,2) + '-' + data.substr(0,2);
     return new Date(data_formatada);

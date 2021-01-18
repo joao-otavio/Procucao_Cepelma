@@ -11,10 +11,13 @@
 
 <?php
 
-
+if ($_POST['Data']=="") {
+  echo "Data invalida";
+$Data = DateTime::createFromFormat('Y-m-d',"today");
+}else{
 $myDateTime = DateTime::createFromFormat('Y-m-d',$_POST['Data']);
 $Data = $myDateTime->format('d/m/Y');
-
+}
 $H_INICIO = $_POST['H_inicio'];
 $H_FIM = $_POST['H_fim'];
 $Tipo = $_POST['Papel'];
@@ -155,8 +158,24 @@ for ($i=0; $i < $Quant_Para; $i++) {
       mysqli_close($conn);
       $line = $line +1;
 }
-echo "<script>window.close();</script>";
-echo "<script>document.write('<a href=\"' + document.referrer + '\">Go Back</a>');</script>";
+
+// echo "<script>window.close();</script>";
+
+
+function redireciona($link){
+  if ($link==-1){
+  echo" <script>history.go(-1);</script>";
+  }else{
+  echo" <script>document.location.href='$link'</script>";
+  }
+};
+//Cria uma variavel
+$link = 'Mp.php';
+
+//E aonde quiser chama a função dentro de um if ou qualquer coisa.
+
+// Chama a função
+redireciona($link); 
 ?>
 </body>
 </html>
