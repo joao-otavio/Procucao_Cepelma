@@ -64,6 +64,7 @@ $Vrt = $linha["Temp_Para"];
 if ($Vrt == "00:00") {
 }else{
 print "<p> Tempo de Fabricação: " . utf8_encode($linha["Temp_Fabr"]) . "</p>";
+print "<p> Quantiade de Paradas: " . utf8_encode($linha["Quant_Para"]) . "</p>";
 print "<p> Tempos de Parada: " . utf8_encode($linha["Temp_Para"]) . "</p>";
 }
 print "<p> Tempo Produtivo: " . utf8_encode($linha["Temp_Prod"]) . "</p>";
@@ -72,7 +73,7 @@ print "<p> Gramatura Reportada: " . utf8_encode($linha["Gram_Str"]) . "</p>";
 print "<p> Gramatura Calculada: " . utf8_encode($linha["Gram_Calc"]) . "</p>";
 // print "<p> " . utf8_encode($linha["Gram_Prim"]) . "</p>";
 // print "<p>" . utf8_encode($linha["Gram_Seg"]) . "</p>";
-print "<p> Quantiade de Paradas: " . utf8_encode($linha["Quant_Para"]) . "</p>";
+
 print "<p> Operador 1: " . $linha["Operador"] . "</p>";
 print "<p> Operador 2: " . $linha["Ajudante"] . "</p>";
 print "</tr>";
