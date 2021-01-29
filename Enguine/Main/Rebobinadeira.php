@@ -31,7 +31,7 @@
                 <div id="Operadores">
                 <?php include "Operadores_RB.php"; ?>
                 </div>
-                <br>
+               
                              
                 <div id="Selecao">
                     <label for="Jumb">Numero do Jumbo:</label>
@@ -41,6 +41,7 @@
 
                 
                 <div id="T_trabalho">
+                    <br>
                     <label for="D_in">Data/Hora de Inicio:</label>
                     <br>
                     <input type="date" id="D_in" name="D_in" class="Inpts" require>
@@ -72,66 +73,25 @@
                     <h3></h3>
                 </span>
                </div>
-             <br>
+             
                <div id="Medidas">
                     <label for="Md_1">Tiradas:</label>
                     <br>
                     <input type="number" class="Inpts" id="Tiradas" name="Tiradas" require>
                     <br>
+                    <?php include "Formatos.php"; ?>
                     <br>
-                    <label for="Md_1">Medidas:</label>
+                    <div id="Dados">
+                    </div>
                     <br>
-                    <input type="number" class="Inpts" id="Md_1" name="Md_1" require value="0">
-                    <label for="M1_p1">Pesos >></label>
-                    <input type="text" class="Inpts" id="M1_p1" name="M1_p1" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M1_p2" name="M1_p2" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M1_p3" name="M1_p3" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M1_p4" name="M1_p4" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M1_p5" name="M1_p5" require value="0" onchange="CalcMeds()">
-                    <br>
-                    <input type="number" class="Inpts" id="Md_2" name="Md_2" require value="0">
-                    <label for="M2_p1">Pesos >></label>
-                    <input type="text" class="Inpts" id="M2_p1" name="M2_p1" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M2_p2" name="M2_p2" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M2_p3" name="M2_p3" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M2_p4" name="M2_p4" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M2_p5" name="M2_p5" require value="0" onchange="CalcMeds()">
-                    <br>
-                    <input type="number" class="Inpts" id="Md_3" name="Md_3" require value="0">
-                    <label for="M3_p1">Pesos >></label>
-                    <input type="text" class="Inpts" id="M3_p1" name="M3_p1" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M3_p2" name="M3_p2" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M3_p3" name="M3_p3" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M3_p4" name="M3_p4" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M3_p5" name="M3_p5" require value="0" onchange="CalcMeds()">
-                    <br>
-                    <input type="number" class="Inpts" id="Md_4" name="Md_4" require value="0">
-                    <label for="M4_p1">Pesos >></label>
-                    <input type="text" class="Inpts" id="M4_p1" name="M4_p1" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M4_p2" name="M4_p2" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M4_p3" name="M4_p3" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M4_p4" name="M4_p4" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M4_p5" name="M4_p5" require value="0" onchange="CalcMeds()">
-                    <br>
-                    <input type="number" class="Inpts" id="Md_5" name="Md_4" require value="0">
-                    <label for="M5_p1">Pesos >></label>
-                    <input type="text" class="Inpts" id="M5_p1" name="M5_p1" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M5_p2" name="M5_p2" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M5_p3" name="M5_p3" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M5_p4" name="M5_p4" require value="0" onchange="CalcMeds()">
-                    <input type="text" class="Inpts" id="M5_p5" name="M5_p5" require value="0" onchange="CalcMeds()">
-                    <br>
-
-
                 </div>
-                
+                </div>
+              
+                       
                 <div id="Buttons">
                     <input type="submit" class="BuTs" value="Enviar">
                     <input type="reset" class="BuTs" value="Resetar">
                 </div>
-
-             
-        </div>
         
         <br>
         
@@ -142,11 +102,11 @@
         <input type="text" id="Tp_Fabric" name="Tp_Fabric" hidden>
         <input type="text" id="TempVida" name="TempVida" hidden>
         <input type="text" id="TempEspera" name="TempEspera" hidden>
-        <input type="number" class="Inpts" id="Mp_1" name="Mp_1" require value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_2" name="Mp_2" require value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_3" name="Mp_3" require value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_4" name="Mp_4" require value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_5" name="Mp_5" require value="0" hidden>
+        <input type="number" class="Inpts" id="Mp_1" name="Mp_1" require value="0" >
+        <input type="number" class="Inpts" id="Mp_2" name="Mp_2" require value="0" >
+        <input type="number" class="Inpts" id="Mp_3" name="Mp_3" require value="0" >
+        <input type="number" class="Inpts" id="Mp_4" name="Mp_4" require value="0" >
+        <input type="number" class="Inpts" id="Mp_5" name="Mp_5" require value="0" >
 
 </form>
      <script>
@@ -157,139 +117,6 @@
                    document.getElementById("D_fn").value = document.getElementById("D_in").value;
                 }
 
-                document.getElementById("Md_1").onchange = function SmMEd(){
-                    if (document.getElementById("Md_1").value == "") {
-                        document.getElementById("Md_1").value = "0"  
-                    }else{
-                    
-                    let Bc =  document.getElementById("Boca").value;
-                    let w = document.getElementById("Md_1").value;
-                    let x = document.getElementById("Md_2").value;
-                    let y = document.getElementById("Md_3").value;
-                    let z = document.getElementById("Md_4").value;
-                    let v = document.getElementById("Md_5").value;
-                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
-                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
-                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
-                    document.getElementById("Dif_med").value = Sts;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "Valid";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-                    }
-                }
-                document.getElementById("Md_2").onchange = function SmMEd(){
-                    if (document.getElementById("Md_2").value == "") {
-                        document.getElementById("Md_2").value = "0"  
-                    }else{
-                    
-                    let Bc =  document.getElementById("Boca").value;
-                    let w = document.getElementById("Md_1").value;
-                    let x = document.getElementById("Md_2").value;
-                    let y = document.getElementById("Md_3").value;
-                    let z = document.getElementById("Md_4").value;
-                    let v = document.getElementById("Md_5").value;
-                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
-                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
-                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
-                    document.getElementById("Dif_med").value = Sts;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "Valid";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-                    }
-                }
-                document.getElementById("Md_3").onchange = function SmMEd(){
-                    if (document.getElementById("Md_3").value == "") {
-                        document.getElementById("Md_3").value = "0"  
-                    }else{
-                    let Bc =  document.getElementById("Boca").value;
-                    let w = document.getElementById("Md_1").value;
-                    let x = document.getElementById("Md_2").value;
-                    let y = document.getElementById("Md_3").value;
-                    let z = document.getElementById("Md_4").value;
-                    let v = document.getElementById("Md_5").value;
-                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
-                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
-                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
-                    document.getElementById("Dif_med").value = Sts;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "Valid";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-                    }
-                }
-
-                document.getElementById("Md_4").onchange = function SmMEd(){
-                    if (document.getElementById("Md_4").value == "") {
-                        document.getElementById("Md_4").value = "0"  
-                    }else{
-                    let Bc =  document.getElementById("Boca").value;
-                    let w = document.getElementById("Md_1").value;
-                    let x = document.getElementById("Md_2").value;
-                    let y = document.getElementById("Md_3").value;
-                    let z = document.getElementById("Md_4").value;
-                    let v = document.getElementById("Md_5").value;
-                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
-                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
-                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
-                    document.getElementById("Dif_med").value = Sts;
-                                var line = 1;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "Valid";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-                    }
-                }
-
-                document.getElementById("Md_5").onchange = function SmMEd(){
-                    if (document.getElementById("Md_5").value == "") {
-                        document.getElementById("Md_5").value = "0"  
-                    }else{
-                    let Bc = document.getElementById("Boca").value;
-                    let w = document.getElementById("Md_1").value;
-                    let x = document.getElementById("Md_2").value;
-                    let y = document.getElementById("Md_3").value;
-                    let z = document.getElementById("Md_4").value;
-                    let v = document.getElementById("Md_5").value;
-                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
-                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
-                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
-                    document.getElementById("Dif_med").value = Sts;
-
-                                var line = 1;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "Valid";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-
-                    }
-                }
             
             document.getElementById("Jumb").onblur = function GetJumb(){
                 var x = document.getElementById("Jumb").value
@@ -299,49 +126,7 @@
 
                 }
                 var MSgBit = "";
-                function CalcMeds(){
-
-
-                        for (let $i = 1; $i < 6; $i++) {
-
-                            if (document.getElementById("Md_"+$i).value != "0"){
-                            let contador = 0;
-                            let Somador = 0;
-                                for (let $j = 1; $j < "6"; $j++) {
-                                if ( document.getElementById("M"+$i+"_p"+$j).value != "0") {
-
-                                var Org = document.getElementById("M"+$i+"_p"+$j).value;
-                                var cvt = Org.replace(',', '.')
-                                document.getElementById("M"+$i+"_p"+$j).value = cvt;
-
-                                    var num = parseFloat(document.getElementById("M"+$i+"_p"+$j).value);
-                                    var n = num.toFixed(2);
-                                    Somador = parseFloat(Somador) + parseFloat(n);
-                                    contador = parseFloat(contador) +1;  
-                                    let med = (parseFloat(Somador) / parseFloat(contador)).toFixed(1);
-                                    MSgBit = "Mêdia da Medida "+$i + ": "+med;
-                                    document.getElementById("Mp_"+$i).value = med;
-                                }
-
-                           }
-                           var line = 1;
-                                var newdiv = document.createElement('div');
-                                newdiv.id = "alert";
-                                newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
-                                newdiv.innerHTML += '<strong>Atenção: </strong> '+ MSgBit ;
-                                newdiv.innerHTML += '<br>';
-                                document.getElementById("ShowAlert").appendChild(newdiv);
-                                line++;
-                                var objScrDiv = document.getElementById("ShowAlert");
-                                objScrDiv.scrollTop = objScrDiv.scrollHeight;
-                        }
-                        
-                    }
-                
-                }
-
-
-document.getElementById("H_fn").onblur = function CalcTime(){
+    document.getElementById("H_fn").onblur = function CalcTime(){
     var dtini = document.getElementById("D_in").value;
     var hrini = document.getElementById("H_in").value;
     var dtfin = document.getElementById("D_fn").value;
@@ -427,6 +212,396 @@ var TempPrd = Hrs +":"+ mints;
 document.getElementById("TempEspera").value = TempPrd;
 }
 
+
+function AbCamps(){
+
+    // var select = document.getElementById('Conf');
+	// var value = select.options[select.selectedIndex].value;
+	// console.log(value);
+
+    var select =  document.getElementById('MySelectConf');
+    Mystring = select.options[select.selectedIndex].text;
+    var Returns = Mystring.split("/");
+    alert(Mystring);
+    for (let i = 0; i < Returns.length; i++) {
+        var $i = i+1;
+        const element = Returns[i];
+        var MySubStr = element;
+        var camp = MySubStr.split("-")
+
+        var MyDiv = document.createElement('div');
+        MyDiv.id = "Spl_"+$i;
+        MyDiv.innerHTML += '<label for="Md_'+$i+'">Medida: </label>';
+        MyDiv.innerHTML += '<input type="text" id="Md_'+$i+'" Class="Inpts3" name="Md_'+$i+'" value="'+camp[1]+'" onblur="SmMEd'+$i+'()" required>';
+        MyDiv.innerHTML += '<label for="Qt_'+$i+'">   Quantidade: </label>';
+        MyDiv.innerHTML += '<input type="text" id="Qt_'+$i+'" Class="Inpts3" name="Qt_'+$i+'" value="'+camp[0]+'">';
+        MyDiv.innerHTML += '<label for="M'+$i+'_p1">   Pesos: </label>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p1" Class="Inpts3" Name="M'+$i+'_p1" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p2" Class="Inpts3" Name="M'+$i+'_p2" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p3" Class="Inpts3" Name="M'+$i+'_p3" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p4" Class="Inpts3" Name="M'+$i+'_p4" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p5" Class="Inpts3" Name="M'+$i+'_p5" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<br>';
+        document.getElementById("Dados").appendChild(MyDiv);
+
+    }
+  
+}
+
+                            function SmMEd1(){
+                            if (document.getElementById("Md_1").value == "") {
+                            document.getElementById("Md_1").value = "0"  
+                           
+                            }else{
+                           
+                            
+                            let Bc =  document.getElementById("Boca").value;
+                            let w = "0";
+                            let x = "0";
+                            let y = "0";
+                            let z = "0";
+                            let v = "0";
+
+                            
+
+                            if (document.getElementById("Md_1") != null) {
+                            w = document.getElementById("Md_1").value; 
+                            var multiplicador = document.getElementById("Qt_1").value; 
+                            w = multiplicador * w; 
+                            
+                            }
+
+                            if (document.getElementById("Md_2") != null) {
+                            x = document.getElementById("Md_2").value;   
+                            var multiplicador = document.getElementById("Qt_2").value; 
+                            x = multiplicador * x; 
+                            }
+
+                            if (document.getElementById("Md_3") != null) {
+                            y = document.getElementById("Md_3").value;  
+                            var multiplicador = document.getElementById("Qt_3").value; 
+                            y = multiplicador * y;  
+                            
+                            }
+
+                            if (document.getElementById("Md_4") != null) {
+                            z = document.getElementById("Md_4").value;   
+                            var multiplicador = document.getElementById("Qt_4").value; 
+                            z = multiplicador * z; 
+                            
+                            }
+
+                            if (document.getElementById("Md_5") != null) {
+                            v = document.getElementById("Md_5").value;
+                            var multiplicador = document.getElementById("Qt_5").value; 
+                            v = multiplicador * v;    
+                            
+                            }
+
+                            // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+                            let Sts = parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
+                            var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
+                            document.getElementById("Dif_med").value = Sts;
+                            var newdiv = document.createElement('div');
+                            newdiv.id = "Valid";
+                            newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+                            newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
+                            newdiv.innerHTML += '<br>';
+                            document.getElementById("ShowAlert").appendChild(newdiv);
+                            
+                            var objScrDiv = document.getElementById("ShowAlert");
+                            objScrDiv.scrollTop = objScrDiv.scrollHeight;
+                            }
+                            }
+                                        function SmMEd2(){
+                                        if (document.getElementById("Md_2").value == "") {
+                                        document.getElementById("Md_2").value = "0"  
+                                        }else{
+
+                                            let Bc =  document.getElementById("Boca").value;
+                            let w = "0";
+                            let x = "0";
+                            let y = "0";
+                            let z = "0";
+                            let v = "0";
+
+                            
+
+                            if (document.getElementById("Md_1") != null) {
+                            w = document.getElementById("Md_1").value; 
+                            var multiplicador = document.getElementById("Qt_1").value; 
+                            w = multiplicador * w; 
+                            
+                            }
+
+                            if (document.getElementById("Md_2") != null) {
+                            x = document.getElementById("Md_2").value;   
+                            var multiplicador = document.getElementById("Qt_2").value; 
+                            x = multiplicador * x; 
+                            }
+
+                            if (document.getElementById("Md_3") != null) {
+                            y = document.getElementById("Md_3").value;  
+                            var multiplicador = document.getElementById("Qt_3").value; 
+                            y = multiplicador * y;  
+                            
+                            }
+
+                            if (document.getElementById("Md_4") != null) {
+                            z = document.getElementById("Md_4").value;   
+                            var multiplicador = document.getElementById("Qt_4").value; 
+                            z = multiplicador * z; 
+                            
+                            }
+
+                            if (document.getElementById("Md_5") != null) {
+                            v = document.getElementById("Md_5").value;
+                            var multiplicador = document.getElementById("Qt_5").value; 
+                            v = multiplicador * v;    
+                            
+                            }
+                                        // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+                                        let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
+                                        var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
+                                        document.getElementById("Dif_med").value = Sts;
+                                        var newdiv = document.createElement('div');
+                                        newdiv.id = "Valid";
+                                        newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+                                        newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
+                                        newdiv.innerHTML += '<br>';
+                                        document.getElementById("ShowAlert").appendChild(newdiv);
+                                        
+                                        var objScrDiv = document.getElementById("ShowAlert");
+                                        objScrDiv.scrollTop = objScrDiv.scrollHeight;
+                                        }
+                                        }
+        function SmMEd3(){
+        if (document.getElementById("Md_3").value == "") {
+        document.getElementById("Md_3").value = "0"  
+        }else{
+            let Bc =  document.getElementById("Boca").value;
+                            let w = "0";
+                            let x = "0";
+                            let y = "0";
+                            let z = "0";
+                            let v = "0";
+
+                            
+
+                            if (document.getElementById("Md_1") != null) {
+                            w = document.getElementById("Md_1").value; 
+                            var multiplicador = document.getElementById("Qt_1").value; 
+                            w = multiplicador * w; 
+                            
+                            }
+
+                            if (document.getElementById("Md_2") != null) {
+                            x = document.getElementById("Md_2").value;   
+                            var multiplicador = document.getElementById("Qt_2").value; 
+                            x = multiplicador * x; 
+                            }
+
+                            if (document.getElementById("Md_3") != null) {
+                            y = document.getElementById("Md_3").value;  
+                            var multiplicador = document.getElementById("Qt_3").value; 
+                            y = multiplicador * y;  
+                            
+                            }
+
+                            if (document.getElementById("Md_4") != null) {
+                            z = document.getElementById("Md_4").value;   
+                            var multiplicador = document.getElementById("Qt_4").value; 
+                            z = multiplicador * z; 
+                            
+                            }
+
+                            if (document.getElementById("Md_5") != null) {
+                            v = document.getElementById("Md_5").value;
+                            var multiplicador = document.getElementById("Qt_5").value; 
+                            v = multiplicador * v;    
+                            
+                            }
+        // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+        let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
+        var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
+        document.getElementById("Dif_med").value = Sts;
+        var newdiv = document.createElement('div');
+        newdiv.id = "Valid";
+        newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+        newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
+        newdiv.innerHTML += '<br>';
+        document.getElementById("ShowAlert").appendChild(newdiv);
+        
+        var objScrDiv = document.getElementById("ShowAlert");
+        objScrDiv.scrollTop = objScrDiv.scrollHeight;
+        }
+        }
+
+                    function SmMEd4(){
+                    if (document.getElementById("Md_4").value == "") {
+                    document.getElementById("Md_4").value = "0"  
+                    }else{
+                        let Bc =  document.getElementById("Boca").value;
+                            let w = "0";
+                            let x = "0";
+                            let y = "0";
+                            let z = "0";
+                            let v = "0";
+
+                            
+
+                            if (document.getElementById("Md_1") != null) {
+                            w = document.getElementById("Md_1").value; 
+                            var multiplicador = document.getElementById("Qt_1").value; 
+                            w = multiplicador * w; 
+                            
+                            }
+
+                            if (document.getElementById("Md_2") != null) {
+                            x = document.getElementById("Md_2").value;   
+                            var multiplicador = document.getElementById("Qt_2").value; 
+                            x = multiplicador * x; 
+                            }
+
+                            if (document.getElementById("Md_3") != null) {
+                            y = document.getElementById("Md_3").value;  
+                            var multiplicador = document.getElementById("Qt_3").value; 
+                            y = multiplicador * y;  
+                            
+                            }
+
+                            if (document.getElementById("Md_4") != null) {
+                            z = document.getElementById("Md_4").value;   
+                            var multiplicador = document.getElementById("Qt_4").value; 
+                            z = multiplicador * z; 
+                            
+                            }
+
+                            if (document.getElementById("Md_5") != null) {
+                            v = document.getElementById("Md_5").value;
+                            var multiplicador = document.getElementById("Qt_5").value; 
+                            v = multiplicador * v;    
+                            
+                            }
+                    // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+                    let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
+                    var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
+                    document.getElementById("Dif_med").value = Sts;
+                    var line = 1;
+                    var newdiv = document.createElement('div');
+                    newdiv.id = "Valid";
+                    newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+                    newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
+                    newdiv.innerHTML += '<br>';
+                    document.getElementById("ShowAlert").appendChild(newdiv);
+                    
+                    var objScrDiv = document.getElementById("ShowAlert");
+                    objScrDiv.scrollTop = objScrDiv.scrollHeight;
+                    }
+                    }
+
+        function SmMEd5(){
+        if (document.getElementById("Md_5").value == "") {
+        document.getElementById("Md_5").value = "0"  
+        }else{
+            let Bc =  document.getElementById("Boca").value;
+                            let w = "0";
+                            let x = "0";
+                            let y = "0";
+                            let z = "0";
+                            let v = "0";
+
+                            
+
+                            if (document.getElementById("Md_1") != null) {
+                            w = document.getElementById("Md_1").value; 
+                            var multiplicador = document.getElementById("Qt_1").value; 
+                            w = multiplicador * w; 
+                            
+                            }
+
+                            if (document.getElementById("Md_2") != null) {
+                            x = document.getElementById("Md_2").value;   
+                            var multiplicador = document.getElementById("Qt_2").value; 
+                            x = multiplicador * x; 
+                            }
+
+                            if (document.getElementById("Md_3") != null) {
+                            y = document.getElementById("Md_3").value;  
+                            var multiplicador = document.getElementById("Qt_3").value; 
+                            y = multiplicador * y;  
+                            
+                            }
+
+                            if (document.getElementById("Md_4") != null) {
+                            z = document.getElementById("Md_4").value;   
+                            var multiplicador = document.getElementById("Qt_4").value; 
+                            z = multiplicador * z; 
+                            
+                            }
+
+                            if (document.getElementById("Md_5") != null) {
+                            v = document.getElementById("Md_5").value;
+                            var multiplicador = document.getElementById("Qt_5").value; 
+                            v = multiplicador * v;    
+                            
+                            }
+        // document.getElementById("Load").innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+        let Sts =parseInt(Bc)-(parseInt(w)+parseInt(x)+parseInt(y)+parseInt(z)+parseInt(v));
+        var MSgBit = "Medida do Jumbo: "+Bc+ ", Diferença de medidas: "+ Sts ;
+        document.getElementById("Dif_med").value = Sts;
+
+        var line = 1;
+        var newdiv = document.createElement('div');
+        newdiv.id = "Valid";
+        newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+        newdiv.innerHTML += '<strong>MSg: </strong> '+ MSgBit ;
+        newdiv.innerHTML += '<br>';
+        document.getElementById("ShowAlert").appendChild(newdiv);
+        
+        var objScrDiv = document.getElementById("ShowAlert");
+        objScrDiv.scrollTop = objScrDiv.scrollHeight;
+
+        }
+        }
+
+                            function CalcMeds(){
+
+                            for (let $i = 1; $i < 6; $i++) {
+
+                            if (document.getElementById("Md_"+$i).value != "0"){
+                            let contador = 0;
+                            let Somador = 0;
+                            for (let $j = 1; $j < "6"; $j++) {
+                            if ( document.getElementById("M"+$i+"_p"+$j).value != "0") {
+
+                            var Org = document.getElementById("M"+$i+"_p"+$j).value;
+                            var cvt = Org.replace(',', '.')
+                            document.getElementById("M"+$i+"_p"+$j).value = cvt;
+
+                            var num = parseFloat(document.getElementById("M"+$i+"_p"+$j).value);
+                            var n = num.toFixed(2);
+                            Somador = parseFloat(Somador) + parseFloat(n);
+                            contador = parseFloat(contador) +1;  
+                            let med = (parseFloat(Somador) / parseFloat(contador)).toFixed(1);
+                            MSgBit = "Mêdia da Medida "+$i + ": "+med;
+                            document.getElementById("Mp_"+$i).value = med;
+                            }
+
+                            }
+                            var line = 1;
+                            var newdiv = document.createElement('div');
+                            newdiv.id = "alert";
+                            newdiv.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display='+"'none'"+';">&times;</span>';
+                            newdiv.innerHTML += '<strong>Atenção: </strong> '+ MSgBit ;
+                            newdiv.innerHTML += '<br>';
+                            document.getElementById("ShowAlert").appendChild(newdiv);
+                            line++;
+                            var objScrDiv = document.getElementById("ShowAlert");
+                            objScrDiv.scrollTop = objScrDiv.scrollHeight;
+                            }
+                            }
+                            }       
 </script>   
 </body>
 </html>

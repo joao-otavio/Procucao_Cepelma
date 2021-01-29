@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 print "<div id =\"Opers\">";
 print "<Div id=\"Operador\">";
-$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'MP'";
+$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'RB'";
 $result = $conn->query($sql);
 
 

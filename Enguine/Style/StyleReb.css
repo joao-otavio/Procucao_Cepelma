@@ -1,6 +1,4 @@
 
-html,body{  }
-
 .flip-card {
     background-color: transparent;
     width: 400px;
@@ -105,6 +103,17 @@ html,body{  }
   }
 
   .Inpts2:focus{
+    background-color: rgb(186, 218, 216);
+    border-radius: 0px;   
+  }
+  .Inpts3{
+    width: 50px; 
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+  .Inpts3:focus{
     background-color: rgb(186, 218, 216);
     border-radius: 0px;   
   }
