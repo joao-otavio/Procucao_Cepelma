@@ -29,24 +29,23 @@
       }
     } 
 } 
+function Get_Pic_OP (OP_Pic){
 
-
- function getDados() {
-    document.getElementById("Load").style.display = 'block';
- 
+    var popup = document.getElementById("PicOp");
+    popup.classList.toggle("show");
 
      // Declaração de Variáveis
-     var nome   = document.getElementById("Jumb").value;
-     var result = document.getElementById("ReturnJB");
+     var nome   = OP_Pic;
+     var result = document.getElementById("PicOp");
      var xmlreq = CriaRequest();
 
      
      // Exibi a imagem de progresso
-     result.innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
+    //  result.innerHTML = '<img src="/ProdCepelma/Enguine/pic/Loading_2.gif"/ id="Load">';
      
      
      // Iniciar uma requisição
-     xmlreq.open("GET", "Rb_return.php?TxFind=" + nome, true);
+     xmlreq.open("GET", "PicOP_set.php?TxFind=" + nome, true);
 
     // Atribui uma função para ser executada sempre que houver uma mudança de ado
      xmlreq.onreadystatechange = function(){
@@ -54,7 +53,7 @@
                 
          // Verifica se foi concluído com sucesso e a conexão fechada (readyState=4)
          if (xmlreq.readyState == 4) {
-            sleep(2000);
+            
              // Verifica se o arquivo foi encontrado com sucesso
              if (xmlreq.status == 200) {
                  result.innerHTML = xmlreq.responseText;
@@ -64,6 +63,5 @@
          }
      };
      xmlreq.send(null);
-     document.getElementById("Load").style.display = 'none';
 }
 

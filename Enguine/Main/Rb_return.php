@@ -67,6 +67,8 @@ print "<input type=\"text\" id=\"Op2\" name=\"Op2\" hidden value =\"".$linha["Aj
 print "<input type=\"text\" id=\"DtIni_VIDA\" name=\"DtIni_VIDA\" hidden value =\"".$linha["Data"]."\">";
 print "<input type=\"text\" id=\"HrIni_vida\" name=\"HrIni_vida\" hidden value =\"".$linha["H_INICIO"]."\">";
 print "<input type=\"text\" id=\"HrIni_Esp\" name=\"HrIni_Esp\" hidden value =\"".$linha["H_FIM"]."\">";
+print "<input type=\"text\" id=\"PesJUmb_get\" name=\"PesJUmb_get\" hidden value =\"".$linha["Peso"]."\">";
+
 }
 }else {
  

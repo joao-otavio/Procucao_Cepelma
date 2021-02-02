@@ -14,6 +14,7 @@ if ($conn->connect_error) {
 
 print "<div id =\"Opers\">";
 print "<Div id=\"Operador\">";
+print "<Div id=\"PicOp\"></div>";
 $sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'RB'";
 $result = $conn->query($sql);
 
@@ -22,7 +23,7 @@ $MyArray = array();
 if ($result->num_rows > 0) {
   print "<label for=\"Operadors\">Operador: </label>";
   print "<br>";
-  print "<select class=\"Inpts2\" name=\"Operador\" id=\"Operadors\" required>";
+  print "<select class=\"Inpts2\" name=\"Operador\" id=\"Operadors\" onchange=\"Get_Pic_OP(this.value)\" required>";
   print "<option value=\"\"></option>";
  
   while($row = mysqli_fetch_array($result)) {
@@ -56,14 +57,15 @@ print "</div>";
 }
 
 print "<Div id=\"Ajudante\">";
-$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'MP'";
+print "<Div id=\"PicAj\"></div>";
+$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'RB'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   print "<label for=\"Ajudante\">Ajudante: </label>";
   print "<br>"; 
-  print "<select class=\"Inpts2\" name=\"Ajudante\" id=\"Ajudantes\" required>";
+  print "<select class=\"Inpts2\" name=\"Ajudante\" id=\"Ajudantes\" onchange=\"Get_Pic_AJ(this.value)\" required>";
   print "<option value=\"\"></option>";
  
   while($row = mysqli_fetch_array($result)) {
