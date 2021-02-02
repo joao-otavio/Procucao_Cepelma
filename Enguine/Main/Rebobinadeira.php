@@ -13,7 +13,7 @@
     <script src="/ProdCepelma/Enguine/Main/Rb_FindJumb.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicOp_Return.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicAj_Return.js"></script>
-        <div id="title">
+    <div id="title">
             <h3>Lançamento Rebobinadeira</h3>
         </div>
         <div id="FormSet">
@@ -94,17 +94,24 @@
              <br>
              <br>
              <br>
+             <br>
 
                <div id="Medidas">
+                   <div id="Mescl1">
                     <label for="Md_1">Tiradas:</label>
                     <br>
                     <input type="number" class="Inpts" id="Tiradas" name="Tiradas" require>
+                    </div>
+                    <?php include "Padrao_RB.php"; ?>
                     <br>
+                    <div id="Mescl2">
                     <?php include "Formatos.php"; ?>
-                   
+                    </div>
                     <div id="Dados">
                     </div>
                     <br>
+                    <label for="Refug"> <strong>Finalizado: </strong></label>
+                    <input type="checkbox" name="Refug" id="Refug">
                 </div>
                 </div>
               
@@ -295,7 +302,7 @@ function AbCamps(){
         MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p2" Class="Inpts3" Name="M'+$i+'_p2" value="0" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p3" Class="Inpts3" Name="M'+$i+'_p3" value="0" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p4" Class="Inpts3" Name="M'+$i+'_p4" value="0" onblur="CalcMeds()" required>';
-        MyDiv.innerHTML += '<input type="text" id="R'+$i+'_p1" Class="Inpts3" Name="M'+$i+'_p5" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p5" Class="Inpts3" Name="M'+$i+'_p5" value="0" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<label for="M'+$i+'_p1">   Bobinas Refugadas (Qtd.): </label>';
         MyDiv.innerHTML += '<input type="text" id="R'+$i+'_p1" Class="Inpts3" Name="R'+$i+'_p1" value="0" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<br>';
@@ -668,6 +675,7 @@ function AbCamps(){
                             let med = (parseFloat(Somador) / parseFloat(contador)).toFixed(1);
                             MSgBit = "Mêdia da Medida "+$i + ": "+med;
                             document.getElementById("Mp_"+$i).value = med;
+
                             let Tir = document.getElementById("Tiradas").value
                             let Constante = document.getElementById("Qt_"+$i).value;
                             let pes = (((parseFloat(Constante) * parseFloat(med))* parseFloat(Tir))).toFixed(2);
@@ -679,10 +687,14 @@ function AbCamps(){
                                 let $c = document.getElementById("Cp_3").value
                                 let $d = document.getElementById("Cp_4").value
                                 let $e = document.getElementById("Cp_5").value
+
+                                let $f = document.getElementById("R"+$i+"_p1").value
+
                                 // PesJUmb_get
                                 let pesTotalp = ((parseFloat($a))+(parseFloat($b))+(parseFloat($c))+(parseFloat($d))+(parseFloat($e))).toFixed(2);
                                 let PesJUmbo = document.getElementById("PesJUmb_get").value;
                                 let difPesop = (parseFloat(PesJUmbo)-parseFloat(pesTotalp)).toFixed(2);
+
 
                             document.getElementById("PS"+$i).innerText = "Peso Medio da Bobina de "+prod+ " de " + med + ", Peso Total: " + pes;
                             document.getElementById("Tts1").innerText = "Peso Total Acabado: "+pesTotalp;
