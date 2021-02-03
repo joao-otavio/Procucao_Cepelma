@@ -77,7 +77,10 @@
                                     <span id="Pt"></span><br>
 
                                     <span id="Tts1"></span><br>
-                                    <span id="Tts2"></span>
+                                    <span id="Tts2"></span><br>
+                                    <span id="Tts3"></span><br>
+                                    <span id="Tts4"></span><br>
+                                    <span id="Tts5"></span>
                                     </div>
                                 <div class="flip-card-back">
                                 <h3>Dados do Jumbo</h3>
@@ -111,7 +114,7 @@
                     </div>
                     <br>
                     <label for="Refug"> <strong>Finalizado: </strong></label>
-                    <input type="checkbox" name="Refug" id="Refug">
+                    <input type="checkbox" name="Refug" id="Refug" onclick="CalcMeds()">
                 </div>
                 </div>
               
@@ -144,6 +147,9 @@
 
         <input type="number" class="Inpts" id="PesTotal" name="PesTotal" value="0" hidden>
         <input type="number" class="Inpts" id="PesPonta" name="PesPonta" value="0" hidden>
+        <input type="number" class="Inpts" id="PesSegregado" name="PesSegregado" value="0" hidden>
+        <input type="number" class="Inpts" id="PesRefugo" name="PesRefugo" value="0" hidden>
+        <input type="number" class="Inpts" id="PesAcabado" name="PesAcabado" value="0" hidden>
 
 
 </form>
@@ -658,7 +664,7 @@ function AbCamps(){
 
                             for (let $i = 1; $i < 6; $i++) {
 
-                            if (document.getElementById("Md_"+$i).value != "0"){
+                            if (document.getElementById("Md_"+$i)!== null){
                             let contador = 0;
                             let Somador = 0;
                             for (let $j = 1; $j < "6"; $j++) {
@@ -688,19 +694,91 @@ function AbCamps(){
                                 let $d = document.getElementById("Cp_4").value
                                 let $e = document.getElementById("Cp_5").value
 
-                                let $f = document.getElementById("R"+$i+"_p1").value
+                                let $f0 = 0;
+                                let $f1 = 0;
+                                let $f2 = 0;
+                                let $f3 = 0;
+                                let $f4 = 0;
+                                let $f = 0;
+
+                            if (document.getElementById("R1_p1") !== null) {  
+                                let Dirr =  parseFloat(document.getElementById("R1_p1").value)
+                                let Under = parseFloat(document.getElementById("Mp_1").value)
+                                $f0 =  parseFloat(parseFloat(Under)*parseFloat(Dirr)).toFixed(2)
+                                console.log("Calculo de Peso ref 01"+$f0);
+                            }
+                            if (document.getElementById("R2_p1") !== null) {
+                                let Dirr =  parseFloat(document.getElementById("R2_p1").value)
+                                let Under = parseFloat(document.getElementById("Mp_2").value)
+                                $f1 =  parseFloat(parseFloat(Under)*parseFloat(Dirr)).toFixed(2)
+                                console.log("Calculo de Peso ref 02"+$f1);
+                            }
+                            if (document.getElementById("R3_p1")!== null) {
+                                let Dirr =  parseFloat(document.getElementById("R3_p1").value)
+                                let Under = parseFloat(document.getElementById("Mp_3").value)
+                                $f2 =  parseFloat(parseFloat(Under)*parseFloat(Dirr)).toFixed(2)
+                                console.log("Calculo de Peso ref 03"+$f2);
+                            }
+                            if (document.getElementById("R4_p1") !== null) {
+                                let Dirr =  parseFloat(document.getElementById("R4_p1").value)
+                                let Under = parseFloat(document.getElementById("Mp_4").value)
+                                $f3 =  parseFloat(parseFloat(Under)*parseFloat(Dirr)).toFixed(2)
+                                console.log("Calculo de Peso ref 04"+$f3);
+                            }
+                            if (document.getElementById("R5_p1") !== null) {
+                                let Dirr =  parseFloat(document.getElementById("R5_p1").value)
+                                let Under = parseFloat(document.getElementById("Mp_5").value)
+                                $f4 =  parseFloat(parseFloat(Under)*parseFloat(Dirr)).toFixed(2)
+                                console.log("Calculo de Peso ref 05"+$f4);
+                            }
+                        
+                                $f =  (parseFloat($f0)+parseFloat($f1)+parseFloat($f2)+parseFloat($f3)+parseFloat($f4)).toFixed(2);
+                                console.log("Total de peso Refugado:"+$f);
+                                let PesRef = (parseFloat($f)).toFixed(2);
 
                                 // PesJUmb_get
                                 let pesTotalp = ((parseFloat($a))+(parseFloat($b))+(parseFloat($c))+(parseFloat($d))+(parseFloat($e))).toFixed(2);
                                 let PesJUmbo = document.getElementById("PesJUmb_get").value;
                                 let difPesop = (parseFloat(PesJUmbo)-parseFloat(pesTotalp)).toFixed(2);
+                                let pesAcabado = ((parseFloat($a))+(parseFloat($b))+(parseFloat($c))+(parseFloat($d))+(parseFloat($e)-(parseFloat(PesRef)))).toFixed(2);
+
+                                if (difPesop < 0) {
+                                    confirm("Atenção o Peso do Jumbo é inferior ao peso total de Produtos Acabados,"+
+                                     "Voce tem ciencia? \n Peso do Jumbo: "+ PesJUmbo +" Peso Acabado: "+pesTotalp);
+                                }
+
 
 
                             document.getElementById("PS"+$i).innerText = "Peso Medio da Bobina de "+prod+ " de " + med + ", Peso Total: " + pes;
-                            document.getElementById("Tts1").innerText = "Peso Total Acabado: "+pesTotalp;
-                            document.getElementById("Tts2").innerText = "Peso de Ponta/Diff(erro): "+difPesop;
+                            document.getElementById("Tts1").innerText = "Peso Total Produzido: "+pesTotalp;
+                            document.getElementById("Tts2").innerText = "Diferença de Peso: "+difPesop;
+                            if (PesRef > 0) {
+                            document.getElementById("Tts3").innerText = "Peso do Refugo: "+PesRef;
+                            document.getElementById("Tts5").innerText = "Peso de Produtos Acabados: "+pesAcabado;
+                                }else{
+                            document.getElementById("Tts3").innerText = "";
+                            document.getElementById("Tts5").innerText = "";
+                                }
                             document.getElementById("PesTotal").value = pesTotalp;
                             document.getElementById("PesPonta").value = difPesop;
+                            document.getElementById("PesSegregado").value = PesRef;
+                            document.getElementById("PesAcabado").value = pesAcabado;
+                            
+                            // Refug
+                            var CheckFin = document.getElementById("Refug");
+
+                                if (CheckFin.checked == true) {
+                                console.log("Solicitado finalizar o jumbo");
+                                document.getElementById("PesPonta").value = "0";
+                                document.getElementById("Tts2").innerText = "Jumbo Finalizado"; 
+                                
+                                let NewRef = (parseFloat(difPesop) + parseFloat(PesRef)).toFixed(2)
+                                document.getElementById("PesSegregado").value = NewRef;
+                                document.getElementById("Tts3").innerText = "Peso do Refugo: "+NewRef;
+                                }else{
+                                console.log("Solicitado Manter Ponta");
+                                
+                                }
 
 
                             document.getElementById("Load").style.display = 'none';
