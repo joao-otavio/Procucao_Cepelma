@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    
     <script src="/ProdCepelma/Enguine/Main/Rb_FindJumb.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicOp_Return.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicAj_Return.js"></script>
@@ -18,13 +17,13 @@
         </div>
         <div id="FormSet">
 
-            <form action="" id="ReboBinadeiras" name="Lct" method="POST">
+            <form action="Insert_reb.php" id="ReboBinadeiras" name="Lct" method="POST">
 
             <div class="Content" id="Content">
                 <div id="EquipamentoD">
                 <label for="Equipamento">Rebobinadeira:</label>
                
-                <select name="Equipamento" class="Inpts2" id="Equipamento" required>
+                <select name="Equipamento" class="Inpts2" id="Equipamento" onblur="FinCh(this.value)" required>
                     <option value=""></option> 
                    <option value="Rebobinadeira 1">Rebobinadeira 1</option> 
                    <option value="Rebobinadeira 2">Rebobinadeira 2</option> 
@@ -40,7 +39,7 @@
                 <div id="Selecao">
                     <label for="Jumb">Numero do Jumbo:</label>
                     <br>
-                    <input type="number" class="Inpts" id="Jumb" name="jumb">
+                    <input type="number" class="Inpts" id="Jumb" name="jumb" min="1" required>
                 </div>
 
                 
@@ -103,7 +102,7 @@
                    <div id="Mescl1">
                     <label for="Md_1">Tiradas:</label>
                     <br>
-                    <input type="number" class="Inpts" id="Tiradas" name="Tiradas" require>
+                    <input type="number" class="Inpts" id="Tiradas" name="Tiradas" min="1" require>
                     </div>
                     <?php include "Padrao_RB.php"; ?>
                     <br>
@@ -133,27 +132,59 @@
         <input type="text" id="Tp_Fabric" name="Tp_Fabric" hidden>
         <input type="text" id="TempVida" name="TempVida" hidden>
         <input type="text" id="TempEspera" name="TempEspera" hidden>
-        <input type="number" class="Inpts" id="Mp_1" name="Mp_1" value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_2" name="Mp_2" value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_3" name="Mp_3" value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_4" name="Mp_4" value="0" hidden>
-        <input type="number" class="Inpts" id="Mp_5" name="Mp_5" value="0" hidden>
+        <input type="number" class="Inpts" id="Mp_1" value="0" name="Mp_1"  hidden>
+        <input type="number" class="Inpts" id="Mp_2" value="0" name="Mp_2"  hidden>
+        <input type="number" class="Inpts" id="Mp_3" value="0" name="Mp_3"  hidden>
+        <input type="number" class="Inpts" id="Mp_4" value="0" name="Mp_4"  hidden>
+        <input type="number" class="Inpts" id="Mp_5" value="0" name="Mp_5"  hidden>
             
-        <input type="number" class="Inpts" id="Cp_1" name="Cp_1" value="0" hidden>
-        <input type="number" class="Inpts" id="Cp_2" name="Cp_2" value="0" hidden>
-        <input type="number" class="Inpts" id="Cp_3" name="Cp_3" value="0" hidden>
-        <input type="number" class="Inpts" id="Cp_4" name="Cp_4" value="0" hidden>
-        <input type="number" class="Inpts" id="Cp_5" name="Cp_5" value="0" hidden>
+        <input type="number" class="Inpts" id="Cp_1" value="0" name="Cp_1"  hidden>
+        <input type="number" class="Inpts" id="Cp_2" value="0" name="Cp_2"  hidden>
+        <input type="number" class="Inpts" id="Cp_3" value="0" name="Cp_3"  hidden>
+        <input type="number" class="Inpts" id="Cp_4" value="0" name="Cp_4"  hidden>
+        <input type="number" class="Inpts" id="Cp_5" value="0" name="Cp_5"  hidden>
 
-        <input type="number" class="Inpts" id="PesTotal" name="PesTotal" value="0" hidden>
-        <input type="number" class="Inpts" id="PesPonta" name="PesPonta" value="0" hidden>
-        <input type="number" class="Inpts" id="PesSegregado" name="PesSegregado" value="0" hidden>
-        <input type="number" class="Inpts" id="PesRefugo" name="PesRefugo" value="0" hidden>
-        <input type="number" class="Inpts" id="PesAcabado" name="PesAcabado" value="0" hidden>
+        <input type="number" class="Inpts" id="PesTotal" value="0" name="PesTotal" hidden>
+        <input type="number" class="Inpts" id="PesPonta" value="0" name="PesPonta" hidden>
+        <input type="number" class="Inpts" id="PesSegregado" value="0" name="PesSegregado" hidden>
+        <input type="number" class="Inpts" id="PesRefugo" value="0" name="PesRefugo" hidden>
+        <input type="number" class="Inpts" id="PesAcabado" value="0" name="PesAcabado"  hidden>
+        <input type="text" class="Inpts" id="chave" value="3003" name="chave"  hidden>
+
+        <input type="number" class="Inpts" id="PesUnit_1" value="0" name="PesUnit_1" hidden>
+        <input type="number" class="Inpts" id="PesUnit_2" value="0" name="PesUnit_2" hidden>
+        <input type="number" class="Inpts" id="PesUnit_3" value="0" name="PesUnit_3" hidden>
+        <input type="number" class="Inpts" id="PesUnit_4" value="0" name="PesUnit_4" hidden>
+        <input type="number" class="Inpts" id="PesUnit_5" value="0" name="PesUnit_5" hidden>
+
+        <input type="number" class="Inpts" id="QunatUnit_1" value="0" name="QunatUnit_1" hidden>
+        <input type="number" class="Inpts" id="QunatUnit_2" value="0" name="QunatUnit_2" hidden>
+        <input type="number" class="Inpts" id="QunatUnit_3" value="0" name="QunatUnit_3" hidden>
+        <input type="number" class="Inpts" id="QunatUnit_4" value="0" name="QunatUnit_4" hidden>
+        <input type="number" class="Inpts" id="QunatUnit_5" value="0" name="QunatUnit_5" hidden>
+
+        <input type="number" class="Inpts" id="RefUnit_1" value="0" name="RefUnit_1" hidden>
+        <input type="number" class="Inpts" id="RefUnit_2" value="0" name="RefUnit_2" hidden>
+        <input type="number" class="Inpts" id="RefUnit_3" value="0" name="RefUnit_3" hidden>
+        <input type="number" class="Inpts" id="RefUnit_4" value="0" name="RefUnit_4" hidden>
+        <input type="number" class="Inpts" id="RefUnit_5" value="0" name="RefUnit_5" hidden>
 
 
 </form>
      <script>
+
+var letChar = "";
+
+function FinCh(KD){
+    if (KD = "Rebobinadeira 1") {
+        letChar = "001"
+    }else{
+        letChar = "002"
+    }
+}
+
+
+
      var newdiv ="";
      var MSgBit ="";
             console.log(new Date().toLocaleDateString())
@@ -217,6 +248,7 @@ document.getElementById("Rs5").innerText = "Ciclo Produtivo (Tempo de Vida): "+T
 
 
 document.getElementById("Load").style.display = 'none';
+document.getElementById("chave").value = 3003 + dtini + hrini + letChar;
 }
 
 function TpVida(){
@@ -300,15 +332,15 @@ function AbCamps(){
         var MyDiv = document.createElement('div');
         MyDiv.id = "Spl_"+$i;
         MyDiv.innerHTML += '<label for="Md_'+$i+'">Medida: </label>';
-        MyDiv.innerHTML += '<input type="text" id="Md_'+$i+'" Class="Inpts3" name="Md_'+$i+'" value="'+camp[1]+'" onblur="SmMEd'+$i+'()" required>';
+        MyDiv.innerHTML += '<input type="text" id="Md_'+$i+'" Class="Inpts3" value="'+camp[1]+'" name="Md_'+$i+'" onblur="SmMEd'+$i+'()">';
         MyDiv.innerHTML += '<label for="Qt_'+$i+'">   Quantidade: </label>';
-        MyDiv.innerHTML += '<input type="text" id="Qt_'+$i+'" Class="Inpts3" name="Qt_'+$i+'" value="'+camp[0]+'">';
+        MyDiv.innerHTML += '<input type="text" id="Qt_'+$i+'" Class="Inpts3" value="'+camp[0]+'" name="Qt_'+$i+'">';
         MyDiv.innerHTML += '<label for="M'+$i+'_p1">   Pesos: </label>';
-        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p1" Class="Inpts3" Name="M'+$i+'_p1" value="0" onblur="CalcMeds()" required>';
-        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p2" Class="Inpts3" Name="M'+$i+'_p2" value="0" onblur="CalcMeds()" required>';
-        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p3" Class="Inpts3" Name="M'+$i+'_p3" value="0" onblur="CalcMeds()" required>';
-        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p4" Class="Inpts3" Name="M'+$i+'_p4" value="0" onblur="CalcMeds()" required>';
-        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p5" Class="Inpts3" Name="M'+$i+'_p5" value="0" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p1" Class="Inpts3" value="0" Name="M'+$i+'_p1" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p2" Class="Inpts3" value="0" Name="M'+$i+'_p2" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p3" Class="Inpts3" value="0" Name="M'+$i+'_p3" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p4" Class="Inpts3" value="0" Name="M'+$i+'_p4" onblur="CalcMeds()" required>';
+        MyDiv.innerHTML += '<input type="text" id="M'+$i+'_p5" Class="Inpts3" value="0" Name="M'+$i+'_p5" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<label for="M'+$i+'_p1">   Bobinas Refugadas (Qtd.): </label>';
         MyDiv.innerHTML += '<input type="text" id="R'+$i+'_p1" Class="Inpts3" Name="R'+$i+'_p1" value="0" onblur="CalcMeds()" required>';
         MyDiv.innerHTML += '<br>';
@@ -752,6 +784,23 @@ function AbCamps(){
                             document.getElementById("PS"+$i).innerText = "Peso Medio da Bobina de "+prod+ " de " + med + ", Peso Total: " + pes;
                             document.getElementById("Tts1").innerText = "Peso Total Produzido: "+pesTotalp;
                             document.getElementById("Tts2").innerText = "Diferença de Peso: "+difPesop;
+                            // PesUnit_1
+                            
+                            let QtRefg  = document.getElementById("R"+$i+"_p1").value;
+                            let PesUnd = (parseFloat(pes)-(parseFloat(QtRefg)*parseFloat(med))).toFixed(2);
+                            let Tf = document.getElementById("Tiradas").value;
+                            let Ts = document.getElementById("Qt_"+$i).value;;
+                            let QtdPrd = ((parseFloat(Tf)*parseFloat(Ts))-parseFloat(QtRefg)).toFixed(2);
+                            let pesRefUnd = (parseFloat(QtRefg)*parseFloat(med)).toFixed(2);
+
+                            document.getElementById("PesUnit_"+$i).value = PesUnd;
+                            console.log("Total de peso Produzido do "+(document.getElementById("Md_"+$i).value)+" :"+PesUnd);
+                            document.getElementById("QunatUnit_"+$i).value = QtdPrd;
+                            console.log("Quantidade produzida do "+(document.getElementById("Md_"+$i).value)+" :"+QtdPrd);
+                            document.getElementById("RefUnit_"+$i).value = pesRefUnd;
+                            console.log("Peso Refugado do "+(document.getElementById("Md_"+$i).value)+" :"+pesRefUnd);
+
+                            
                             if (PesRef > 0) {
                             document.getElementById("Tts3").innerText = "Peso do Refugo: "+PesRef;
                             document.getElementById("Tts5").innerText = "Peso de Produtos Acabados: "+pesAcabado;
@@ -771,6 +820,7 @@ function AbCamps(){
                                 console.log("Solicitado finalizar o jumbo");
                                 document.getElementById("PesPonta").value = "0";
                                 document.getElementById("Tts2").innerText = "Jumbo Finalizado"; 
+                                document.getElementById("Refug").value = "0";
                                 
                                 let NewRef = (parseFloat(difPesop) + parseFloat(PesRef)).toFixed(2)
                                 document.getElementById("PesSegregado").value = NewRef;
