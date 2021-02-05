@@ -9,9 +9,10 @@
 </head>
 <body>
 
-    <script src="/ProdCepelma/Enguine/Main/Rb_FindJumb.js"></script>
+    <!-- <script src="/ProdCepelma/Enguine/Main/Rb_FindJumb.js"></script> -->
     <script src="/ProdCepelma/Enguine/Main/PicOp_Return.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicAj_Return.js"></script>
+    <!-- <script src="/ProdCepelma/Enguine/Main/Valida_Jumbo.js"></script> -->
     <div id="title">
             <h3>Lançamento Rebobinadeira</h3>
         </div>
@@ -79,7 +80,8 @@
                                     <span id="Tts2"></span><br>
                                     <span id="Tts3"></span><br>
                                     <span id="Tts4"></span><br>
-                                    <span id="Tts5"></span>
+                                    <span id="Tts5"></span><br>
+                                    <span id="ReturnGet"></span>
                                     </div>
                                 <div class="flip-card-back">
                                 <h3>Dados do Jumbo</h3>
@@ -173,6 +175,15 @@
 </form>
      <script>
 
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    } 
+}          
+
 var letChar = "";
 
 function FinCh(KD){
@@ -184,35 +195,98 @@ function FinCh(KD){
 }
 
 
-
-     var newdiv ="";
-     var MSgBit ="";
-            console.log(new Date().toLocaleDateString())
-    
-            document.getElementById("D_in").onblur = function Dod_D_Funcion(){
-                   var In = document.getElementById("D_in");
-                   document.getElementById("D_fn").value = document.getElementById("D_in").value;
-                }
-
-            document.getElementById("Jumb").onblur = function GetJumb(){
-                document.getElementById("Load").style.display = 'block';
-                var x = document.getElementById("Jumb").value
-               
-            getDados();
+var newdiv ="";
+var MSgBit ="";
+console.log(new Date().toLocaleDateString())
 
 
-                document.getElementById("Load").style.display = 'none';
- }
-                
-    document.getElementById("H_fn").onblur = function CalcTime(){
-        document.getElementById("Load").style.display = 'block';
-    var dtini = document.getElementById("D_in").value;
-    var hrini = document.getElementById("H_in").value;
-    var dtfin = document.getElementById("D_fn").value;
-    var hrfin = document.getElementById("H_fn").value;
+var Inscale = 
 
-    var prdinicial = dtini+' '+hrini;
-    var prdfinal = dtfin+' '+hrfin;
+document.getElementById("D_in").onblur = function Dod_D_Funcion(){
+var In = document.getElementById("D_in");
+document.getElementById("D_fn").value = document.getElementById("D_in").value;
+GetSnt();
+}
+
+document.getElementById("Jumb").onchange = function GetJumb(){
+var r = document.getElementById("Jumb").value;
+document.getElementById("Load").style.display = 'block';
+var x = document.getElementById("Jumb").value;
+    getDados();
+document.getElementById("Load").style.display = 'none';
+
+}
+
+function getDados() {
+document.getElementById("Load").style.display = 'block';
+
+var nome   = document.getElementById("Jumb").value;
+var result = document.getElementById("ReturnJB");
+var xmlreq = CriaRequest();
+
+xmlreq.open("GET", "Rb_return.php?TxFind=" + nome, true);
+
+xmlreq.onreadystatechange = function(){
+
+
+if (xmlreq.readyState == 4) {
+
+if (xmlreq.status == 200) {
+result.innerHTML = xmlreq.responseText;
+Consulta_JB();
+}else{
+result.innerHTML = "Erro: " + xmlreq.statusText;
+}
+}
+};
+xmlreq.send(null);
+document.getElementById("Load").style.display = 'none';
+}
+
+function Consulta_JB()
+{
+document.getElementById("Load").style.display = 'block';
+ var nome   = document.getElementById("Jumb").value;
+ var result = document.getElementById("ReturnGet");
+ var xmlreq = CriaRequest();
+ xmlreq.open("GET", "Valida_Jumbo.php?TxFind=" + nome, true);
+ xmlreq.onreadystatechange = function(){
+if (xmlreq.readyState == 4) {
+if (xmlreq.status == 200) {
+result.innerHTML = xmlreq.responseText;
+}else{
+result.innerHTML = "Erro: " + xmlreq.statusText;
+}
+}
+}
+ xmlreq.send(null);
+ document.getElementById("Load").style.display = 'none';
+}
+
+// document.getElementById("Jumb").onblur =
+function GetSnt(){
+let $y;
+if (document.getElementById("NewJumbPes") != null){
+$y = document.getElementById("NewJumbPes").value;
+console.log($y);
+if ($y  < 1) {
+document.getElementById("Jumb").value = "";
+document.getElementById("Jumb").select;
+}else{
+document.getElementById("PesJUmb_get").value = document.getElementById("NewJumbPes").value;
+}
+}else{
+}
+}            
+document.getElementById("H_fn").onblur = function CalcTime(){
+document.getElementById("Load").style.display = 'block';
+var dtini = document.getElementById("D_in").value;
+var hrini = document.getElementById("H_in").value;
+var dtfin = document.getElementById("D_fn").value;
+var hrfin = document.getElementById("H_fn").value;
+
+var prdinicial = dtini+' '+hrini;
+var prdfinal = dtfin+' '+hrfin;
 
 const date1 = new Date(prdinicial);
 const date2 = new Date(prdfinal);
@@ -231,8 +305,6 @@ document.getElementById("Tp_Fabric").value = TempPrd;
 
 TpVida();
 TpEspera();
-
-
                 
 var TipP = document.getElementById("Tipo").value;
 let GramP = (parseFloat(document.getElementById("Calc").value)).toFixed(2);

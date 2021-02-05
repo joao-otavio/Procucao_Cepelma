@@ -28,5 +28,10 @@
         break;
       }
     } 
-}
+} 
+
+
+//  function Consulta_JB() {
+
+// }
 
