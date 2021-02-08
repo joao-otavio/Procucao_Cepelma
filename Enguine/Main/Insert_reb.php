@@ -1163,6 +1163,8 @@ if (isset($_POST['Md_2'])) {
               }
             mysqli_close($conn);
 
+            echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
+             
 ?>
     
 </body>

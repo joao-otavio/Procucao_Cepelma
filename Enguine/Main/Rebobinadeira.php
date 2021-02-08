@@ -16,9 +16,9 @@
     <div id="title">
             <h3>Lançamento Rebobinadeira</h3>
         </div>
-        <div id="FormSet">
+<div id="FormSet">
 
-            <form action="Insert_reb.php" id="ReboBinadeiras" name="Lct" method="POST">
+            <form action="Insert_reb.php" id="ReboBinadeiras" name="Lct" method="POST" novalidate>
 
             <div class="Content" id="Content">
                 <div id="EquipamentoD">
@@ -130,7 +130,7 @@
         <div id="LoadSh"><img src="/ProdCepelma/Enguine/pic/Loading_2.gif" id="Load"></div>
         
         </div>
-
+    
         <input type="text" id="Tp_Fabric" name="Tp_Fabric" hidden>
         <input type="text" id="TempVida" name="TempVida" hidden>
         <input type="text" id="TempEspera" name="TempEspera" hidden>
@@ -173,8 +173,9 @@
 
 
 </form>
-     <script>
 
+
+<script>
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -385,6 +386,7 @@ document.getElementById("Load").style.display = 'none';
 
 
 function AbCamps(){
+    document.getElementById("Dados").innerHTML="";
     document.getElementById("Load").style.display = 'block';
 
     // var select = document.getElementById('Conf');
@@ -400,7 +402,6 @@ function AbCamps(){
         const element = Returns[i];
         var MySubStr = element;
         var camp = MySubStr.split("-")
-
         var MyDiv = document.createElement('div');
         MyDiv.id = "Spl_"+$i;
         MyDiv.innerHTML += '<label for="Md_'+$i+'">Medida: </label>';

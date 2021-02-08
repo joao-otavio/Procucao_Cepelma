@@ -15,10 +15,13 @@
 <div id="Buttons">
 <span>Menu</span>
 <br>
-<button id="Buts">MP</button>
+<button id="Buts" onclick="SendMP();">MP</button>
 <button id="Buts">Cortadeira</button>
-<button id="Buts">Rebobinadeira</button>
-<button id="Buts">Balança</button>
+<button id="Buts" onclick="SendRB();">Rebobinadeira</button>
+<button id="Buts" >Balança</button>
+<button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
+<button id="Buts" onclick="SendConf_RB();">Config Rb</button>
+
 </div>
 <div id="Conteudo">
 <span>Lançamentos MP</span>
@@ -101,16 +104,26 @@ print "</tbody></table>";
 </div>
 
 <script>
-// document.getElementById("popup").src="/ProdCepelma/Enguine/Main/Return_Resume.js";
 
+function SendPop(){
+  window.open('Cadastra_op.php', '_blank');
+}
+function SendMP(){
+  window.open('Mp.php', '_blank');
+}
+function SendRB(){
+  window.open('Rebobinadeira.php', '_blank');
+}
+
+function  SendConf_RB(){
+  window.open('Cadastra_PD_CORTE.php', '_blank');
+}
 
 function Sending(SendIt){
 document.getElementById("JBSend").value = SendIt;
 document.forms["SendForm"].submit();
 }
 
-
-// When the user clicks on <div>, open the popup
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
