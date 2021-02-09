@@ -25,9 +25,9 @@
                 <label for="Equipamento">Rebobinadeira:</label>
                
                 <select name="Equipamento" class="Inpts2" id="Equipamento" onblur="FinCh(this.value)" required>
-                    <option value=""></option> 
-                   <option value="Rebobinadeira 1">Rebobinadeira 1</option> 
-                   <option value="Rebobinadeira 2">Rebobinadeira 2</option> 
+                <option value=""></option> 
+                <option value="Rebobinadeira 1">Rebobinadeira 1</option> 
+                <option value="Rebobinadeira 2">Rebobinadeira 2</option> 
                 </select>
                 </div>
 
@@ -99,6 +99,7 @@
              <br>
              <br>
              <br>
+             <br>
 
                <div id="Medidas">
                    <div id="Mescl1">
@@ -123,6 +124,8 @@
                 <div id="Buttons">
                     <input type="submit" class="BuTs" value="Enviar">
                     <input type="reset" class="BuTs" value="Resetar">
+                    <button type="button" onclick="Includ_OP()" data-modal-target="#modal" class="BuTs">Cadastrar Op.</button>
+                    <button type="button" onclick="Includ_CF()" data-modal-target="#modal" class="BuTs">Config Rb</button>
                 </div>
         
         <br>
@@ -172,9 +175,24 @@
         <input type="number" class="Inpts" id="RefUnit_5" value="0" name="RefUnit_5" hidden>
 
 
+<div class="modal" id="modal">
+<div class="modal-header">
+<div class="title">SkyBry - Modal</div>
+<button data-close-button class="close-button">&times;</button>
+</div>
+<div class="modal-body" id="modal-body"> 
+</div>
+</div>
+<div id="overlay"></div>
+
+<div hidden id="Ct1">
+<?php include "Cadastra_op.php";?>
+</div>
+<div hidden id="Ct2">
+<?php include "Cadastra_PD_CORTE.php";?>
+</div>
+
 </form>
-
-
 <script>
 function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -923,8 +941,17 @@ function AbCamps(){
                             }
                             document.getElementById("Load").style.display = 'none';
                             }      
-                            
 
+    function Includ_OP(){
+    var x = document.getElementById("Ct1").innerHTML;
+    document.getElementById("modal-body").innerHTML = x;
+    }
+
+    function Includ_CF(){
+    var x = document.getElementById("Ct2").innerHTML;
+    document.getElementById("modal-body").innerHTML = x;
+    }
+                            
 </script>   
 </body>
 </html>

@@ -15,7 +15,7 @@
     <div class="Select">
     <?php
     print "<form class=\"Selecao\" method=\"post\" action=\"Up_opers.php\" name=\"SelectF\" autocomplete=\"on\">";
-    print "<select class=\"Inpts\" name=\"RegFunc\" id=\"inputGroupSelect01\" placeholder=\"Selecione...\">";
+    print "<select class=\"Inpts\" name=\"RegFunc\" placeholder=\"Selecione...\">";
     $servername = "localhost:3308";
     $username = "root";
     $password = "";
@@ -40,7 +40,7 @@
     print "<option value=\"$nomeFuncionarios-$images\">$nomeFuncionarios</option >";
     }
     }
-    print "<input type=\"submit\" name=\"Selectd\" id=\"Selectd\" class =\"BuTs\" required hidden><br>";
+    print "<input type=\"submit\" name=\"Selectd\" class =\"BuTs\" required hidden><br>";
     print "<hr><br>";
     print "";
     $conn->close();
@@ -49,7 +49,7 @@
 </div>
 <div id="Frames">
 <h3>Equipamento: </h3>
-<select name="Equipamento" id="Equipamento">
+<select name="Equipamento" id="EquipamentoC">
     <option value="MP">Maquina de Papel</option>
     <option value="RB">Rebobinadeira</option>
     <option value="CT">Cortadeira</option>

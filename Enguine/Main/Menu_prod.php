@@ -17,30 +17,26 @@
 <button id="Buts" onclick="SendRB();">Rebobinadeira</button>
 <button id="Buts">Cortadeira</button>
 <button id="Buts" >Balança</button>
-<!-- <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
-<button id="Buts" onclick="SendConf_RB();">Config Rb</button> -->
-<button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
+<button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
+<button id="Buts" onclick="SendConf_RB();">Config Rb</button>
+<!-- <button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
 <button id="Buts" onclick="Includ_CF()" data-modal-target="#modal">Config Rb</button>
+  -->
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">SkyBry - Modal</div>
       <button data-close-button class="close-button">&times;</button>
     </div>
-    <div class="modal-body" id="modal-body">
-      
+    <div class="modal-body" id="modal-body">   
     </div>
   </div>
   <div id="overlay"></div>
-</body>
-
 <div hidden id="Ct1">
 <?php include "Cadastra_op.php";?>
 </div>
-
 <div hidden id="Ct2">
 <?php include "Cadastra_PD_CORTE.php";?>
 </div>
-
 </div>
 <div id="Conteudo">
 <span><h4>Lançamentos MP </h4></span>
