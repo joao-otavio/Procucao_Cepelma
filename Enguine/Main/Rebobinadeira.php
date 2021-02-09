@@ -124,8 +124,8 @@
                 <div id="Buttons">
                     <input type="submit" class="BuTs" value="Enviar">
                     <input type="reset" class="BuTs" value="Resetar">
-                    <button type="button" onclick="Includ_OP()" data-modal-target="#modal" class="BuTs">Cadastrar Op.</button>
-                    <button type="button" onclick="Includ_CF()" data-modal-target="#modal" class="BuTs">Config Rb</button>
+                    <!-- <button type="button" onclick="Includ_OP()" data-modal-target="#modal" class="BuTs">Cadastrar Op.</button>
+                    <button type="button" onclick="Includ_CF()" data-modal-target="#modal" class="BuTs">Config Rb</button> -->
                 </div>
         
         <br>
@@ -951,7 +951,44 @@ function AbCamps(){
     var x = document.getElementById("Ct2").innerHTML;
     document.getElementById("modal-body").innerHTML = x;
     }
-                            
+             
+    const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
 </script>   
 </body>
 </html>
