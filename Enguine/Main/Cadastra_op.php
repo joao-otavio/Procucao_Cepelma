@@ -57,7 +57,7 @@
 </div>
 <br>
 <hr>
-<a onclick="myAdiantamento();return false;" href="#">Cadastrar Funcionario</a>
+<a onclick="myAdiantamento();return false;" href="" target="_blank">Cadastrar Funcionario</a>
 <div class="Funcionario" id="FuncionarioReg">
 </div>
 </form>
