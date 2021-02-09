@@ -13,18 +13,37 @@
 <h1>Menu Produção</h1>
 </div>
 <div id="Buttons">
-<span>Menu</span>
-<br>
 <button id="Buts" onclick="SendMP();">MP</button>
-<button id="Buts">Cortadeira</button>
 <button id="Buts" onclick="SendRB();">Rebobinadeira</button>
+<button id="Buts">Cortadeira</button>
 <button id="Buts" >Balança</button>
-<button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
-<button id="Buts" onclick="SendConf_RB();">Config Rb</button>
+<!-- <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
+<button id="Buts" onclick="SendConf_RB();">Config Rb</button> -->
+<button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
+<button id="Buts" onclick="Includ_CF()" data-modal-target="#modal">Config Rb</button>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">SkyBry - Modal</div>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      
+    </div>
+  </div>
+  <div id="overlay"></div>
+</body>
+
+<div hidden id="Ct1">
+<?php include "Cadastra_op.php";?>
+</div>
+
+<div hidden id="Ct2">
+<?php include "Cadastra_PD_CORTE.php";?>
+</div>
 
 </div>
 <div id="Conteudo">
-<span>Lançamentos MP</span>
+<span><h4>Lançamentos MP </h4></span>
 <div id="Table">
 <?php
 print "<table border='1' id = 'Table'>";
@@ -105,8 +124,19 @@ print "</tbody></table>";
 
 <script>
 
+function Includ_OP(){
+var x = document.getElementById("Ct1").innerHTML;
+document.getElementById("modal-body").innerHTML = x;
+}
+
+function Includ_CF(){
+  var x = document.getElementById("Ct2").innerHTML;
+document.getElementById("modal-body").innerHTML = x;
+}
+
 function SendPop(){
   window.open('Cadastra_op.php', '_blank');
+pup.show();
 }
 function SendMP(){
   window.open('Mp.php', '_blank');
@@ -127,6 +157,43 @@ document.forms["SendForm"].submit();
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
+}
+
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
 }
 
 
