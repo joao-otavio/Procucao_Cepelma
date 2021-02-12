@@ -1,0 +1,13 @@
+.Container{
+    width: 620px;
+    border: solid 1px blue ;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.Container:hover{
+    border: solid 1px darkred ;
+    padding-left: 10px;
+
+}
