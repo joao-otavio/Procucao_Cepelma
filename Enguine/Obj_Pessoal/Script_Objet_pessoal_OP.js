@@ -29,23 +29,15 @@
       }
     } 
 } 
-function Get_Pic_AJ(OP_Pic){
-    document.getElementById("Load").style.display = 'block';
-    var popup = document.getElementById("PicAj");
+function Get_Pic_OP (OP_Pic){
+    var popup = document.getElementById("PicOp");
     popup.classList.toggle("show");
-
      var nome   = OP_Pic;
-     var result = document.getElementById("PicAj");
+     var result = document.getElementById("PicOp");
      var xmlreq = CriaRequest();
-
-     xmlreq.open("GET", "PicAj_set.php?TxFind=" + nome, true);
-
-
+     xmlreq.open("GET", "Return_objet_Pessoal_op.php?TxFind=" + nome, true);
      xmlreq.onreadystatechange = function(){
-
-
          if (xmlreq.readyState == 4) {
-
              if (xmlreq.status == 200) {
                  result.innerHTML = xmlreq.responseText;
              }else{
@@ -54,6 +46,5 @@ function Get_Pic_AJ(OP_Pic){
          }
      };
      xmlreq.send(null);
-     document.getElementById("Load").style.display = 'none';
 }
 

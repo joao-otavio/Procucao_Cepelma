@@ -18,7 +18,7 @@
 
 <div class="Container" id="Pessoal">
 <div>
-<!-- #Include -->
+<?php include "../Obj_Pessoal/Objet_pessoal.php"; ?>
 </div>
 </div>
 

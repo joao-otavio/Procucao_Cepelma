@@ -1,13 +1,10 @@
-
- function CriaRequest() {
+function CriaRequest() {
     try{
          request = new XMLHttpRequest();
      }catch (IEAtual){
-
          try{
              request = new ActiveXObject("Msxml2.XMLHTTP");
          }catch(IEAntigo){
-
              try{
                  request = new ActiveXObject("Microsoft.XMLHTTP");
              }catch(falha){
@@ -15,11 +12,10 @@
              }
          }
      }
-
      if (!request)
-         alert("Seu Navegador não suporta Ajax!");
+    alert("Seu Navegador não suporta Ajax!");
      else
-         return request;
+    return request;
  }
  function sleep(milliseconds) {
     var start = new Date().getTime();
@@ -30,15 +26,13 @@
     } 
 } 
 function Get_Pic_AJ(OP_Pic){
-    document.getElementById("Load").style.display = 'block';
     var popup = document.getElementById("PicAj");
     popup.classList.toggle("show");
-
      var nome   = OP_Pic;
      var result = document.getElementById("PicAj");
      var xmlreq = CriaRequest();
 
-     xmlreq.open("GET", "PicAj_set.php?TxFind=" + nome, true);
+     xmlreq.open("GET", "Return_objet_Pessoal_AJ.php?TxFind=" + nome, true);
 
 
      xmlreq.onreadystatechange = function(){
@@ -54,6 +48,5 @@ function Get_Pic_AJ(OP_Pic){
          }
      };
      xmlreq.send(null);
-     document.getElementById("Load").style.display = 'none';
 }
 
