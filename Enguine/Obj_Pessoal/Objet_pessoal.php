@@ -13,8 +13,9 @@
 <hr>
 <div id="Busca_php_pessoal">
 <?php
+log()
 $servername = "localhost:3308";
-$username = "root";
+$username = "root"; 
 $password = "";
 $dbname = "producao";
 $conn = new mysqli($servername, $username, $password, $dbname);
