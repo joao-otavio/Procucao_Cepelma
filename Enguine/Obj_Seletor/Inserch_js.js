@@ -47,8 +47,11 @@
     function empty(id) {
         if (id == "brandsOne" && selectBox != null) {
             selectBox.empty();
+            document.getElementById("Selects").value = "";
+
         } else if (id == "brandsMulti" && selectBox2 != null) {
             selectBox2.empty();
+            document.getElementById("Selects").value = "";
         }
     }
     function doDestroy(id) {
@@ -116,22 +119,22 @@ if (id == "brandsMulti") {
     init("brandsOne");
     init("brandsMulti");
 	init("brandsMultiStay");
-    selectBoxTest = new vanillaSelectBox("#demoShort", {
-        "maxHeight": 200, 
-        "search": true ,
-        "translations": { "all": "All", "items": "items","selectAll":"Check All","clearAll":"Clear All"}
-    });
+    // selectBoxTest = new vanillaSelectBox("#demoShort", {
+    //     "maxHeight": 200, 
+    //     "search": true ,
+    //     "translations": { "all": "All", "items": "items","selectAll":"Check All","clearAll":"Clear All"}
+    // });
 	
 let allCountries = [];
 let timeTag = new Date().getTime();
-document.getElementById("ajaxDemoLink").setAttribute('href','ajaxDemo.html?v='+timeTag);
-let selectCountries = document.getElementById("allCountries");
-for (var i = 0;i < allCountries.length;i++) {
-    var option = document.createElement("option");
-    option.value = allCountries[i].code;
-    option.text = allCountries[i].name;
-    selectCountries.appendChild(option);
-}
-let selectBox4 = new vanillaSelectBox("#allCountries", { "maxHeight": 200, "search": true,"stayOpen":true,translations: { "all": "All", "items": "Countries" } });
-let selecDino = new vanillaSelectBox("#dino-select",{ "maxHeight": 200, translations: { "all": "All", "items": "Dinos" } });
+// document.getElementById("ajaxDemoLink").setAttribute('href','ajaxDemo.html?v='+timeTag);
+// let selectCountries = document.getElementById("allCountries");
+// for (var i = 0;i < allCountries.length;i++) {
+//     var option = document.createElement("option");
+//     option.value = allCountries[i].code;
+//     option.text = allCountries[i].name;
+//     selectCountries.appendChild(option);
+// }
+// let selectBox4 = new vanillaSelectBox("#allCountries", { "maxHeight": 200, "search": true,"stayOpen":true,translations: { "all": "All", "items": "Countries" } });
+// let selecDino = new vanillaSelectBox("#dino-select",{ "maxHeight": 200, translations: { "all": "All", "items": "Dinos" } });
         

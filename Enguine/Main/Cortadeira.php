@@ -18,7 +18,6 @@
 
 <div class="Container" id="Selector">
 <div>
-<!-- Selector.php -->
 <?php include "../Obj_Seletor/Selector.php"; ?>
 </div>
 </div>
@@ -37,15 +36,13 @@
 
 <div class="Container" id="Trabalho">
 <div>
-<!-- Objet_bancas.php -->
 <?php include "../Obj_Bancas/Objet_bancas.php"; ?>
-
 </div>
 </div>
 
-<div class="Container" id="Alerts">
+<div class="Container" id="Finalizada">
 <div>
-<!-- #Include -->
+<?php include "../Obj_Finalizada_Carga/Finalizada.php"; ?>
 </div>
 </div>
     
