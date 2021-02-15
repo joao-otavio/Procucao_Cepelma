@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector</title>
-    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Seletor/StyleSelector.css">
-    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Seletor/SelectorMod.css">
+    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Obj_Seletor/StyleSelector.css">
+    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Obj_Seletor/SelectorMod.css">
 
 </head>
 <body>
@@ -143,7 +143,7 @@ let lokeds = string_FinalizadosArr.split("|");
 
 </script>
 
-<script src="/ProdCepelma/Enguine/Seletor/SelectorMod.js"></script>
-<script src="/ProdCepelma/Enguine/Seletor/Inserch_js.js"></script>
+<script src="/ProdCepelma/Enguine/Obj_Seletor/SelectorMod.js"></script>
+<script src="/ProdCepelma/Enguine/Obj_Seletor/Inserch_js.js"></script>
 </body>
 </html>
