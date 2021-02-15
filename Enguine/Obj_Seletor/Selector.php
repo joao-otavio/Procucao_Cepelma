@@ -18,14 +18,14 @@
 		<select id="brandsMulti" multiple size="3"></select>
 		<hr>
 		<div class="btns-active">
-			<button class="Buts" onClick="empty('brandsMulti')">Limpar</button><br>
+			<button type="button" class="Buts" onClick="empty('brandsMulti')">Limpar</button><br>
 			<!-- <button class="Buts" onClick="setValues('brandsMulti',['Lamborghini','Land Rover'])">setValue(['Lamborghini','Land Rover'])</button> -->
 			<!-- <button class="Buts" onClick="setValues('brandsMulti','all')">Selecionar Todos</button><br> -->
 			<!-- <button class="Buts" onClick="setEnable('brandsMulti',false)">disable()</button>
 			<button class="Buts" onClick="setEnable('brandsMulti',true)">enable()</button>
 			<button class="Buts" onClick="doDestroy('brandsMulti')">destroy()</button> -->
 			<br>
-			<button  class="Buts" style="width:140px;" onClick="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');">Confirmar Jumbos</button>
+			<button type="button"  class="Buts" style="width:140px;" onClick="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');">Confirmar Jumbos</button>
 &nbsp;
 &nbsp;
 &nbsp;
@@ -36,7 +36,7 @@
     </div>
 <br>
 <hr>
-<input type="text" name="Selects" id="Selects" class="selectable">
+<input type="text" name="Selects" id="Selects" class="selectable" onchange="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');" required>
 	<span id="brandsMultiChoice"></span>
 </div>
 <?php

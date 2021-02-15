@@ -79,6 +79,9 @@ CheckFin.checked = false;
         }
     }
 
+    }else{
+        FatherDiv.innerHTML = "";
+
     }
 }
 

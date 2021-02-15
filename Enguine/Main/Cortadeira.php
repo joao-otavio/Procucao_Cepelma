@@ -15,7 +15,7 @@
 <h3>Lançamento Cortadeira</h3>
 </div>
 </div>
-
+<form action="" method="POST">
 <div class="Container" id="Selector">
 <div>
 <?php include "../Obj_Seletor/Selector.php"; ?>
@@ -28,7 +28,7 @@
 </div>
 </div>
 
-<div class="Container" id="Seletor">
+<div class="Container" id="Data">
 <div>
 <?php include "../Obj_Data/Objet_data.php"; ?>
 </div>
@@ -45,6 +45,16 @@
 <?php include "../Obj_Finalizada_Carga/Finalizada.php"; ?>
 </div>
 </div>
+
+
+<div class="Container" id="Buttons">
+<div>
+<input type="submit" value="Enviar" name="Send" class="Buts">
+<input type="reset" value="Limpar" name="Send" class="Buts">
+</div>
+</div>
+
+</form>
     
 </body>
 </html>

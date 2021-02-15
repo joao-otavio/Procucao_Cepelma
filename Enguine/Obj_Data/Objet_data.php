@@ -18,13 +18,13 @@
 <div id="Inputs_Objet_data">
 <label for="D_in">Data/Hora de Inicio:</label>
 <br>
-<input type="date" id="D_in" name="D_in" class="Inpts" onchange="CalcTime()" require>
-<input type="time" id="H_in" name="H_in" class="Inpts" onchange="CalcTime()" require>
+<input type="date" id="D_in" name="D_in" class="Inpts" onchange="CalcTime()" required>
+<input type="time" id="H_in" name="H_in" class="Inpts" onchange="CalcTime()" required>
 <br>
 <label for="D_fn">Data/Hora de Fim:   </label>
 <br>
-<input type="date" id="D_fn" name="D_fn" class="Inpts" onchange="CalcTime()" require>
-<input type="time" id="H_fn" name="H_fn" class="Inpts" onchange="CalcTime()" require>
+<input type="date" id="D_fn" name="D_fn" class="Inpts" onchange="CalcTime()" required>
+<input type="time" id="H_fn" name="H_fn" class="Inpts" onchange="CalcTime()" required>
 </div>
 <input type="text" id="Tempo_Produtivo" name="Tempo_Produtivo" class="Inpts" hidden>
 </div>
