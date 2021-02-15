@@ -10,16 +10,16 @@
 </head>
 <body>
 
+<div class="Container_Major" id="Trabalho">
+<div>
+<h3>Lançamento Cortadeira</h3>
+</div>
+</div>
+
 <div class="Container" id="Selector">
 <div>
 <!-- Selector.php -->
 <?php include "../Seletor/Selector.php"; ?>
-</div>
-</div>
-
-<div class="Container" id="Seletor">
-<div>
-<?php include "../Obj_Data/Objet_data.php"; ?>
 </div>
 </div>
 
@@ -29,6 +29,11 @@
 </div>
 </div>
 
+<div class="Container" id="Seletor">
+<div>
+<?php include "../Obj_Data/Objet_data.php"; ?>
+</div>
+</div>
 
 <div class="Container" id="Trabalho">
 <div>

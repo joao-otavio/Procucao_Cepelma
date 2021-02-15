@@ -4,6 +4,7 @@
     border-radius: 15px;
     padding: 10px;
     margin: 5px;
+    float: left;
 }
 
 .Container:hover{
@@ -11,3 +12,12 @@
     padding-left: 15px;
 
 }
+
+.Container_Major{
+    width: 920px;
+    border: solid 1px blue ;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+}
+
