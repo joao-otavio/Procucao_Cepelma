@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<div class="Container" id="Selector">
+<div>
+<!-- Selector.php -->
+<?php include "../Seletor/Selector.php"; ?>
+</div>
+</div>
+
 <div class="Container" id="Seletor">
 <div>
 <?php include "../Obj_Data/Objet_data.php"; ?>
@@ -22,11 +29,6 @@
 </div>
 </div>
 
-<div class="Container" id="Data">
-<div>
-<!-- #Include -->
-</div>
-</div>
 
 <div class="Container" id="Trabalho">
 <div>

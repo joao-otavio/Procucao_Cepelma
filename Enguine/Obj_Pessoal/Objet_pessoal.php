@@ -13,7 +13,6 @@
 <hr>
 <div id="Busca_php_pessoal">
 <?php
-log()
 $servername = "localhost:3308";
 $username = "root"; 
 $password = "";

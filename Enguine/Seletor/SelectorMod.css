@@ -1,0 +1,181 @@
+.darkRed {
+    color: darkred;
+}
+
+.darkBlue {
+    color: darkblue;
+}
+
+.navbar {
+    position: relative;
+    border: 1px solid #080808;
+    background-color: #222;
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+    background-repeat: repeat-x;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 14px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.navbar-links {
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    margin: 0;
+}
+
+    .navbar-links li {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .navbar-links li {
+        display: inline-block;
+        min-width: 120px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+        .navbar-links li.active {
+            background-image: #080808;
+            background: #080808;
+            color: #fff;
+            height: 100%;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin: 0;
+        }
+
+a {
+    color: #9d9d9d;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 640px) {
+    .navbar-brand {
+        width: 100%;
+    }
+
+    .navbar-links {
+        padding-left: 0;
+    }
+
+    button.demo {
+        margin-right: 100% !important;
+    }
+}
+
+#container {
+    padding-top: 30px;
+    padding-left: 50px;
+    width: 90%;
+    font-size: 14px;
+}
+
+.demo-zone {
+    display: block;
+    width: 100%;
+    min-height: 200px;
+}
+
+.mini-demo-zone {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+}
+
+.btns-active, .btns-inactive {
+    margin-top: 20px;
+}
+
+label {
+    display: inline-block;
+    min-width: 220px;
+    width: 220px;
+}
+
+button.demo,a.demo {
+    margin-right: 0;
+    margin-left: 4px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border-radius: 4px;
+    z-index: 1;
+    color: #333;
+    background: white;
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    border: 1px solid #ccc !important;
+    color: #333;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 4px 12px;
+    margin-bottom: 2px;
+}
+
+    button.demo:hover {
+        background-image: linear-gradient(to top,#fff 0,#e0e0e0 100%);
+    }
+
+.presentation {
+    background: #eee;
+    color: #2e44b9;
+    border: 1px solid grey;
+    border-radius: 8px;
+    line-height: 20px;
+    padding: 8px;
+    margin-bottom: 40px;
+    width: 90%;
+    max-width: 800px;
+    font-size: 14px;
+}
+
+.Buts:hover{
+    border-radius: 0;
+    width: 140px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+  }
+  
+  .Buts:focus{
+    border-radius: 0;
+    width: 140px;
+    border: solid 1px black;
+    background-color: rgb(148, 233, 227);
+  }
+
+  .Buts{
+    border-radius: 15px;
+    width: 140px;
+    border: solid 1px black;
+    background-color: rgb(186, 218, 216);
+  }
+
+  
+.selectable{
+    width: 250px; 
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+.selectable:focus{
+    background-color: rgb(186, 218, 216);
+    border-radius: 0px;   
+  }
