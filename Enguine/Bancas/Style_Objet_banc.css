@@ -1,0 +1,11 @@
+.Inpts{
+    width: 135px; 
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+  .Inpts:focus{
+    background-color: rgb(186, 218, 216);
+    border-radius: 0px;   
+  }

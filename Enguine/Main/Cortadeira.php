@@ -37,7 +37,9 @@
 
 <div class="Container" id="Trabalho">
 <div>
-<!-- #Include -->
+<!-- Objet_bancas.php -->
+<?php include "../Bancas/Objet_bancas.php"; ?>
+
 </div>
 </div>
 
