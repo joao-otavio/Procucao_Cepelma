@@ -18,13 +18,13 @@
 <div id="Inputs_Objet_data">
 <label for="D_in">Data/Hora de Inicio:</label>
 <br>
-<input type="date" id="D_in" name="D_in" class="Inpts" onchange="CalcTime('1')" required>
-<input type="time" id="H_in" name="H_in" class="Inpts" onchange="CalcTime('2')" required>
+<input type="date" id="D_in" name="D_in" class="Inpts" onblur="CalcTime('1')" required>
+<input type="time" id="H_in" name="H_in" class="Inpts" onblur="CalcTime('2')" required>
 <br>
 <label for="D_fn">Data/Hora de Fim:   </label>
 <br>
-<input type="date" id="D_fn" name="D_fn" class="Inpts" onchange="CalcTime('3')" required>
-<input type="time" id="H_fn" name="H_fn" class="Inpts" onchange="CalcTime('4')" required>
+<input type="date" id="D_fn" name="D_fn" class="Inpts" onblur="CalcTime('3')" required>
+<input type="time" id="H_fn" name="H_fn" class="Inpts" onblur="CalcTime('4')" required>
 </div>
 <input type="text" id="Tempo_Produtivo" name="Tempo_Produtivo" class="Inpts" hidden>
 </div>
@@ -32,22 +32,22 @@
 
 <script>
 
-document.getElementById("D_in").onblur = function MyLog1(){
+function MyLog1(){
     VaLog = document.getElementById("D_in").value;
     console.log("Data de Inicio: " + VaLog)
 }
 
-document.getElementById("H_in").onblur = function MyLog2(){
+function MyLog2(){
     VaLog = document.getElementById("H_in").value;
     console.log("Hora de Inicio: " + VaLog)
 }
 
-document.getElementById("D_fn").onblur = function MyLog3(){
+function MyLog3(){
     VaLog = document.getElementById("D_fn").value;
     console.log("Data de Fim: " + VaLog)
 }
 
-document.getElementById("H_fn").onblur = function MyLog4(){
+function MyLog4(){
     VaLog = document.getElementById("H_fn").value;
     console.log("Hora de Fim: " + VaLog)
 }

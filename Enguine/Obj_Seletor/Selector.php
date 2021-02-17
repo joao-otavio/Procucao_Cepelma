@@ -14,8 +14,8 @@
 
 <div id="Containt">
 <div class="demo-zone" id="demo-multiple">
-		<label><h2>Seleção de Jumbos: </h2></label>
-		<br><hr>
+		<label><h3>Seleção de Jumbos: </h3></label>
+		<hr>
 		<select id="brandsMulti" multiple size="3"></select>
 		<hr>
 		<div class="btns-active">
