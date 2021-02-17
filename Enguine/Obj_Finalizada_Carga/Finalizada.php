@@ -14,6 +14,7 @@
 <div class="Box_saldos" id="Box_saldos">
 <input type="checkbox" name="Confirm_Ck" id="Confirm_Ck" onclick="Finalizado();">
 <label for="Confirm_Ck"><strong>Finalizada</strong></label>
+<input type="text" name="NumLups" id="NumLups" value="0" hidden>
 <br>
 <hr>
 <br>
@@ -33,10 +34,12 @@ var Selectables = document.getElementById("Selects").value;
 if (Selectables == ""){
 alert("Selecione os jumbos!");
 CheckFin.checked = false;
+document.getElementById("NumLups").value = 0;
 }else{
         const ArrJumbos = Selectables.split(" / ")
         console.log(ArrJumbos);
 
+        var x = 0; 
         for (let i = 0; i < ArrJumbos.length; i++) {
             const element = ArrJumbos[i];
             var Brl, Lin, Jbl, Jbv, Sdl, Sdv;
@@ -65,7 +68,7 @@ CheckFin.checked = false;
             Sdv.setAttribute("class", "Inpts");
             Sdv.setAttribute("id", "Sd_"+element);
             Sdv.setAttribute("value", "0");
-            
+                     
 
             FatherDiv.append("Jumbo: "+element+" ");
             FatherDiv.appendChild(Brl);
@@ -75,15 +78,21 @@ CheckFin.checked = false;
             FatherDiv.appendChild(Sdv);
             FatherDiv.appendChild(lin);
             FatherDiv.appendChild(Brl);
-
+            x = x + 1;
+            console.log("Adicionado Jumbo "+ element +" para Informar Saldo Restante")
         }
+        document.getElementById("NumLups").value = x;
     }
 
     }else{
         FatherDiv.innerHTML = "";
+        console.log("Alterado estatus de Acabado da Carga, Removidos Campos de Saldo dos jumbos!")
 
     }
 }
+
+
+
 
 </script>
 

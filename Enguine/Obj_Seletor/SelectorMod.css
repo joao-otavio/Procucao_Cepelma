@@ -146,28 +146,7 @@ button.demo,a.demo {
     font-size: 14px;
 }
 
-.Buts:hover{
-    border-radius: 0;
-    width: 140px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-  }
-  
-  .Buts:focus{
-    border-radius: 0;
-    width: 140px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-  }
-
-  .Buts{
-    border-radius: 15px;
-    width: 140px;
-    border: solid 1px black;
-    background-color: rgb(186, 218, 216);
-  }
-
-  
+ 
 .selectable{
     width: 250px; 
     border-radius: 8px;

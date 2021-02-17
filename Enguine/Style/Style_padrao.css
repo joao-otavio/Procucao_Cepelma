@@ -1,23 +1,37 @@
+body{
+    background: url(../pic/SkyBry.jpg) no-repeat left top fixed transparent;
+    overflow: hidden;
+    background-size: 800px;
+    
+}
+
 .Container{
     width: 420px;
-    border: solid 1px blue ;
+    border: solid 1px royalblue ;
     border-radius: 15px;
     padding: 10px;
-    margin: 5px;
+    margin: 3px;
+    background: rgba(255, 255, 255, 0.747) ;
     float: left;
+ 
 }
 
 .Container:hover{
-    border: solid 1px darkred ;
-    padding-left: 15px;
-
+    border: solid 2px dodgerblue;
+    padding-left: 11px;
+  
 }
 
 .Container_Major{
     width: 871px;
-    border: solid 1px blue ;
+    border: solid 1px royalblue ;
     border-radius: 15px;
     padding: 10px;
     margin: 5px;
+    background: rgba(255, 255, 255, 0.747) ;
 }
 
+.Flowless{
+    overflow: auto;
+    height: 700px;
+}

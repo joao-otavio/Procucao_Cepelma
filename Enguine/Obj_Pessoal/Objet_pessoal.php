@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 print "<div id =\"Opers\">";
 print "<Div id=\"Operador\">";
 print "<Div id=\"PicOp\"></div>";
-$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'RB'";
+$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = '$Param'";
 $result = $conn->query($sql);
 $MyArray = array();
 if ($result->num_rows > 0) {
@@ -51,7 +51,7 @@ print "</div>";
 }
 print "<Div id=\"Ajudante\">";
 print "<Div id=\"PicAj\"></div>";
-$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = 'RB'";
+$sql = "SELECT Cod, Nome, Scan FROM operadores where Equipamento = '$Param'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   print "<label for=\"Ajudante\">Ajudante: </label>";

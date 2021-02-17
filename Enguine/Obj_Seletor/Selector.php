@@ -7,6 +7,7 @@
     <title>Selector</title>
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Obj_Seletor/StyleSelector.css">
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Obj_Seletor/SelectorMod.css">
+    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Reference_Icon/Incons_style_buttons.css">
 
 </head>
 <body>
@@ -18,14 +19,15 @@
 		<select id="brandsMulti" multiple size="3"></select>
 		<hr>
 		<div class="btns-active">
-			<button type="button" class="Buts" onClick="empty('brandsMulti')">Limpar</button><br>
+      
+			<button type="button" class="Buts" onClick="empty('brandsMulti')"><i class="excluir"></i><small class="Sm">Limpar</small></button><br>
 			<!-- <button class="Buts" onClick="setValues('brandsMulti',['Lamborghini','Land Rover'])">setValue(['Lamborghini','Land Rover'])</button> -->
 			<!-- <button class="Buts" onClick="setValues('brandsMulti','all')">Selecionar Todos</button><br> -->
 			<!-- <button class="Buts" onClick="setEnable('brandsMulti',false)">disable()</button>
 			<button class="Buts" onClick="setEnable('brandsMulti',true)">enable()</button>
 			<button class="Buts" onClick="doDestroy('brandsMulti')">destroy()</button> -->
 			<br>
-			<button type="button"  class="Buts" style="width:140px;" onClick="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');">Confirmar Jumbos</button>
+			<button type="button"  class="Buts" onClick="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');"><i class="confirmado"></i><small class="Sm">Confirmar</small></button>
 &nbsp;
 &nbsp;
 &nbsp;

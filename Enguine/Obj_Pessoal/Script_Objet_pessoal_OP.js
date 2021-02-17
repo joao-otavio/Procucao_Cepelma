@@ -40,6 +40,8 @@ function Get_Pic_OP (OP_Pic){
          if (xmlreq.readyState == 4) {
              if (xmlreq.status == 200) {
                  result.innerHTML = xmlreq.responseText;
+                 console.log("operador:" + nome)
+
              }else{
                  result.innerHTML = "Erro: " + xmlreq.statusText;
              }

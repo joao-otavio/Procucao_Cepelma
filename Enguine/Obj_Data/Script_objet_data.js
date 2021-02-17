@@ -1,4 +1,4 @@
-function CalcTime(){
+function CalcTime( Param){
     var dtini = document.getElementById("D_in").value;
     var hrini = document.getElementById("H_in").value;
     var dtfin = document.getElementById("D_fn").value;
@@ -21,11 +21,21 @@ function CalcTime(){
     var TempPrd = Hrs +":"+ mints;
     }
     document.getElementById("Tempo_Produtivo").value = TempPrd;
-      
-    var TipP = document.getElementById("Tipo").value;
-    let GramP = (parseFloat(document.getElementById("Calc").value)).toFixed(2);
-    let Tesp = document.getElementById("TempEspera").value;
-    let TProd = document.getElementById("Tp_Fabric").value;
-    let TVida = document.getElementById("TempVida").value;
-    
+    console.log("Tempo Produtivo: " + TempPrd);
+    if (Param = "1") {
+        MyLog1();  
+    }
+
+    if (Param = "2") {
+        MyLog2();  
+    }
+
+    if (Param = "3") {
+        MyLog3();  
+    }
+
+    if (Param = "4") {
+        MyLog4();  
+    }
+
     }

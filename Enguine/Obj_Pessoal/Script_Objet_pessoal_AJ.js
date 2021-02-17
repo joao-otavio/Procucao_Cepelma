@@ -42,6 +42,7 @@ function Get_Pic_AJ(OP_Pic){
 
              if (xmlreq.status == 200) {
                  result.innerHTML = xmlreq.responseText;
+                 console.log("Ajudante:" + nome)
              }else{
                  result.innerHTML = "Erro: " + xmlreq.statusText;
              }

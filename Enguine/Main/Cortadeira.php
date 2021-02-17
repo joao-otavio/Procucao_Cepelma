@@ -7,6 +7,7 @@
     <title>Cortadeira</title>
     <link rel="icon" href="/ProdCepelma/Enguine/pic/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/Style_padrao.css">
+    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Reference_Icon/Incons_style_buttons.css">
 </head>
 <body>
 
@@ -15,7 +16,8 @@
 <h3>Lançamento Cortadeira</h3>
 </div>
 </div>
-<form action="" method="POST">
+<div class="Flowless">
+<form action="Update_Cortadeira.php" method="POST" name="Myform">
 <div class="Container" id="Selector">
 <div>
 <?php include "../Obj_Seletor/Selector.php"; ?>
@@ -24,7 +26,7 @@
 
 <div class="Container" id="Pessoal">
 <div>
-<?php include "../Obj_Pessoal/Objet_pessoal.php"; ?>
+<?php $Param = "CT"; include "../Obj_Pessoal/Objet_pessoal.php"; ?>
 </div>
 </div>
 
@@ -49,11 +51,11 @@
 
 <div class="Container" id="Buttons">
 <div>
-<input type="submit" value="Enviar" name="Send" class="Buts">
-<input type="reset" value="Limpar" name="Send" class="Buts">
+<button type="submit" class="Buts"><i class="salvar"></i><small class="Sm">Enviar</small></button>
+<button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">limpar</small></button>
 </div>
 </div>
-
+</div>
 </form>
     
 </body>

@@ -1,0 +1,630 @@
+
+.Buts:hover{
+    padding-left: 10px;
+    width: 140px;
+    background-color: RoyalBlue;
+  }
+  
+  .Buts:focus{
+    padding-left: 10px;
+    width: 140px;
+    background-color: RoyalBlue;
+  }
+
+  .Buts{
+    text-align: left;
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 140px;
+  }
+
+.Bt{
+    width: 140px;
+    background-color: DodgerBlue;
+    height: 50px;
+}
+
+
+i{
+    padding-left: 20%;
+    padding-right: 20%;
+    background: no-repeat left center;
+    text-decoration: none;
+
+}
+
+i.lista_de_endereco{
+background-image: url(../Icons/address_book.png); 
+}
+
+i.clips {
+    background-image: url(../Icons/attachment.png);
+}
+
+
+i.grafico_barras {
+    background-image: url(../Icons/bar_chart.png);
+}
+
+i.bateria_media {
+    background-image: url(../Icons/battery.png);
+}
+
+
+i.bateria_vazia {
+    background-image: url(../Icons/battery_empty.png);
+}
+
+
+i.bateria_cheia {
+    background-image: url(../Icons/battery_full.png);
+}
+
+
+i.excluir {
+    background-image: url(../Icons/bin.png);
+}
+
+
+i.nova_pagina {
+    background-image: url(../Icons/blank_page.png);
+}
+
+
+i.bloquado {
+    background-image: url(../Icons/block.png);
+}
+
+
+i.bibliotreca {
+    background-image: url(../Icons/book.png);
+}
+
+
+i.arquivo {
+    background-image: url(../Icons/briefcase.png);
+}
+
+
+i.calculadora {
+    background-image: url(../Icons/calculator.png);
+}
+
+
+i.calendario {
+    background-image: url(../Icons/calendar.png);
+}
+
+
+i.data {
+    background-image: url(../Icons/calendar_date.png);
+}
+
+
+i.indicadores {
+    background-image: url(../Icons/chart.png);
+}
+
+
+i.pizza {
+    background-image: url(../Icons/chart_pie.png);
+}
+
+
+i.confirmado {
+    background-image: url(../Icons/checkmark.png);
+}
+
+
+i.jogo {
+    background-image: url(../Icons/chess.png);
+}
+
+
+i.tempo {
+    background-image: url(../Icons/clock.png);
+}
+
+
+i.nuvem {
+    background-image: url(../Icons/cloud.png);
+}
+
+
+i.nuvem_download {
+    background-image: url(../Icons/cloud_download.png);
+}
+
+
+i.nuvem_upload {
+    background-image: url(../Icons/cloud_upload.png);
+}
+
+
+i.cafe {
+    background-image: url(../Icons/coffee.png);
+}
+
+
+i.comentario {
+    background-image: url(../Icons/comment.png);
+}
+
+
+i.comentarios {
+    background-image: url(../Icons/comments.png);
+}
+
+
+i.mouse {
+    background-image: url(../Icons/computer_mouse.png);
+}
+
+
+i.Banco_de_dados {
+    background-image: url(../Icons/database.png);
+}
+
+
+i.cancelar {
+    background-image: url(../Icons/delete.png);
+}
+
+
+i.deslike {
+    background-image: url(../Icons/dislike.png);
+}
+
+
+i.moeda {
+    background-image: url(../Icons/dollar_currency_sign.png);
+}
+
+
+i.seta_baixo {
+    background-image: url(../Icons/down_arrow.png);
+}
+
+
+i.editar {
+    background-image: url(../Icons/edit.png);
+}
+
+
+i.ejetar {
+    background-image: url(../Icons/eject.png);
+}
+
+
+i.arroba {
+    background-image: url(../Icons/email.png);
+}
+
+
+i.ultimo {
+    background-image: url(../Icons/fast_forward.png);
+}
+
+
+i.filme {
+    background-image: url(../Icons/film.png);
+}
+
+
+i.pasta{
+    background-image: url(../Icons/folder.png);
+}
+
+
+i.sorte {
+    background-image: url(../Icons/games.png);
+}
+
+
+i.audio {
+    background-image: url(../Icons/headphones.png);
+}
+
+
+i.coracao {
+    background-image: url(../Icons/heart.png);
+}
+
+
+i.ajuda {
+    background-image: url(../Icons/help.png);
+}
+
+
+i.inicio {
+    background-image: url(../Icons/home.png);
+}
+
+
+i.identificacao {
+    background-image: url(../Icons/id_card.png);
+}
+
+
+i.informacao {
+    background-image: url(../Icons/info.png);
+}
+
+
+i.senha {
+    background-image: url(../Icons/key.png);
+}
+
+
+i.seta_tras {
+    background-image: url(../Icons/left_arrow.png);
+}
+
+
+i.ideia{
+    background-image: url(../Icons/light_bulb.png);
+}
+
+
+i.like {
+    background-image: url(../Icons/like.png);
+}
+
+i.link {
+    background-image: url(../Icons/link.png);
+}
+
+
+i.trancado {
+    background-image: url(../Icons/locked.png);
+}
+
+
+i.magica {
+    background-image: url(../Icons/magic_wand.png);
+}
+
+
+i.email {
+    background-image: url(../Icons/mail.png);
+}
+
+
+i.localizacao {
+    background-image: url(../Icons/map_pin.png);
+}
+
+
+i.microfone {
+    background-image: url(../Icons/microphone.png);
+}
+
+
+i.menos {
+    background-image: url(../Icons/minus.png);
+}
+
+
+i.resolucao {
+    background-image: url(../Icons/monitor.png);
+}
+
+
+i.mp3 {
+    background-image: url(../Icons/mp3_player.png);
+}
+
+
+i.musica {
+    background-image: url(../Icons/music_note.png);
+}
+
+
+i.fluxograma {
+    background-image: url(../Icons/network.png);
+}
+
+
+i.email_novo {
+    background-image: url(../Icons/new_mail.png);
+}
+
+
+i.telefone {
+    background-image: url(../Icons/old_telephone.png);
+}
+
+
+i.documento {
+    background-image: url(../Icons/page.png);
+}
+
+
+i.documentos {
+    background-image: url(../Icons/pages.png);
+}
+
+
+i.pintar {
+    background-image: url(../Icons/paint_brush.png);
+}
+
+
+i.paleta {
+    background-image: url(../Icons/palette.png);
+}
+
+
+i.pausa {
+    background-image: url(../Icons/pause.png);
+}
+
+
+i.celular {
+    background-image: url(../Icons/phone.png);
+}
+
+
+i.foto {
+    background-image: url(../Icons/photo.png);
+}
+
+
+i.camera {
+    background-image: url(../Icons/photo_camera.png)
+}
+
+
+i.play {
+    background-image: url(../Icons/play.png);
+}
+
+
+
+i.soma {
+    background-image: url(../Icons/plus.png);
+}
+
+
+
+i.imprimir {
+    background-image: url(../Icons/print.png);
+}
+
+
+
+i.sistema {
+    background-image: url(../Icons/process.png);
+}
+
+
+
+i.pedaco {
+    background-image: url(../Icons/puzzle.png);
+}
+
+
+
+i.observacao {
+    background-image: url(../Icons/quote.png);
+}
+
+
+
+i.capturar {
+    background-image: url(../Icons/record.png);
+}
+
+
+
+i.atualizar {
+    background-image: url(../Icons/refresh.png);
+}
+
+
+
+i.repetir {
+    background-image: url(../Icons/repeat.png);
+}
+
+
+
+i.primeiro {
+    background-image: url(../Icons/rewind.png);
+}
+
+
+
+i.seta_frente {
+    background-image: url(../Icons/right_arrow.png);
+}
+
+
+
+i.feed {
+    background-image: url(../Icons/rss.png);
+}
+
+
+
+i.salvar {
+    background-image: url(../Icons/save.png);
+}
+
+
+
+i.cortar {
+    background-image: url(../Icons/scissor.png);
+}
+
+
+
+i.buscar {
+    background-image: url(../Icons/search.png);
+}
+
+
+
+i.seguranca {
+    background-image: url(../Icons/security.png);
+}
+
+
+
+i.configuracoes {
+    background-image: url(../Icons/settings.png);
+}
+
+
+
+i.venda {
+    background-image: url(../Icons/shopping_cart.png);
+}
+
+
+
+i.desligar {
+    background-image: url(../Icons/shut_down.png);
+}
+
+
+
+i.proximo {
+    background-image: url(../Icons/skip_backward.png);
+}
+
+
+
+i.anterior {
+    background-image: url(../Icons/skip_forward.png);
+}
+
+
+
+i.celular {
+    background-image: url(../Icons/smart_phone.png);
+}
+
+
+
+i.velocimetro {
+    background-image: url(../Icons/speedometer.png);
+}
+
+
+
+i.favorito {
+    background-image: url(../Icons/star.png);
+}
+
+
+
+i.parar {
+    background-image: url(../Icons/stop.png);
+}
+
+
+
+i.tag {
+    background-image: url(../Icons/tag.png);
+}
+
+
+
+i.alvo {
+    background-image: url(../Icons/target.png);
+}
+
+
+
+i.transmicao {
+    background-image: url(../Icons/television.png);
+}
+
+
+
+i.ferramentas {
+    background-image: url(../Icons/tools.png);
+}
+
+
+
+i.guardachuvas {
+    background-image: url(../Icons/umbrella.png);
+}
+
+
+
+i.desbloqueado {
+    background-image: url(../Icons/unlocked.png);
+}
+
+
+
+i.seta_cima {
+    background-image: url(../Icons/up_arrow.png);
+}
+
+
+
+i.usuario {
+    background-image: url(../Icons/user.png);
+}
+
+
+
+i.pessoal {
+    background-image: url(../Icons/users.png);
+}
+
+
+
+i.volume_alto {
+    background-image: url(../Icons/volume_up.png);
+}
+
+
+
+i.volume_baixo {
+    background-image: url(../Icons/volume_down.png);
+}
+
+
+
+i.atencao {
+    background-image: url(../Icons/warning.png);
+}
+
+
+
+i.webcan {
+    background-image: url(../Icons/webcam.png);
+}
+
+
+
+i.wifi {
+    background-image: url(../Icons/wi_fi.png);
+}
+
+
+
+i.mundo {
+    background-image: url(../Icons/world.png);
+}
+
+
+
+i.zoom_mais {
+    background-image: url(../Icons/zoom_in.png);
+}
+
+
+
+i.zoom_menos {
+    background-image: url(../Icons/zoom_out.png);
+}
