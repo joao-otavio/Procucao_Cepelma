@@ -18,6 +18,14 @@
         option.setAttribute("disabled", "");
         }
 
+        // carregados
+        if (carregados.indexOf(brands[i]) > -1) {
+            option.setAttribute("selected", true)
+            option.setAttribute("disabled", "");
+            document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');
+        }
+
+
         // if (i == 5) option.setAttribute("disabled", "");
         // if (i == 23) option.setAttribute("selected", true);
         // if (i >= 3 && i <= 7) option.setAttribute("selected", true);

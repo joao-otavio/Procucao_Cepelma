@@ -143,6 +143,7 @@ let targets = string_PontArr.split("|");
 string_FinalizadosArr = "<?php echo $string_FinalizadosArr; ?>";
 let lokeds = string_FinalizadosArr.split("|");
 
+
 </script>
 
 <script src="/ProdCepelma/Enguine/Obj_Seletor/SelectorMod.js"></script>

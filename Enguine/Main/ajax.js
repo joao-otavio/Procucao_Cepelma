@@ -32,7 +32,7 @@
 
 
  function getDados() {
-    document.getElementById("Load").style.display = 'block';
+ 
 
     document.getElementById("BtConcNext").style.display="none";
     document.getElementById("BtCancelar").style.display="none";  

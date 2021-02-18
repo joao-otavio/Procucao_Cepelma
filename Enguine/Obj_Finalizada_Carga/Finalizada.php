@@ -15,6 +15,7 @@
 <input type="checkbox" name="Confirm_Ck" id="Confirm_Ck" onclick="Finalizado();">
 <label for="Confirm_Ck"><strong>Finalizada</strong></label>
 <input type="text" name="NumLups" id="NumLups" value="0" hidden>
+<input type="text" name="Conclusion" id="Conclusion" value="false" hidden>
 <br>
 <hr>
 <br>
@@ -67,8 +68,9 @@ document.getElementById("NumLups").value = 0;
             Sdv.setAttribute("type", "text");
             Sdv.setAttribute("class", "Inpts");
             Sdv.setAttribute("id", "Sd_"+element);
+            Sdv.setAttribute("name", "Sd_"+element);
             Sdv.setAttribute("value", "0");
-                     
+                              
 
             FatherDiv.append("Jumbo: "+element+" ");
             FatherDiv.appendChild(Brl);
@@ -81,16 +83,16 @@ document.getElementById("NumLups").value = 0;
             x = x + 1;
             console.log("Adicionado Jumbo "+ element +" para Informar Saldo Restante")
         }
+        document.getElementById("Conclusion").value = "true";
         document.getElementById("NumLups").value = x;
     }
 
     }else{
         FatherDiv.innerHTML = "";
         console.log("Alterado estatus de Acabado da Carga, Removidos Campos de Saldo dos jumbos!")
-
+        document.getElementById("Conclusion").value = "false";
     }
 }
-
 
 
 

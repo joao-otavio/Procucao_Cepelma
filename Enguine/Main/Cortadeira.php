@@ -10,14 +10,15 @@
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Reference_Icon/Incons_style_buttons.css">
 </head>
 <body>
-
+<form action="Update_Cortadeira.php" method="POST" name="Myform">
 <div class="Container_Major" id="Trabalho">
 <div>
 <h3>Lançamento Cortadeira</h3>
+<div class="Resumo"><?php $DataSet = "cortadeira"; include "../Obj_Consulta_lancamento_ctd/Consulta_lancamento_ctd.php"; ?></div>
 </div>
 </div>
 <div class="Flowless">
-<form action="Update_Cortadeira.php" method="POST" name="Myform">
+
 <div class="Container" id="Selector">
 <div>
 <?php include "../Obj_Seletor/Selector.php"; ?>
