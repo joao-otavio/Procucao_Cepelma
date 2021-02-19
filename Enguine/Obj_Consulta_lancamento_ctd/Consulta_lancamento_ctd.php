@@ -8,14 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-
 <?php
-
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
 $dbname = "producao";
-
+$NextCall = "";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -46,12 +44,18 @@ if ($result->num_rows > 0) {
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  $sql = "SELECT  * FROM $DataSet";
-  $result = $conn->query($sql);
-  $conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT max(carga) FROM $DataSet";
+$result = $conn->query($sql);
+$conn = new mysqli($servername, $username, $password, $dbname);
  
-$RowCount = $result->num_rows;
-$NextCall = $RowCount;
+ 
+if ($result->num_rows > 0) {
+  while($row = mysqli_fetch_array($result)) {
+      $NextCall = "";
+      $NextCall = $row[0];
+  }
+}
+
 
   print "<div class=\"Ling\">";
   print "<hr>";
@@ -77,12 +81,17 @@ $servername = "localhost:3308";
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  $sql = "SELECT  * FROM $DataSet";
+  $sql = "SELECT max(carga) FROM $DataSet";
   $result = $conn->query($sql);
   $conn = new mysqli($servername, $username, $password, $dbname);
  
-$RowCount = $result->num_rows;
-$NextCall = $RowCount+1;
+  if ($result->num_rows > 0) {
+    while($row = mysqli_fetch_array($result)) {
+      $NextCall = "";
+      $NextCall = $row[0];
+      $NextCall = $NextCall +1;
+    }
+  }
 
 print "<div class=\"Ling\">";
 print "<hr>";
@@ -103,14 +112,11 @@ print "</div>";
 <script>
 let carregados = "";
 Carregados_Arr = "<?php echo $Carregados_Arr; ?>";
-if (Carregados_Arr ==! "") {
+if (Carregados_Arr !== "") {
 carregados = Carregados_Arr.split("|"); 
-alert(carregados)
 }else{
 carregados = "";
 }
-
-
 
 </script>
 <input type="text" id="Lc" name="Lc" value="<?php echo $NextCall;?>" hidden> 
