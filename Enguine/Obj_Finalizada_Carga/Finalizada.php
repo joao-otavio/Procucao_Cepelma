@@ -8,7 +8,6 @@
     <title>Padrao doc</title>
 </head>
 <body>
-
 <h3>Conclusão da carga</h3>
 <hr>
 <div class="Box_saldos" id="Box_saldos">
@@ -18,10 +17,8 @@
 <input type="text" name="Conclusion" id="Conclusion" value="false" hidden>
 <br>
 <hr>
-<br>
-<br>
 <div id="Inserach">
-    <!-- Conteudo para inserção... -->
+ 
 </div>
 </div>
 

@@ -166,7 +166,7 @@ $result = $conn->query($sql);
 
 $MyArray = array();
 if ($result->num_rows > 0) {
-  print "<label for=\"Papel\">Tipo de Papel: </label>";
+print "<label for=\"Papel\">Tipo de Papel: </label>";
 print "<br>"; 
 print "<select name=\"Papel\" id=\"Papel\" required>";
   print "<option value=\"\"></option>";

@@ -1,5 +1,5 @@
 <?php
-
+$chave = $_POST['chave'];
 $carga = $_POST['Lc'];
 
 // Objeto Seletor
@@ -24,7 +24,7 @@ $Tempo_Produtivo = $_POST['Tempo_Produtivo'];
 $Formatos = $_POST['Formatos'];
 $Bancas = $_POST['Bancas'];
 $Gramatura = $_POST['Gramatura'];
-
+$Papel = $_POST['Papel'];
 // Objeto Finalizado
 
 $NumLups = $_POST['NumLups'];
@@ -41,8 +41,7 @@ for ($i=0; $i < $Loops; $i++) {
     }
 }
 
-if ($Conclusion == "false") {
-
+if ($Conclusion == "false"){
 
 $servername = "localhost:3308";
 $username = "root";
@@ -90,7 +89,8 @@ $sql = "INSERT INTO cortadeira
     Formatos,
     Bancas,
     Gramatura, 
-    Peso
+    Peso,
+    Papel
 ) 
 VALUES
 (
@@ -106,7 +106,8 @@ VALUES
     '$Formatos',
     '$Bancas',
     '$Gramatura', 
-    '0'
+    '0',
+    '$Papel'
 )";
 
 
@@ -116,8 +117,6 @@ if (mysqli_query($conn, $sql)) {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
     }
   mysqli_close($conn);
-
-
 
 
 $Contador = count($MyArrJUMBOS);
@@ -175,18 +174,17 @@ $Contador = count($MyArrJUMBOS);
 $Peso = "0";
 $Contador = count($MyArrJUMBOS);
 
-for ($i=0; $i < $Contador ; $i++) { 
-
 $servername = "localhost:3308";
 $username = "root";
 $password = "";
 $dbname = "producao";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
+
+for ($i=0; $i < $Contador ; $i++) { 
 $sql = "SELECT  Peso FROM producao_mp where Jumb = '$MyArrJUMBOS[$i]'";
 $result = $conn->query($sql);
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -241,7 +239,8 @@ while ($Danco = mysqli_fetch_array($result)) {
         Formatos,
         Bancas,
         Gramatura, 
-        Peso
+        Peso,
+        Papel
     ) 
     VALUES
     (
@@ -257,19 +256,61 @@ while ($Danco = mysqli_fetch_array($result)) {
         '$Formatos',
         '$Bancas',
         '$Gramatura', 
-        '0'
+        '$Peso',
+        '$Papel'
     )";
-    
-    
     if (mysqli_query($conn, $sql)) {
         print "<H3>Lançamento concluido</H3>";
         } else {
           echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
         }
       mysqli_close($conn);
-    
 
 
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+};
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
+}
+
+for ($i=0; $i < $Contador; $i++) { 
+
+$JumboBc = $MyArrJUMBOS[$i];
+$JumboSD = $SdJumbos[$i];
+
+
+$sql = "DELETE FROM saldo_jumbo where Jumbo = '$JumboBc'";
+$result = $conn->query($sql);
+
+$sql = "INSERT INTO saldo_jumbo 
+( 
+    jumbo,
+    peso
+
+) 
+VALUES
+(
+    '$JumboBc',
+    '$JumboSD'
+
+)";
+if (mysqli_query($conn, $sql)) {
+    print "<H3>Lançamento concluido</H3>";
+    } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
+    }
+}
+mysqli_close($conn);
 
 }
 ?>

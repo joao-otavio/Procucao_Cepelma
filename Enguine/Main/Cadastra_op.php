@@ -49,7 +49,7 @@
 </div>
 <div id="Frames">
 <h3>Equipamento: </h3>
-<select name="Equipamento" id="EquipamentoC">
+<select name="EquipamentoC" id="EquipamentoC">
     <option value="MP">Maquina de Papel</option>
     <option value="RB">Rebobinadeira</option>
     <option value="CT">Cortadeira</option>

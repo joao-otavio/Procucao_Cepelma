@@ -1,6 +1,6 @@
 <?php
 
-$Equipamento = $_POST['Equipamento'];
+$Equipamento = $_POST['EquipamentoC'];
 $RegFunc = $_POST['RegFunc'];
 
 

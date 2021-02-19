@@ -1,7 +1,7 @@
 body{
     background: url(../pic/SkyBry.jpg) no-repeat left top fixed transparent;
     overflow: hidden;
-    background-size: 800px;
+    background-size: 700px;
     
 }
 
@@ -34,5 +34,5 @@ body{
 
 .Flowless{
     overflow: auto;
-    height: 700px;
+    height: 900px;
 }

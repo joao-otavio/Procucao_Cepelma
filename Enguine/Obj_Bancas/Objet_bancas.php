@@ -49,18 +49,56 @@ print "</div>";
 ?>
 
 <div class="FormBanca" id="Banc">
-<div>
 <label for="Bancas">Qt. Bancas:</label><br>
 <input type="number" name="Bancas" id="Bancas" class="Inpts" min="1" max="50" required>
 </div>
-</div>
 
 <div class="FormBanca" id="Gram">
-<div>
 <label for="Gramatura">Gramatura:</label><br>
 <input type="number" name="Gramatura" id="Gramatura" class="Inpts" min="1" max="120" required>
 </div>
-</div>
+
+<?php
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+$sql = "SELECT Codigo, Tipo FROM tipo_de_papel";
+$result = $conn->query($sql);
+$MyArray = array();
+if ($result->num_rows > 0) {
+print "<label for=\"Papel\">Tipo de Papel: </label>";
+print "<br>"; 
+print "<select name=\"Papel\" id=\"Papel\" class=\"Inpts\" required>";
+  print "<option value=\"\"></option>";
+ 
+  while($row = mysqli_fetch_array($result)) {
+ 
+    $CodP = $row[0];
+    $TipoP = $row[1];
+     print "<br>";
+   
+       if ($result->num_rows > 0) {
+       
+        // $FcArray = [];
+        // $MyArray = [];
+        if ($Cod <> "") {
+        // array_push($MyArray, [$Cod, $Nome, $Scan]);
+        print "<option value=\"$TipoP\">$TipoP</option>";
+        }else {
+            while($row = mysqli_fetch_array($result)) {
+                $Element = "$row[1],$row[2],";
+                
+             }
+        }
+        } 
+
+   }
+   
+print "</select>";
+print "<br>"; 
+}
+?>
 
 <script>
 
@@ -79,6 +117,10 @@ print "</div>";
     console.log("Gramatura: " + VaLog);
   }
 
+  document.getElementById("Papel").onblur = function Mylog3(){
+    VaLog = document.getElementById("Papel").value;
+    console.log("Papel: " + VaLog);
+  }
   
 </script>
 

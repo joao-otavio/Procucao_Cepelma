@@ -21,15 +21,15 @@
 <input type="date" id="D_in" name="D_in" class="Inpts" onblur="CalcTime('1')" required>
 <input type="time" id="H_in" name="H_in" class="Inpts" onblur="CalcTime('2')" required>
 <br>
-<label for="D_fn">Data/Hora de Fim:   </label>
+<label for="D_fn">Data/Hora de Fim:</label>
 <br>
 <input type="date" id="D_fn" name="D_fn" class="Inpts" onblur="CalcTime('3')" required>
 <input type="time" id="H_fn" name="H_fn" class="Inpts" onblur="CalcTime('4')" required>
 </div>
 <input type="text" id="Tempo_Produtivo" name="Tempo_Produtivo" class="Inpts" hidden>
+<input type="text" name="chave" id="chave" hidden> 
 </div>
 <script src="/ProdCepelma/Enguine/Obj_Data/Script_objet_data.js"></script>
-
 <script>
 
 function MyLog1(){

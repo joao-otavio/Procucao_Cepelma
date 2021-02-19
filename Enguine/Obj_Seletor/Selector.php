@@ -19,18 +19,9 @@
 		<select id="brandsMulti" multiple size="3"></select>
 		<hr>
 		<div class="btns-active">
-      
 			<button type="button" class="Buts" onClick="empty('brandsMulti')"><i class="excluir"></i><small class="Sm">Limpar</small></button><br>
-			<!-- <button class="Buts" onClick="setValues('brandsMulti',['Lamborghini','Land Rover'])">setValue(['Lamborghini','Land Rover'])</button> -->
-			<!-- <button class="Buts" onClick="setValues('brandsMulti','all')">Selecionar Todos</button><br> -->
-			<!-- <button class="Buts" onClick="setEnable('brandsMulti',false)">disable()</button>
-			<button class="Buts" onClick="setEnable('brandsMulti',true)">enable()</button>
-			<button class="Buts" onClick="doDestroy('brandsMulti')">destroy()</button> -->
 			<br>
 			<button type="button"  class="Buts" onClick="document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');"><i class="confirmado"></i><small class="Sm">Confirmar</small></button>
-&nbsp;
-&nbsp;
-&nbsp;
 		</div>
 		<div class="btns-inactive" style="display:none";>
 			<button class="demo" onClick="init('brandsMulti')">vanillaSelectBox()</button>
