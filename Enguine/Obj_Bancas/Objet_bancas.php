@@ -50,7 +50,7 @@ print "</div>";
 
 <div class="FormBanca" id="Banc">
 <label for="Bancas">Qt. Bancas:</label><br>
-<input type="number" name="Bancas" id="Bancas" class="Inpts" min="1" max="50" required>
+<input type="number" name="Bancas" id="Bancas" class="Inpts" min="0" max="50" required>
 </div>
 
 <div class="FormBanca" id="Gram">

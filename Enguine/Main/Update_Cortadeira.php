@@ -313,4 +313,7 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 }
+
+echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
+        
 ?>
