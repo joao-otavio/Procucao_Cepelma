@@ -22,7 +22,6 @@
         if (carregados.indexOf(brands[i]) > -1) {
             option.setAttribute("selected", true)
             option.setAttribute("disabled", "");
-            document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');
         }
 
 
@@ -31,6 +30,7 @@
         // if (i >= 3 && i <= 7) option.setAttribute("selected", true);
 
         select2.appendChild(option);
+        document.getElementById('Selects').value=(getValues('brandsMulti')).join(' / ');
     }
 
  

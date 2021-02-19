@@ -15,7 +15,7 @@
 <div id="Buttons">
 <button id="Buts" onclick="SendMP();">MP</button>
 <button id="Buts" onclick="SendRB();">Rebobinadeira</button>
-<button id="Buts">Cortadeira</button>
+<button id="Buts" onclick="SendCt();">Cortadeira</button> 
 <button id="Buts" >Balança</button>
 <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
 <button id="Buts" onclick="SendConf_RB();">Config Rb</button>
@@ -65,9 +65,9 @@ $username = "root";
 $password = "";
 $dbname = "producao";
 
-// Create connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -139,6 +139,10 @@ function SendMP(){
 }
 function SendRB(){
   window.open('Rebobinadeira.php', '_blank');
+}
+
+function SendCt(){
+  window.open('Cortadeira.php', '_blank');
 }
 
 function  SendConf_RB(){
