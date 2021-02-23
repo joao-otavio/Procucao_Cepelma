@@ -34,14 +34,15 @@
         <?php include "../Obj_Bancas/Objet_bancas.php"; ?>
         </div>
 
-       
-
+        <div class="Container" id="Data">
+        <?php include "../Obj_Paradas/Paradas.php"; ?>
+             </div>
 
         <div class="Container" id="Finalizada">
         <?php include "../Obj_Finalizada_Carga/Finalizada.php"; ?>
      
         <button type="submit" class="Buts"><i class="salvar"></i><small class="Sm">Enviar</small></button>
-        <button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">limpar</small></button>
+        <button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">Limpar</small></button>
 
         </div>
         <br><br><br>

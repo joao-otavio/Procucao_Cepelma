@@ -1,0 +1,29 @@
+#PicPer1{
+border-radius: 15px;
+border: solid 1px blue;
+width: 50px;
+height: 50px; 
+left: 90%;
+}
+
+.Selectors{
+width: 310px; 
+border-radius: 8px;
+border: 1px solid black;
+margin-bottom: 5px;
+}
+
+.Selectors:focus{
+background-color: rgb(186, 218, 216);
+border-radius: 0px;   
+}
+
+.Inpts{
+width: 135px; 
+border-radius: 8px;
+border: 1px solid black;
+margin-bottom: 5px;}
+
+.Inpts:focus{
+background-color: rgb(186, 218, 216);
+border-radius: 0px;   }

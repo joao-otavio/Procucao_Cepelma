@@ -146,7 +146,7 @@ print "<br>";
 print "</div>";
 
 print "<div id=\"Parada\" calss=\"Parada\">";
-print "<div id=\"lines\"></iv>";
+print "<div id=\"lines\"></div>";
 print "<button type=\"button\" onclick=\"addInput('lines')\" id=\"BtAdd\">Adicionar Manutenção</button>";
 print "</div>";
 
