@@ -53,6 +53,7 @@
     <option value="MP">Maquina de Papel</option>
     <option value="RB">Rebobinadeira</option>
     <option value="CT">Cortadeira</option>
+    <option value="CT">Balança</option>
 </select>
 </div>
 <br>

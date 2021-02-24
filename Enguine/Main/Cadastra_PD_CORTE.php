@@ -11,7 +11,7 @@
     <h3>Configurações de Corte</h3>
     <hr>
     <h4>Rebobinadeira</h4>
-<form action="Up_CONF_REB.php" name="SelectF" method="POST">
+<form action="Up_CONF_REB.php" name="SelectF" method="POST" target="_blank">
     <Label>Quantidade 1</Label>
     <input class="Btts" type="text" name="Quantidade1" value="0" width="50px" required>
     <Label>Medida 1</Label>
