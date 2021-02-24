@@ -66,6 +66,8 @@ if (mysqli_query($conn, $sql)) {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
     }
   mysqli_close($conn);
+
   echo "<script>window.close();</script>";
 echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
+  
   ?>

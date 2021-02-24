@@ -27,14 +27,14 @@
     <Label>Medida 3</Label>
     <input class="Btts" type="text" name="Medida3" value="0" width="50px" required>
     <br><br><hr>
-<a onclick="myAdiantamento();return false;" href="#" target="_blank">Confirmar padrão</a>
+<button onclick="myAdiantamento">Confirmar padrão</button>
 </form>
 </div>
 </div>
 </form>
 <script>
 function myAdiantamento() {
-    document.SelectF.submit();
+    document.getElementById("modal-body").innerHTML = "";
 }
 </script>
 </body>
