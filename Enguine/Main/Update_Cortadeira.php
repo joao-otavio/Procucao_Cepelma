@@ -381,11 +381,6 @@ if (mysqli_query($conn, $sql)) {
   $line = $line +1;
 }
 
-
-
-
-
-
 echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
         
 ?>
