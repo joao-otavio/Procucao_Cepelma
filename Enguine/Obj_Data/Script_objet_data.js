@@ -30,19 +30,19 @@ function CalcTime( Param){
     var MyEarlyDate = new Date();
     MyEarlyDate.setDate(MyEarlyDate.getDate() - 30);
 
-    if (date1<MyEarlyDate) {
-        if (Param = "1") {
-            alert("Atenção, voce esta lançando um periodo inicial com mais de 30 dias de atraso!");
-        }
+    // if (date1<MyEarlyDate) {
+    //     if (Param = "1") {
+    //         alert("Atenção, voce esta lançando um periodo inicial com mais de 30 dias de atraso!");
+    //     }
         
-    }
+    // }
     
-    if (date2<MyEarlyDate) {
-        if (Param = "3") {
-             alert("Atenção, voce esta lançando um periodo Final com mais de 30 dias de atraso!");
-        }
+    // if (date2<MyEarlyDate) {
+    //     if (Param = "3") {
+    //          alert("Atenção, voce esta lançando um periodo Final com mais de 30 dias de atraso!");
+    //     }
        
-    }
+    // }
 
     var letChar = "501"
     document.getElementById("chave").value = 3003 + dtini + hrini + letChar;
