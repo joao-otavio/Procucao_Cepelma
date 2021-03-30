@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebobinadeira</title>
+    <link rel="icon" href="/ProdCepelma/Enguine/pic/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleReb.css">
 
 </head>
@@ -865,10 +866,10 @@ function AbCamps(){
                                 let difPesop = (parseFloat(PesJUmbo)-parseFloat(pesTotalp)).toFixed(2);
                                 let pesAcabado = ((parseFloat($a))+(parseFloat($b))+(parseFloat($c))+(parseFloat($d))+(parseFloat($e)-(parseFloat(PesRef)))).toFixed(2);
 
-                                if (difPesop < 0) {
-                                    confirm("Atenção o Peso do Jumbo é inferior ao peso total de Produtos Acabados,"+
-                                     "Voce tem ciencia? \n Peso do Jumbo: "+ PesJUmbo +" Peso Acabado: "+pesTotalp);
-                                }
+                                // if (difPesop < 0) {
+                                //     alert("Atenção o Peso do Jumbo é inferior ao peso total de Produtos Acabados,"+
+                                //      "Voce tem ciencia? \n Peso do Jumbo: "+ PesJUmbo +" Peso Acabado: "+pesTotalp);
+                                // }
 
 
 

@@ -36,7 +36,7 @@
 
         <div class="Container" id="Data">
         <?php include "../Obj_Paradas/Paradas.php"; ?>
-             </div>
+        </div>
 
         <div class="Container" id="Finalizada">
         <?php include "../Obj_Finalizada_Carga/Finalizada.php"; ?>
