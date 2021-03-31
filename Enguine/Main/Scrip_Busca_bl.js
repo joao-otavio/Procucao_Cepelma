@@ -28,6 +28,7 @@ function CriaRequest() {
 function Call_Ct(){
     // var popup = document.getElementById("PicAj");
     //     popup.classList.toggle("show");
+
      var nome   = document.getElementById("Call_cont").value;
      var result = document.getElementById("PD_pes");
      var xmlreq = CriaRequest();
