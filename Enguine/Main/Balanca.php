@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form action="" method="POST" name="Myform">
+<form action="Up_balanca.php" method="POST" name="Myform">
 
 <div class="Flowless">
 
@@ -43,6 +43,7 @@
 <br>
 <input type="text" id="PesPd" class="Inpts" name="PesPd" value="9.8" onblur="Calcm(this)" required>
 <br>
+<br>
 </div>
 
 
@@ -56,7 +57,16 @@
 
 
 <div class="Container" id="Buttons_cont">
-     
+<div>
+<label for="PesPd"><strong>Tipo de produto:</strong></label>
+<br>
+<select name="Produt" id="Prdt" class="Inpts" onblur="Insertpd(this.value)" required>
+<option value=""></option>
+<option value="Pacote">Pacote</option>
+<option value="Fardo">Fardo</option>
+</select>
+</div>
+<hr>
 <button type="submit" class="Buts"><i class="salvar"></i><small class="Sm">Enviar</small></button>
 <button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">Limpar</small></button>
 
@@ -80,9 +90,31 @@ document.getElementById(_g+"-ps").value = _Z;
 }
 
 function Calcm(_x){
+_n = _x.id
 _m = _x.value
-_x.value = _m.replace(',', '.');
+var _f =  _m.replace(',', '.');
+document.getElementById(_n).value = _m;
 }
+
+
+function Insertpd(x_){
+    
+    var Cg = document.getElementById("Call_cont").value;
+
+    for (let index = 1; index < 50; index++) {
+       
+    if (document.getElementById(Cg+"-p"+index)!= null) {
+        document.getElementById(Cg+"-p"+index).value = x_;  
+    }    
+
+
+
+}
+
+}
+
+
+
 </script>
 
 </body>

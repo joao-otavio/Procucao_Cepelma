@@ -73,13 +73,13 @@ if (isset($_GET["TxFind"])) {
                 print "<label for=\"$nome-$y\"><strong>Palet: </strong>$y</label>";
                 print "<br>";
                 print "<input type=\"text\" id=\"$nome-$y\" name=\"$nome-$y\" class=\"Inpts\" onblur=\"CalcZ(this)\">";
-                print "<input type=\"text\" id=\"$nome-$y-ps\" name=\"$nome-$y\" class=\"Inpts\" hidden>";
+                print "<input type=\"text\" id=\"$nome-$y-ps\" name=\"$nome-$y-ps\" class=\"Inpts\" hidden>";
                 
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G1\" class=\"Inpts\" value =\"$operador\" hidden>";
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G2\" class=\"Inpts\" value =\"$ajudante\" hidden>";
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G3\" class=\"Inpts\" value =\"$formato\" hidden>";
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G4\" class=\"Inpts\" value =\"$papel\" hidden>";
-                print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G5\" class=\"Inpts\" value =\"\" hidden>";
+                print "<input type=\"text\" id=\"$nome-p$y\" name=\"$nome-p$y\" class=\"Inpts\" value =\"\" hidden>";
                               
                 $y++;  
                 print "</div>";

@@ -24,15 +24,19 @@ $dbname = "producao";
 for ($i=1; $i <= $Plts ; $i++) {
 
     $Key_unix = $Carga.'-'.$i;
+    
     $Plt_Qtd = $_POST[$Carga.'-'.$i];
+    $as_erro = $_POST[$Carga.'-'.$i];
     $Plt_Pes = $_POST[$Carga.'-'.$i.'-ps'];
     $Plt_OP = $_POST[$Carga.'-'.$i.'-G1'];
     $Plt_AJ = $_POST[$Carga.'-'.$i.'-G2'];
     $Plt_Frm = $_POST[$Carga.'-'.$i.'-G3'];
     $Plt_Ppl = $_POST[$Carga.'-'.$i.'-G4'];
+    $Plt_Prdt = $_POST[$Carga.'-p'.$i];
 
 
-
+    if ($as_erro ==! "") {
+    
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
@@ -68,13 +72,13 @@ for ($i=1; $i <= $Plts ; $i++) {
     (
        '$Key_unix',
        '$Carga',
-       '$Plt_Qtd',
+       '$i',
        '$Peso_PD',
-       '$Plt_Qtd',
+       '$as_erro',
        '$Plt_Pes',
        '$Plt_Ppl',
        '$Plt_Frm',
-       '$',
+       '$Plt_Prdt',
        '$Plt_OP',
        '$Plt_AJ',
        '$D_in',
@@ -86,17 +90,19 @@ for ($i=1; $i <= $Plts ; $i++) {
     
     
     if (mysqli_query($conn, $sql)) {
-        print "<H3>Parada $chave lançada</H3>";
-        
+            
         } else {
           echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
         }
       mysqli_close($conn);
-      $line = $line +1;
+        print "$Plt_Qtd";
+        print "<br>";
+      
     }
-    
+ 
+}
     echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
-            
+  
 
 
 
