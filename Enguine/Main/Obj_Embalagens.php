@@ -28,7 +28,7 @@ if (isset($_GET["TxFind"])) {
   $conn = new mysqli($servername, $username, $password, $dbname);
   $x = "0";
   $y = "1";
- 
+  $o = 0;
   if ($result->num_rows > 0){
     while($row = mysqli_fetch_array($result)) {
       $operador = $row[0];
@@ -72,6 +72,7 @@ if (isset($_GET["TxFind"])) {
 
                $y++;  
               }else{
+
                 print "<div class=\"Mini_Cont\">";
                 print "<label for=\"$nome-$y\"><strong>Palet: </strong>$y</label>";
                 print "<br>";
@@ -83,10 +84,11 @@ if (isset($_GET["TxFind"])) {
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G3\" class=\"Inpts\" value =\"$formato\" hidden>";
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G4\" class=\"Inpts\" value =\"$papel\" hidden>";
                 print "<input type=\"text\" id=\"$nome-p$y\" name=\"$nome-p$y\" class=\"Inpts\" value =\"\" hidden>";
-                print "<input type=\"text\" id=\"$nome-sl-$y\" name=\"$nome-sl-$y\" class=\"Inpts\" value=\"$Selects\" hidden>";
-                              
+                print "<input type=\"text\" id=\"$nome-sl-$y\" name=\"$nome-sl-$y\" class=\"Inpts\" value=\"$Selects\" hidden>";               
+                $o++;
                 $y++;  
                 print "</div>";
+
               }
             
       }
@@ -101,6 +103,7 @@ if (isset($_GET["TxFind"])) {
   }
   print "<input type=\"text\" id=\"Cg\" name=\"Carga\" class=\"Inpts\" value =\"$nome\" hidden>";
   print "<input type=\"text\" id=\"Plts\" name=\"Plts\" class=\"Inpts\" value =\"$x\" hidden>";
+  print "<input type=\"text\" id=\"Plts2\" name=\"Plts2\" class=\"Inpts\" value =\"$o\" hidden>";
   print "";
   print "";
   print "";
@@ -108,6 +111,5 @@ if (isset($_GET["TxFind"])) {
   print "";
 }
 ?>
-
 </body>
 </html>

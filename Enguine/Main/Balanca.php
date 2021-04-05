@@ -69,6 +69,8 @@
 <hr>
 <button type="submit" class="Buts"><i class="salvar"></i><small class="Sm">Enviar</small></button>
 <button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">Limpar</small></button>
+<br>
+<input type="text" id="Ok_check" name="Ok_check" value="" hidden>
 
 </div>
 </div>
@@ -79,14 +81,41 @@
 
 <script>
 function CalcZ(_x){
+var _w = 0;
 _m = _x.value
 _x.value = _m.replace(',', '.');
+
 var _f = _x.value;
 var _g = _x.id;
 var _y = document.getElementById("PesPd").value;
 
 let _Z = parseFloat(parseFloat(_y)*parseFloat(_f)).toFixed(2);
 document.getElementById(_g+"-ps").value = _Z;
+
+var _carga = document.getElementById("Call_cont").value;
+
+for (let _i = 1; _i < 50; _i++) {
+ 
+   var dodge = _carga+"-"+_i; 
+
+    if (document.getElementById(dodge) !== null) {
+        
+    
+    if (document.getElementById(dodge).value !== "") {
+      _w++;  
+    } 
+    }
+}
+
+
+   var _o = document.getElementById("Plts2").value
+
+   if (_w < _o) {
+    document.getElementById("Ok_check").value = "Editando";
+   }else{
+    document.getElementById("Ok_check").value = "Concluido";
+   }
+
 }
 
 function Calcm(_x){
