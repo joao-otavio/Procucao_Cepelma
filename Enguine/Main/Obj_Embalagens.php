@@ -23,11 +23,12 @@ if (isset($_GET["TxFind"])) {
   if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
   }
-  $sql = "SELECT Operador, Ajudante, Formatos, Papel, Bancas, Cod FROM cortadeira where carga = '$nome';";
+  $sql = "SELECT Operador, Ajudante, Formatos, Papel, Bancas, Cod, Selects FROM cortadeira where carga = '$nome';";
   $result = $conn->query($sql);
   $conn = new mysqli($servername, $username, $password, $dbname);
   $x = "0";
   $y = "1";
+ 
   if ($result->num_rows > 0){
     while($row = mysqli_fetch_array($result)) {
       $operador = $row[0];
@@ -35,7 +36,9 @@ if (isset($_GET["TxFind"])) {
       $formato = $row[2];
       $papel = $row[3];
       $bancas = $row[4];
+      $Selects = $row[6];
       $x = $x + $bancas;
+
       if ($bancas >0) {
     
       print "<div>";
@@ -80,6 +83,7 @@ if (isset($_GET["TxFind"])) {
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G3\" class=\"Inpts\" value =\"$formato\" hidden>";
                 print "<input type=\"text\" id=\"Gr_DDS\" name=\"$nome-$y-G4\" class=\"Inpts\" value =\"$papel\" hidden>";
                 print "<input type=\"text\" id=\"$nome-p$y\" name=\"$nome-p$y\" class=\"Inpts\" value =\"\" hidden>";
+                print "<input type=\"text\" id=\"$nome-sl-$y\" name=\"$nome-sl-$y\" class=\"Inpts\" value=\"$Selects\" hidden>";
                               
                 $y++;  
                 print "</div>";
