@@ -16,7 +16,7 @@
 <button id="Buts" onclick="SendMP();">MP</button>
 <button id="Buts" onclick="SendRB();">Rebobinadeira</button>
 <button id="Buts" onclick="SendCt();">Cortadeira</button> 
-<button id="Buts" >Balança</button>
+<button id="Buts" onclick=" SendConf_BL()">Balança</button>
 <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
 <button id="Buts" onclick="SendConf_RB();">Config Rb</button>
 <!-- <button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
@@ -143,6 +143,10 @@ function SendRB(){
 
 function SendCt(){
   window.open('Cortadeira.php', '_blank');
+}
+
+function  SendConf_BL(){
+  window.open('Balanca.php', '_blank');
 }
 
 function  SendConf_RB(){
