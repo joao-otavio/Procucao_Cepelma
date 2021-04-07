@@ -19,9 +19,9 @@
 <button id="Buts" onclick=" SendConf_BL()">Balança</button>
 <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
 <button id="Buts" onclick="SendConf_RB();">Config Rb</button>
-<!-- <button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
+<button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
 <button id="Buts" onclick="Includ_CF()" data-modal-target="#modal">Config Rb</button>
-  -->
+ 
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">SkyBry - Modal</div>
