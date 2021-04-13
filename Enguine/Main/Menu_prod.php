@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Producao</title>
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleMenu.css">
+    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../Obj_Table/">
+    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
+ 
 </head>
 <body>
-<script src="/ProdCepelma/Enguine/Main/Return_Resume.js"></script>
+<script src="../Enguine/Main/Return_Resume.js"></script>
 
 <div id= "Title">
 <h1>Menu Produção</h1>
@@ -19,9 +25,11 @@
 <button id="Buts" onclick=" SendConf_BL()">Balança</button>
 <button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
 <button id="Buts" onclick="SendConf_RB();">Config Rb</button>
-<button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
+<button id="Buts" onclick="ExportCsv();">Csv MP</button>
+<button id="Buts" onclick="RelatorMP();">Rating MP</button>
+<!-- <button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
 <button id="Buts" onclick="Includ_CF()" data-modal-target="#modal">Config Rb</button>
- 
+  -->
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">SkyBry - Modal</div>
@@ -200,6 +208,15 @@ function closeModal(modal) {
   overlay.classList.remove('active')
 }
 
+
+function ExportCsv(){
+  window.open('Export.php', '_blank');
+}
+
+
+function RelatorMP(){
+  window.open('../Obj_Relators/Mp_Star_rating.php', '_blank');
+}
 
 </script>
 <form action="" method="post" name="SendForm">

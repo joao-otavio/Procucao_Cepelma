@@ -1,0 +1,53 @@
+.Title2{
+background-image: url("../pic/back ground 1.png");
+height: 160px;
+width: 100%;
+overflow: hidden;
+background-position: center;
+background-size: cover;
+align-items: center;
+vertical-align: middle;
+border-radius: 30px;
+}
+.Tx_title{
+color: transparent; 
+text-shadow: white 0px 10px;
+text-align: center;
+}
+
+.Medio_Div{
+    border-radius: 15px;
+    border: solid blue 1px;
+    width: 48%;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Major{
+    clear: left;
+    border: solid blue 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    height: auto;
+    overflow: auto;
+}
+
+.Rating{
+    border: solid blue 1px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    width: 40%;
+    float: left;
+}
+
+.Form{
+    clear: left;
+}
+
+.PicPer{
+    border-radius: 15px;
+    border: 1px solid blue;
+}
