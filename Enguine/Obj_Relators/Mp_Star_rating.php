@@ -231,6 +231,37 @@ while($row = mysqli_fetch_array($result)) {
 }
 $rating = round(($Res_t * 100)/$rate);
 
+
+
+$sql = "SELECT Acabado, Refugado FROM resultado_op_mp where nome = '$Opers[$i]';";
+$result = $conn->query($sql);
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$acabamento_Ac = 0;
+$acabamento_Rf = 0;
+if ($result->num_rows > 0){
+while($row = mysqli_fetch_array($result)) {
+  $acabamento_Ac =  $acabamento_Ac + $row[0];
+  $acabamento_Rf =  $acabamento_Rf + $row[1];
+}
+}
+if ($acabamento_Ac != 0) {
+  
+$tx_Acab = $acabamento_Ac - $acabamento_Rf;
+$Ht_Acab = round(($tx_Acab * 100)/$Res_t);
+$HT_Efc = round((($acabamento_Ac - $acabamento_Rf)/$acabamento_Ac)*100);
+
+
+}
+
+
+
+
+
+
+
+
+
 if ($rating > 0) {
  print " <div class=\"Rating\">";
  print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic[$i]."\" alt=\"PicOPs\" class=\"PicPer\" width=\"50\" height=\"50\">";
@@ -238,40 +269,46 @@ if ($rating > 0) {
  print "<br>";
  print "<span><small>MP - Produção</small></span>";
  print "<br>";
- print "<span>Produção Geral: $Res_t</span>";
+ print "<span>Produção Geral: $Res_t kg</span>";
  print "<br>";
- print "<span>Taxa de Produção: $rating% </span>";
+ print "<span>Acagamento: $tx_Acab Kg </span>";
+ print "<br>";
+ print "<span>performance: $rating% </span>";
+ print "<br>";
+ print "<span>Eficiencia: $Ht_Acab% </span>";
+ print "<br>";
+ print "<span>Qualidade: $HT_Efc% </span>";
  print "<br>";
 if ($rating >= 5 && $rating <= 9) {
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
- print "<br>";
- print "<span>Produção inferior</span>";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<br>";
+print "<span>Produção inferior</span>";
 }elseif ($rating > 10 && $rating <=14) {
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
- print "<br>";
- print "<span>Produção baixa</span>";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<br>";
+print "<span>Produção baixa</span>";
 }elseif ($rating >= 15 && $rating <= 19) {
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
- print "<br>";
- print "<span>Produção média</span>";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<br>";
+print "<span>Produção média</span>";
 }elseif ($rating >= 20 && $rating <= 24) {
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
- print "<br>";
- print "<span>Produção boa</span>";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<br>";
+print "<span>Produção boa</span>";
 }elseif ($rating >= 25) {
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
-  print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
- print "<br>";
- print "<span color=\"\">Produção excelente</span>";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<img src=\"../pic/star.png\" width=\"30\" height=\"30\">";
+print "<br>";
+print "<span color=\"\">Produção excelente</span>";
 }
 print "</div>";
 }

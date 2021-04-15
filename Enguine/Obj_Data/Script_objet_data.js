@@ -28,21 +28,28 @@ function CalcTime( Param){
     }
     
     var MyEarlyDate = new Date();
-    MyEarlyDate.setDate(MyEarlyDate.getDate() - 30);
+    MyEarlyDate.setDate(MyEarlyDate.getDate() - 7);
 
-    // if (date1<MyEarlyDate) {
-    //     if (Param = "1") {
-    //         alert("Atenção, voce esta lançando um periodo inicial com mais de 30 dias de atraso!");
-    //     }
+    if (date1<MyEarlyDate) {
+        if (Param = "1") {
+            alert("Atenção, voce esta lançando um periodo inicial com mais de 7 dias de atraso!");
+        }
         
-    // }
+    }
     
-    // if (date2<MyEarlyDate) {
-    //     if (Param = "3") {
-    //          alert("Atenção, voce esta lançando um periodo Final com mais de 30 dias de atraso!");
-    //     }
+    if (date2<MyEarlyDate) {
+        if (Param = "3") {
+             alert("Atenção, voce esta lançando um periodo Final com mais de 7 dias de atraso!");
+        }
        
-    // }
+    }
+
+
+    if (date2<date1) {
+        alert ("Atenção, a data final não pode ser menor que a inicial");
+        document.getElementById("D_fn").value = "";
+        document.getElementById("H_fn").value = "";
+    }
 
     var letChar = "501"
     document.getElementById("chave").value = 3003 + dtini + hrini + letChar;
@@ -75,4 +82,5 @@ function CalcTime( Param){
         MyLog4();  
     }
 
-    }   
+    }  
+     

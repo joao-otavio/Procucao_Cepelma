@@ -284,7 +284,15 @@ if ($conn->connect_error) {
 
 
 
-if ($Ending = "Concluido") {
+if ($Ending == "Concluido") {
+
+  
+  
+  print "<script>";
+  print "alert(\"Concluido\");";
+  print "</script>";
+
+
     
   for ($i=1; $i <= 50 ; $i++) {
     $mn = 0;
@@ -431,7 +439,7 @@ if ($Ending = "Concluido") {
          '$pes_Refug',
          '$Tempo_Produtivo',
          '$Operador',
-         'Cortadeira'
+         'Balança'
       )";
       
       
@@ -468,7 +476,7 @@ if ($Ending = "Concluido") {
             '$pes_Refug',
             '$Tempo_Produtivo',
             '$Ajudante',
-            'Cortadeira'
+            'Balança'
           )";
           
           
@@ -479,7 +487,7 @@ if ($Ending = "Concluido") {
               }
           
         mysqli_close($conn);
-}
+
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -513,5 +521,8 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
+}
+
+
 
 ?>

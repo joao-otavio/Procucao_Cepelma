@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Reference_Icon/Incons_style_buttons.css">
 </head>
 <body>
+
+<input type="text" name="Name_form" id="Name_form" value="CT" hidden>
+
 <form action="Update_Cortadeira.php" method="POST" name="Myform">
 
 <div class="Flowless">

@@ -33,15 +33,15 @@ function Get_Pic_OP (OP_Pic){
     var popup = document.getElementById("PicOp");
     popup.classList.toggle("show");
      var nome   = OP_Pic;
+     var Cartter   = document.getElementById("Name_form").value;
      var result = document.getElementById("PicOp");
      var xmlreq = CriaRequest();
-     xmlreq.open("GET", "Return_objet_Pessoal_op.php?TxFind=" + nome, true);
+     xmlreq.open("GET", "Return_objet_Pessoal_op.php?TxFind=" + nome + "&TxPar="+Cartter, true);
      xmlreq.onreadystatechange = function(){
          if (xmlreq.readyState == 4) {
              if (xmlreq.status == 200) {
                  result.innerHTML = xmlreq.responseText;
                  console.log("operador:" + nome)
-
              }else{
                  result.innerHTML = "Erro: " + xmlreq.statusText;
              }

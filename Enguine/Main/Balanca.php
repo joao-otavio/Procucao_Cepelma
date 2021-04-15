@@ -70,7 +70,7 @@
 <button type="submit" class="Buts"><i class="salvar"></i><small class="Sm">Enviar</small></button>
 <button type="reset" class="Buts"><i class="excluir"></i><small class="Sm">Limpar</small></button>
 <br>
-<input type="text" id="Ok_check" name="Ok_check" value="" hidden>
+<input type="text" id="Ok_check" name="Ok_check" value="">
 
 </div>
 </div>
