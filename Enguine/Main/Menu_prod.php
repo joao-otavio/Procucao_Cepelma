@@ -4,32 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Producao</title>
-    <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/StyleMenu.css">
-    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
-    <link rel="stylesheet" type="text/css" href="../Obj_Table/">
-    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
-    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
-    <link rel="stylesheet" type="text/css" href="../Obj_Table/datatables.css">
- 
+<link rel="stylesheet" type="text/css" href="../Style/StyleMenu.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+
+
 </head>
 <body>
-<script src="../Enguine/Main/Return_Resume.js"></script>
+
+<!-- CSS do plugin -->
+<link rel="stylesheet" href="reveal.css">
+<!-- Biblioteca jQuery -->
+<!-- JS do plugin -->
+<script type="text/javascript" src="jquery.reveal.js"></script>
+
+
+<script type="text/javascript" src="table/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="table/datatables.min.css"/>
+
+<script type="text/javascript" src="table/datatables.min.js"></script>
 
 <div id= "Title">
-<h1>Menu Produção</h1>
+<h2>Menu Produção</h2>
+<hr>
+<div id="Mini_Config">
+<a href="#" class="big-link" data-reveal-id="myModal" id="Link_Modal">CD. Operador.</a>
+<a href="#" class="big-link" data-reveal-id="Cnf_Corte" id="Link_Modal">CNF Corte Reb.</a>
 </div>
+</div>
+<hr>
 <div id="Buttons">
-<button id="Buts" onclick="SendMP();">MP</button>
-<button id="Buts" onclick="SendRB();">Rebobinadeira</button>
-<button id="Buts" onclick="SendCt();">Cortadeira</button> 
-<button id="Buts" onclick=" SendConf_BL()">Balança</button>
-<button id="Buts" onclick="SendPop();">Cadastrar Op.</button>
-<button id="Buts" onclick="SendConf_RB();">Config Rb</button>
-<button id="Buts" onclick="ExportCsv();">Csv MP</button>
-<button id="Buts" onclick="RelatorMP();">Rating MP</button>
-<!-- <button id="Buts" onclick="Includ_OP()" data-modal-target="#modal">Cadastrar Op.</button>
-<button id="Buts" onclick="Includ_CF()" data-modal-target="#modal">Config Rb</button>
-  -->
+<button id="MP" class="Buts" onclick="SendMP();">MP</button>
+<button class="Buts" onclick="SendRB();">Rebobinadeira</button>
+<button class="Buts" onclick="SendCt();">Cortadeira</button> 
+<button class="Buts" onclick=" SendConf_BL()">Balança</button>
+<button class="Buts" onclick="SendPop();">Cadastrar Op.</button>
+<button class="Buts" onclick="SendConf_RB();">Config Rb</button>
+<button class="Buts" onclick="ExportCsv();">Csv MP</button>
+<button class="Buts" onclick="RelatorMP();">Rating MP</button>
+ 
   <div class="modal" id="modal">
     <div class="modal-header">
       <div class="title">SkyBry - Modal</div>
@@ -39,18 +53,14 @@
     </div>
   </div>
   <div id="overlay"></div>
-<div hidden id="Ct1">
-<?php include "Cadastra_op.php";?>
-</div>
-<div hidden id="Ct2">
-<?php include "Cadastra_PD_CORTE.php";?>
-</div>
 </div>
 <div id="Conteudo">
-<span><h4>Lançamentos MP </h4></span>
+<hr>
+<span> <strong>Lançamentos MP</strong></span>
+<hr>
 <div id="Table">
 <?php
-print "<table border='1' id = 'Table'>";
+print "<table id=\"example\" class=\"display\" style=\"width:100%\">";
 print"<thead>";
 print"<tr>";
 // print"<th>Relatorio</th>";
@@ -122,12 +132,25 @@ print "</tbody></table>";
 </div>
 
 
-<div class="popup" onclick="myFunction()">
-<span class="popuptext" id="myPopup"></span>
+<div id="myModal" class="reveal-modal">
+<?php include "Cadastra_op.php";?>
+<a id="Oper_Close_Modal" class="close-reveal-modal">&#215;</a>
 </div>
 
-<script>
+<div id="Cnf_Corte" class="reveal-modal">
+<?php include "Cadastra_PD_CORTE.php";?>
+<a class="close-reveal-modal">&#215;</a>
+</div>
 
+<a href="" class="big-link" data-reveal-id="Conclusions" id="link_conc"></a>
+<div id="Conclusions" class="reveal-modal">
+<h3>Cadastro concluido</h3>
+<span>Realizado o Cadastro solicitado!</span>
+<a id="ClsOp" class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<script>
 function Includ_OP(){
 var x = document.getElementById("Ct1").innerHTML;
 document.getElementById("modal-body").innerHTML = x;
@@ -166,48 +189,6 @@ document.getElementById("JBSend").value = SendIt;
 document.forms["SendForm"].submit();
 }
 
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('overlay')
-
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget)
-    openModal(modal)
-  })
-})
-
-overlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active')
-  modals.forEach(modal => {
-    closeModal(modal)
-  })
-})
-
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal')
-    closeModal(modal)
-  })
-})
-
-function openModal(modal) {
-  if (modal == null) return
-  modal.classList.add('active')
-  overlay.classList.add('active')
-}
-
-function closeModal(modal) {
-  if (modal == null) return
-  modal.classList.remove('active')
-  overlay.classList.remove('active')
-}
-
 
 function ExportCsv(){
   window.open('Export.php', '_blank');
@@ -217,6 +198,12 @@ function ExportCsv(){
 function RelatorMP(){
   window.open('../Obj_Relators/Mp_Star_rating.php', '_blank');
 }
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "dom": '<"top"i>rt<"bottom"flp><"clear">'
+    } );
+} );
 
 </script>
 <form action="" method="post" name="SendForm">

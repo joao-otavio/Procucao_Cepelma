@@ -7,6 +7,8 @@
     <link rel="icon" href="pic/favicon.ico">
 </head>
 <body>
+<script type="text/javascript" src="ChamaOperador_Cadastro.js"></script>
+
 <div id="Frames">
 <h1>Cadastro de Operadores</h1><br>
 </div>
@@ -15,7 +17,7 @@
     <div class="Select">
     <?php
     print "<form class=\"Selecao\" method=\"post\" action=\"Up_opers.php\" name=\"SelectF\" autocomplete=\"on\">";
-    print "<select class=\"Inpts\" name=\"RegFunc\" placeholder=\"Selecione...\">";
+    print "<select class=\"Inpts\" name=\"RegFunc\" placeholder=\"Selecione...\" id=\"OperadorCd\">";
     $servername = "localhost:3308";
     $username = "root";
     $password = "";
@@ -53,20 +55,16 @@
     <option value="MP">Maquina de Papel</option>
     <option value="RB">Rebobinadeira</option>
     <option value="CT">Cortadeira</option>
-    <option value="CT">Balança</option>
+    <option value="BL">Balança</option>
 </select>
 </div>
 <br>
 <hr>
-<a onclick="myAdiantamento();return false;" href="" target="_blank">Cadastrar Funcionario</a>
+<a href="#" onclick="Set_oper()" class="Buts">Cadastrar</a>
 <div class="Funcionario" id="FuncionarioReg">
 </div>
 </form>
 <script>
-function myAdiantamento() {
-    document.getElementById('FuncionarioReg').value = "CarregaFuncionario_Div_med.php";
-    document.SelectF.submit();
-}
 </script>
 </body>
 </html>

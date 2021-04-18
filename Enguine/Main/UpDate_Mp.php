@@ -10,8 +10,6 @@
 <body>
 
 <?php
-
-
 $myDateTime = DateTime::createFromFormat('Y-m-d',$_POST['Data']);
 $Data = $myDateTime->format('d/m/Y');
 $H_INICIO = $_POST['H_inicio'];
@@ -80,7 +78,6 @@ Data = '$Data',
 H_INICIO = '$H_INICIO',
 H_FIM = '$H_FIM',
 Tipo = '$Tipo',
-
 Tamanho = '$Tamanho',
 Rotacao = '$Rotacao',
 Peso = '$Peso',

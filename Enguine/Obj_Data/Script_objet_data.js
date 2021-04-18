@@ -17,7 +17,7 @@ function CalcTime( Param){
         document.getElementById("D_in").value = ""
         document.getElementById("H_in").value = ""
         document.getElementById("D_in").focus();
-    }
+     }
 
 
     if (date1>dataCurrente) {
@@ -27,22 +27,35 @@ function CalcTime( Param){
         document.getElementById("D_fn").focus();    
     }
     
-    var MyEarlyDate = new Date();
-    MyEarlyDate.setDate(MyEarlyDate.getDate() - 7);
+    // if (date1 !== dataCurrente) {
+    //        var MyEarlyDate = new Date();
+    // MyEarlyDate.setDate(MyEarlyDate.getDate() - 7);
 
-    if (date1<MyEarlyDate) {
-        if (Param = "1") {
-            alert("Atenção, voce esta lançando um periodo inicial com mais de 7 dias de atraso!");
-        }
-        
-    }
-    
-    if (date2<MyEarlyDate) {
-        if (Param = "3") {
-             alert("Atenção, voce esta lançando um periodo Final com mais de 7 dias de atraso!");
-        }
+    // // if (date1<MyEarlyDate) {
+    // //     if (Param = "1") {
+    // //         alert("Atenção, voce esta lançando um periodo inicial com mais de 7 dias de atraso!");
+    // //     }
+    // // } 
+    // }
+
+    // if (date2 != dataCurrente) {
+    //        var MyEarlyDate = new Date();
+    // MyEarlyDate.setDate(MyEarlyDate.getDate() - 7);
+
+    //  if (date2<MyEarlyDate) {
+    //     if (Param = "3") {
+    //          alert("Atenção, voce esta lançando um periodo Final com mais de 7 dias de atraso!");
+    //     }
        
-    }
+    // }
+    // }
+    
+    // if (date2<MyEarlyDate) {
+    //     if (Param = "3") {
+    //          alert("Atenção, voce esta lançando um periodo Final com mais de 7 dias de atraso!");
+    //     }
+       
+    // }
 
 
     if (date2<date1) {

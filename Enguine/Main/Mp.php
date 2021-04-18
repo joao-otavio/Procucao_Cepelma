@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 }
 $sql = "SELECT Jumb FROM producao_mp";
 $result = $conn->query($sql);
-$NumJUmb = mysqli_num_rows ($result) +1;
+$NumJUmb = mysqli_num_rows ($result) +2;
 
 $conn->close();
 

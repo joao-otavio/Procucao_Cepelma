@@ -1,15 +1,16 @@
 <?php
+if (isset($_GET["TXT_OP"])) {
+  if (isset($_GET["TXT_EQ"])) {
 
-$Equipamento = $_POST['EquipamentoC'];
-$RegFunc = $_POST['RegFunc'];
+  $nomeSCan = $_GET["TXT_OP"];
+  $Equipamento = $_GET['TXT_EQ'];
+ 
+  list($Nome, $scan) = explode("-",$nomeSCan);
 
-
-list($Nome, $scan) = explode("-",$RegFunc);
-
-$servername = "localhost:3308";
-$username = "root";
-$password = "";
-$dbname = "producao";
+  $servername = "localhost:3308";
+  $username = "root";
+  $password = "";
+  $dbname = "producao";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,11 +32,10 @@ $sql = "INSERT INTO operadores
 ) 
 VALUES
 (
-'$Nome',
-'$scan',
-'$Equipamento'
+    '$Nome',
+    '$scan',
+    '$Equipamento'
 )";
-
 
 if (mysqli_query($conn, $sql)) {
     print "<H3>Lançamento concluido</H3>";
@@ -44,6 +44,10 @@ if (mysqli_query($conn, $sql)) {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
     }
   mysqli_close($conn);
-  echo "<script>window.close();</script>";
-echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
+  }else{
+    echo "não encontrado Equipamento";
+  }
+}else{
+  echo "não encontrado Operador";
+}
   ?>

@@ -1,97 +1,36 @@
 body{
-    overflow: hidden;
+  
 }
 
-#Title{
-    width: 85%;
-    border: solid 1px blue ;
-    border-radius: 15px;
-    padding: 5px;
-    padding-left: 20px;
-    margin: 5px;   
-}
-
- #Buts{
-    border-radius: 15px;
+ .Buts{
+    border-radius: 5px;
     width: 100px;
-    border: solid 1px black;
-    background-color: rgb(186, 218, 216);
+    height: 50px;
+    border: solid 1px rgb(185, 184, 184);
+    background-image: radial-gradient(#FFFFF0,#EEEEE0,#CDCDC1);
     padding: 4px;
     margin: 3px;
     margin-top: 10px;
-   
-   
     
 }
 
-#Buts:hover{
-    border-radius: 0;
+.Buts:hover{
+    border-radius: 5px;
     width: 100px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
+    border: solid 1px rgb(185, 184, 184);
+    background-image: radial-gradient(#4F4F4F,#363636,#1C1C1C);
+    color: white;
+
 }
 
-#Buts:focus{
-    border-radius: 0;
-    width: 100px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
+.Buts:focus{
+  border: solid 2px rgb(0, 0, 0);
 }
 
-#Buttons{
-    width: 85%;
-    border: solid 1px blue ;
-    border-radius: 15px;
-    padding: 5px;
-    padding-top: 5px;
-    padding-left: 20px;
-    margin: 7px;  
-    /* height: 40px;   */
+#Mini_Config{
+  text-align: right;
 }
 
-td, th {
-    min-width: 105px;
-    /* height: 25px; */
-    /* border: dashed 1px lightblue; */
-  }
-  
-  table {
-    width:100%;
-    border-collapse: collapse;
-    /* border: dashed 1px; */
-    margin: 5px;
-    /* padding: 3px; */
-    text-align: center; 
-
-    /* vertical-align: middle; */
-    /* border-radius: 15px; */
-    display: block;
-  }
-
-  thead, tbody {
-    display: block;
-}
-
-  tbody{
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 439px;
-    width: 100%;
-
-  }
-
-  #Conteudo{
-    width: 85%;
-    border: solid 1px blue ;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    padding: 5px;
-    padding-top: 5px;
-    padding-left: 20px;
-    margin: 7px;
-    /* overflow: auto; */
-    height: 533px;
-  }
   a:link {text-decoration: none;}
 
 /* Popup container */
@@ -213,4 +152,32 @@ td, th {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+td{
+  text-align: center;
+  vertical-align: middle;   
+}
+
+#Link_Modal{
+  border-radius: 5px;
+  width: 100px;
+  border-right: solid 1px rgb(185, 184, 184);
+  padding: 5px;
+  
+}
+
+#Link_Modal:hover{
+  border-radius: 5px;
+  width: 100px;
+  border: solid 1px rgb(185, 184, 184);
+  background-image: radial-gradient(#4F4F4F,#363636,#1C1C1C);
+  color: white;
+  border-radius: 5px;
+
+}
+
+#Link_Modal:focus{
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 5px;
 }

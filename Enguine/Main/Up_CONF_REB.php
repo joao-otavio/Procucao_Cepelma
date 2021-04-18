@@ -67,7 +67,7 @@ if (mysqli_query($conn, $sql)) {
     }
   mysqli_close($conn);
 
-  echo "<script>window.close();</script>";
+echo "<script>window.close();</script>";
 echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
   
   ?>
