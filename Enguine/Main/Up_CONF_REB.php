@@ -1,13 +1,16 @@
 <?php
 
-$Quantidade1 = $_POST['Quantidade1'];
-$Medida1 = $_POST['Medida1'];
+  if (isset($_GET["Quantidade1"])) {
+    if (isset($_GET["Medida1"])) {            
 
-$Quantidade2 = $_POST['Quantidade2'];
-$Medida2 = $_POST['Medida2'];
+$Quantidade1 = $_GET['Quantidade1'];
+$Medida1 = $_GET['Medida1'];
 
-$Quantidade3 = $_POST['Quantidade3'];
-$Medida3 = $_POST['Medida3'];
+$Quantidade2 = $_GET['Quantidade2'];
+$Medida2 = $_GET['Medida2'];
+
+$Quantidade3 = $_GET['Quantidade3'];
+$Medida3 = $_GET['Medida3'];
 
 $Descricao = "";
 if ($Medida1 != 0) {
@@ -66,8 +69,10 @@ if (mysqli_query($conn, $sql)) {
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
     }
   mysqli_close($conn);
+ 
+  }
+    }else{
+      echo "Pelo Menos 1 medida deve ser cadastrada";
+    }
 
-echo "<script>window.close();</script>";
-echo "<script>document.write('<a href=\"' + document.referrer + '\">Voltar</a>');</script>";
-  
-  ?>
+    ?>

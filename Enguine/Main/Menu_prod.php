@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../Style/StyleMenu.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="ChamaOperador_Cadastro.js"></script>
 
 
 </head>
@@ -30,17 +31,18 @@
 <hr>
 <div id="Mini_Config">
 <a href="#" class="big-link" data-reveal-id="myModal" id="Link_Modal">CD. Operador.</a>
-<a href="#" class="big-link" data-reveal-id="Cnf_Corte" id="Link_Modal">CNF Corte Reb.</a>
+<a href="#" class="big-link" data-reveal-id="Cnf_Corte" id="Link_Modal">CNF. Corte Reb.</a>
+<a href="#" class="big-link" data-reveal-id="Cnf_Papel" id="Link_Modal">TP. Papel.</a>
+<a href="#" class="big-link" data-reveal-id="Cnf_medida_ctd" id="Link_Modal">CNF Corte Ctd.</a>
+<a href="#" class="big-link" data-reveal-id="Cnf_Equipamentos" id="Link_Modal">Man. Equipamentos.</a>
 </div>
 </div>
 <hr>
-<div id="Buttons">
+<div id="">
 <button id="MP" class="Buts" onclick="SendMP();">MP</button>
 <button class="Buts" onclick="SendRB();">Rebobinadeira</button>
 <button class="Buts" onclick="SendCt();">Cortadeira</button> 
 <button class="Buts" onclick=" SendConf_BL()">Balança</button>
-<button class="Buts" onclick="SendPop();">Cadastrar Op.</button>
-<button class="Buts" onclick="SendConf_RB();">Config Rb</button>
 <button class="Buts" onclick="ExportCsv();">Csv MP</button>
 <button class="Buts" onclick="RelatorMP();">Rating MP</button>
  
@@ -138,8 +140,19 @@ print "</tbody></table>";
 </div>
 
 <div id="Cnf_Corte" class="reveal-modal">
-<?php include "Cadastra_PD_CORTE.php";?>
 <a class="close-reveal-modal">&#215;</a>
+<?php include "Cadastra_PD_CORTE.php";?>
+</div>
+
+<div id="Cnf_Papel" class="reveal-modal">
+<a class="close-reveal-modal">&#215;</a>
+<?php include "Cadastro_papel.html";?>
+</div>
+
+
+<div id="Cnf_medida_ctd" class="reveal-modal">
+<a class="close-reveal-modal">&#215;</a>
+<?php include "Cadastro_Med_Corte_ctd.html";?>
 </div>
 
 <a href="" class="big-link" data-reveal-id="Conclusions" id="link_conc"></a>
@@ -206,6 +219,7 @@ $(document).ready(function() {
 } );
 
 </script>
+
 <form action="" method="post" name="SendForm">
 <input type="text" name="Jumb" id="JBSend" hidden>
 </form>

@@ -8,34 +8,32 @@
     <link rel="stylesheet" type="text/css" href="/ProdCepelma/Enguine/Style/pd_bts.css">
 </head>
 <body>
-    <h3>Configurações de Corte</h3>
+<!-- Config_Corte -->
+<script type="text/javascript" src="Config_Corte.js"></script>
+
+    <h4>Configurações de Corte</h4>
     <hr>
-    <h4>Rebobinadeira</h4>
-<form action="Up_CONF_REB.php" name="SelectF" method="POST" target="_blank">
+    <h5>Rebobinadeira</h5>
+<form action="" name="CdCorte">
     <Label>Quantidade 1</Label>
-    <input class="Btts" type="text" name="Quantidade1" value="0" width="50px" required>
+    <input type="number" id="qtdum" name="Quantidade1" class="Btts"  value="0" required>
     <Label>Medida 1</Label>
-    <input class="Btts" type="text" name="Medida1" value="0" width="50px" required>
+    <input type="number" id="medidaum" name="Medida1" class="Btts" value="0"  required>
 <br><hr>
 <Label>Quantidade 2</Label>
-    <input class="Btts" type="text" name="Quantidade2" value="0" width="50px" required>
+    <input type="number" id="qtddois" name="Quantidade2" class="Btts" value="0" width="50px" required>
     <Label>Medida 2</Label>
-    <input class="Btts" type="text" name="Medida2"  value="0" width="50px" required>
+    <input type="number" id="medidadois" name="Medida2" class="Btts" width="50px" value="0" required>
 <br><hr>
 <Label>Quantidade 3</Label>
-    <input class="Btts" type="text" name="Quantidade3" value="0" width="50px" required>
+    <input type="number" id="qtdtres" name="Quantidade3" class="Btts" width="50px" value="0" required>
     <Label>Medida 3</Label>
-    <input class="Btts" type="text" name="Medida3" value="0" width="50px" required>
+    <input type="number" id="medidatres" name="Medida3" class="Btts" width="50px" value="0" required>
     <br><br><hr>
-<button onclick="myAdiantamento">Confirmar padrão</button>
-</form>
-</div>
-</div>
-</form>
-<script>
-function myAdiantamento() {
-    document.getElementById("modal-body").innerHTML = "";
-}
-</script>
+    <a href="#" onclick="Set_Cort_Reb()" class="Buts">Cadastrar</a>
+    </form>
+
+
+
 </body>
 </html>
