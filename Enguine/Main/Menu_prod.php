@@ -155,6 +155,12 @@ print "</tbody></table>";
 <?php include "Cadastro_Med_Corte_ctd.html";?>
 </div>
 
+<div id="Cnf_Equipamentos" class="reveal-modal">
+<a class="close-reveal-modal">&#215;</a>
+<?php include "Cadastro_Equipamento.html";?>
+</div>
+
+
 <a href="" class="big-link" data-reveal-id="Conclusions" id="link_conc"></a>
 <div id="Conclusions" class="reveal-modal">
 <h3>Cadastro concluido</h3>
