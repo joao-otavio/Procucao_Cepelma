@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/ProdCepelma/Enguine/Main/ajax.js"></script>
 <input type="text" name="Name_form" id="Name_form" value="MP" hidden>
 
@@ -38,17 +38,7 @@ print "<h3 id = \"Titles\">Lançamentos da MP - Jumbo: $NumJUmb</h3>";
 print "</div>";
 print "<div id =\"Mae\">";
 
-print "<div id=\"Find\" class=\"Container\">";
-print "<h3><strong>Jumbo</strong>  (Edição): </h3>";
-print "<hr>"; 
-print "<input Type=\"number\" id=\"TxFind\" class=\"Inpts\" min=\"1\" max=\"1000000\">";
-print "<br>"; 
-print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" class=\"Buts\" onclick=\"getDados()\"><i class=\"buscar\"></i><small class=\"Sm\">Buscar</small></button>";
-print "</div>";
 
-print "<div id=\"test\">";
-print "<input type=\"text\" hidden>";
-print "</div>";
 
 print "<form action=\"Up_MP.php\" method=\"post\" name=\"LcMp\" id=\"PostFom\">";
 
@@ -154,12 +144,23 @@ include "../Obj_Paradas/Paradas.php";
 print "</div>";
 
 print "<div id=\"Buttons_CT\" class=\"Container\">";
-print "<button type=\"submit\" id=\"BtConcNext\" class=\"Buts\" value=\"Enviar\" name=\"Subt\"><i class=\"confirmado\"></i><small class=\"Sm\">Enviar</small></button>";
+print "<button type=\"submit\" id=\"BtConcNext\" class=\"Buts\" value=\"Enviar\" name=\"Enviar\"><i class=\"confirmado\"></i><small class=\"Sm\">Enviar</small></button>";
 print "<button type=\"button\"id=\"BtAddm\" hidden>Teste</button>";
 // print "<button href=\"#\" type=\"button\"id=\"BtConcNext\" Name=\"X1\" class=\"Buts\" hidden><i class=\"confirmado\"></i><small class=\"Sm\">Confirmar</small></button>";
 print "<button href=\"#\" type=\"button\"id=\"BtCancelar\" Name=\"X2\" class=\"Buts\"><i class=\"cancelar\"></i><small class=\"Sm\">Cancelar</small></button>";
 print "</div>";
 
+print "<div id=\"Find\" class=\"Container\">";
+print "<h3><strong>Jumbo</strong>  (Edição): </h3>";
+print "<hr>"; 
+print "<input Type=\"number\" id=\"TxFind\" class=\"Inpts\" min=\"1\" max=\"1000000\">";
+print "<br>"; 
+print "<button type=\"button\"id=\"BtFind\" name=\"BtFind\" class=\"Buts\" onclick=\"getDados()\"><i class=\"buscar\"></i><small class=\"Sm\">Buscar</small></button>";
+print "</div>";
+
+print "<div id=\"test\">";
+print "<input type=\"text\" hidden>";
+print "</div>";
 
 print "<input type=\"text\" name=\"TempProd\" id=\"TempProd\" hidden>";
 print "<input type=\"text\" name=\"TempG\" id=\"TempG\" hidden>";
@@ -528,6 +529,16 @@ function CancelEdit(){
 document.getElementById('BtCancelar').onclick=function() {
   window.location.reload(true);
 }
+
+
+var formID = document.getElementById("PostFom");
+var send = $("#BtConcNext");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
 
 </script>
 </body>

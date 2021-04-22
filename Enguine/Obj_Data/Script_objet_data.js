@@ -58,11 +58,11 @@ function CalcTime(Param){
     // }
 
 
-    if (date2<date1) {
-        alert ("Atenção, a data final não pode ser menor que a inicial");
-        document.getElementById("D_fn").value = "";
-        document.getElementById("H_fn").value = "";
-    }
+    // if (date2<date1) {
+    //     alert ("Atenção, a data final não pode ser menor que a inicial");
+    //     document.getElementById("D_fn").value = "";
+    //     document.getElementById("H_fn").value = "";
+    // }
 
     var letChar = "501"
     document.getElementById("chave").value = 3003 + dtini + hrini + letChar;
@@ -99,5 +99,8 @@ if (document.getElementById("TempProd") != null){
     document.getElementById("TempProd").value = TempPrd;
 }
 
+if (document.getElementById("TempF") != null){
+    document.getElementById("TempF").value = TempPrd;
+}
     }  
      
