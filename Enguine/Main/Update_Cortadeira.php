@@ -149,7 +149,6 @@ $Contador = count($MyArrJUMBOS);
       carga,
       operador,
       ajudante
-
   ) 
   VALUES
   (
@@ -326,15 +325,15 @@ $line =1;
 $Quant_Para = $_POST['NumMan'];
 $chave = $_POST['chave'];
 
-for ($i=0; $i < $Quant_Para; $i++) { 
-$Descricao = $_POST['Pddesc'.$line.'_1'];
-$Tip = $_POST['Tip_'.$line];
-$D_in = $_POST['D_in_'.$line];
-$H_in = $_POST['H_in_'.$line];
-$D_fn = $_POST['D_fn_'.$line];
-$H_fn = $_POST['H_fn_'.$line];
+for ($i=1; $i <= $Quant_Para; $i++) { 
+$Descricao = $_POST['Pddesc'.$i.'_1'];
+$Tip = $_POST['Tip_'.$i];
+$D_in = $_POST['D_in_'.$i];
+$H_in = $_POST['H_in_'.$i];
+$D_fn = $_POST['D_fn_'.$i];
+$H_fn = $_POST['H_fn_'.$i];
 
-$Temp_Parad = $_POST['TemPar_'.$line];
+$Temp_Parad = $_POST['TemPar_'.$i];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

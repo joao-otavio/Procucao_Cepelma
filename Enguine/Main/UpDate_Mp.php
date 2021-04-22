@@ -10,10 +10,13 @@
 <body>
 
 <?php
-$myDateTime = DateTime::createFromFormat('Y-m-d',$_POST['Data']);
-$Data = $myDateTime->format('d/m/Y');
-$H_INICIO = $_POST['H_inicio'];
-$H_FIM = $_POST['H_fim'];
+
+
+$D_in = $_POST['D_in'];
+$H_in = $_POST['H_in'];
+$D_fn = $_POST['D_fn'];
+$H_fn = $_POST['H_fn'];
+
 $Tipo = $_POST['Papel'];
 $Tamanho = $_POST['Tamanho'];
 $Rotacao = $_POST['Rotacao'];
@@ -74,9 +77,10 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 $sql = "UPDATE producao_mp SET 
-Data = '$Data', 
-H_INICIO = '$H_INICIO',
-H_FIM = '$H_FIM',
+Data = '$D_in', 
+Data_Fim = '$D_fn', 
+H_INICIO = '$H_in',
+H_FIM = '$H_fn',
 Tipo = '$Tipo',
 Tamanho = '$Tamanho',
 Rotacao = '$Rotacao',
@@ -105,43 +109,53 @@ if (mysqli_query($conn, $sql)) {
 
  
 $line =1;
-for ($i=0; $i < $Quant_Para; $i++) { 
+for ($i=1; $i < ($Quant_Para+1); $i++) { 
 
   
-    $Jum = $_POST['NumJum'];
-    $Descricao = $_POST['Pddesc'.$line.'_1'];
-    $H_Inicial = $_POST['PdIni'.$line .'_1'];
-    $H_Final = $_POST['PdFin'.$line.'_2'];
-    $Temp_Total = $_POST['TemPar'.$line.'_2'];
+  
+  $Jum = $_POST['NumJum'];
+  $Descricao = $_POST['Pddesc'.$i.'_1'];
+  $Tip = $_POST['Tip_'.$i];
+  $D_inp = $_POST['D_in_'.$i];
+  $H_inp = $_POST['H_in_'.$i];
+  $D_fnp = $_POST['D_fn_'.$i];
+  $H_fnp = $_POST['H_fn_'.$i];
+  $Temp_Parad = $_POST['TemPar_'.$i];
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    };
-    
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    $sql = "INSERT INTO paradas_mp 
-    ( 
-        Jum,
-        Descricao,
-        H_Inicial,
-        H_Final,
-        Temp_Total
-    ) 
-    VALUES
-    (
-       '$Jum',
-       '$Descricao',
-       '$H_Inicial',
-       '$H_Final',
-       '$Temp_Total'
-    )";
-    
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  };
+  
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  // Check connection
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
+  $sql = "INSERT INTO paradas_mp 
+  ( 
+      Jum,
+      Descricao,
+      D_Inicial,
+      H_Inicial,
+      D_Final,
+      H_Final,
+      Temp_Total,
+      Tipo
+  ) 
+  VALUES
+  (
+     '$Jum',
+     '$Descricao',
+     '$D_inp',
+     '$H_inp',
+     '$D_fnp',
+     '$H_fnp',
+     '$Temp_Parad',
+      '$Tip'
+  )";
+  
     
     if (mysqli_query($conn, $sql)) {
         print "<H3>Lançamento concluido</H3>";

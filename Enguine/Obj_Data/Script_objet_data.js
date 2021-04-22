@@ -1,4 +1,4 @@
-function CalcTime( Param){
+function CalcTime(Param){
     var dtini = document.getElementById("D_in").value;
     var hrini = document.getElementById("H_in").value;
     var dtfin = document.getElementById("D_fn").value;
@@ -94,6 +94,10 @@ function CalcTime( Param){
     if (Param = "4") {
         MyLog4();  
     }
+
+if (document.getElementById("TempProd") != null){
+    document.getElementById("TempProd").value = TempPrd;
+}
 
     }  
      

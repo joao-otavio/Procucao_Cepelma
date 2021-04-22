@@ -1,64 +1,51 @@
+body{
+    background: url(../pic/SkyBry.jpg) no-repeat left top fixed transparent;
+    /* overflow: hidden; */
+    background-size: 700px;
+    
+}
 
-
-#Opers{
-    width: 620px;
-    border: solid 1px blue ;
+.Container{
+    width: 420px;
+    border: solid 1px royalblue ;
     border-radius: 15px;
-    padding: 5px;
-    padding-left: 20px;
+    padding: 10px;
+    margin: 3px;
+    background: rgba(255, 255, 255, 0.747) ;
+    float: left;
+    font-size: 16px;
+ 
+}
+
+.Container:hover{
+    border: solid 2px dodgerblue;
+    padding-left: 11px;
+    /* float: left; */
+}
+
+.Container_Major{
+    width: 871px;
+    border: solid 1px royalblue ;
+    border-radius: 15px;
+    padding: 10px;
     margin: 5px;
+    background: rgba(255, 255, 255, 0.747) ;
 }
 
-#Operadors{
-width: 300px;
-left: 0px;
-border-radius: 15px;
-margin-bottom: 5px;
-}
-
-#Ajudantes{
-    width: 300px;
-    left: 50%; 
-    border-radius: 15px;
+.Inpts{
+    width: 135px; 
+    border-radius: 8px;
+    border: 1px solid black;
     margin-bottom: 5px;
 }
+    
+    .Inpts:focus{
+    background-color: rgb(186, 218, 216);
+    border-radius: 0px;   }
+    
+    
 
-#Operador{
-    float: left;
-    width: 305px;
-    }
-
-    #ajudante{
-    float: left;        
-    }
-
-    #Job{
-        border: solid 1px blue;
-        border-radius: 15px;
-        width: 290px;
-        padding: 5px;
-        padding-left: 20px;
-        margin: 5px;
-        /* float: left;  */
-     
-    }
-
-    #produto{
-        position: absolute;
-        border: solid 1px blue;
-        border-radius: 15px;
-        width: 290px;
-        padding: 5px;
-        padding-left: 20px;
-        margin: 5px;
-        float: left; 
-        height: 250px;
-        padding-top: 15px;
-        padding-bottom: 0px;
-        top: 141px;
-        left: 335px;
-    }
-
+    
     #Gramatura1{
         width: 98px;
         border-top-left-radius: 15px;
@@ -75,32 +62,6 @@ margin-bottom: 5px;
         margin-bottom: 5px;
     }
 
-    #Papel{
-        width: 208px; 
-        border-radius: 15px;
-        border: 1px solid black;
-        margin-bottom: 5px;
-    }
-
-    #Tamanho{
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-        margin-bottom: 5px;
-    }
-    #Rotacao{
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-        margin-bottom: 5px;
-    }
-    #Peso{
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-        margin-bottom: 5px;
-    }
-
     #Gramatura2:focus{
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -112,322 +73,19 @@ margin-bottom: 5px;
         background-color: rgb(186, 218, 216);
     }
 
-    #Papel:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px;    
+    #Time_CT{
+        /* clear: left; */
     }
 
-    #Tamanho:focus{
-        background-color: rgb(186, 218, 216);
-    border-radius: 0px;    
-    }
-    #Rotacao:focus{
-         background-color: rgb(186, 218, 216);
-        border-radius: 0px;    
-    }
-    #Peso:focus{
-         background-color: rgb(186, 218, 216);
-        border-radius: 0px;    
+    #Paradas_CT{  
+        /* clear: left; */
     }
 
-    #Data{
-        margin-bottom: 7px;
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
+    #produto_CT{
+
     }
 
-    #H_inicio{
-        margin-bottom: 7px;
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
+    #Buttons_CT{
+        /* clear: left; */
+
     }
-
-    #H_fim{
-        margin-bottom: 7px;
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-    }
-
-    #Data:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #H_inicio:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #H_fim:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #Operadors:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-    #Ajudantes:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #mae{
-        width: 630px;
-        border: 1px solid blue;
-    }
-
-    #Parada{
-        border: solid 1px blue;
-        border-radius: 15px;
-        width: 290px;
-        padding: 5px;
-        margin: 5px;
-        float: left;
-        padding-top: 10px;
-        padding-bottom: 10px;
-       
-    }
-
-    #Bt_Parada{
-        margin-bottom: 5px;
-        border: solid 1px black;
-        width: 130px;
-        padding: 5px;
-        border-radius: 15px;
-          
-    }
-
-    #Title{
-        width: 620px;
-        border: solid 1px blue ;
-        border-radius: 15px;
-        padding: 5px;
-        padding-left: 20px;
-        margin: 5px;   
-    }
-
-    #BtAdd{
-        border-radius: 15px;
-        width: 150px;
-        border: solid 1px black;
-        background-color: rgb(186, 218, 216);
-    }
-
-    #BtAdd:hover{
-        border-radius: 0;
-        width: 200px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    #BtAdd:focus{
-        border-radius: 0;
-        width: 200px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    .PdIni{
-        margin-bottom: 7px;
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-    }
-
-    .PdFin{
-        margin-bottom: 7px;
-        width: 200px; 
-        border-radius: 15px;
-        border: 1px solid black;
-    }
-
-    .Pddesc:focus{
-        background-color: rgb(186, 218, 216);
-    }
-
-    .PdIni:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    .dFin:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #Buttons{
-        position: absolute;
-        width: 305px;
-        border: solid 1px blue ;
-        border-radius: 15px;
-        padding: 5px;
-        padding-top: 5px;
-        /* padding-left: 20px; */
-        margin: 7px;  
-        left: 335px;  
-        top: 410px; 
-        height: 40px;  
-    }
-
-    #BtConcNext{
-        position: absolute;
-        top: 1px;
-        border-radius: 15px;
-        width: 100px;
-        border: solid 1px black;
-        background-color: rgb(186, 218, 216);
-        padding: 4px;
-        margin: 3px;
-        margin-top: 10px;
-        
-    }
-
-    #BtConcNext:hover{
-        border-radius: 0;
-        width: 100px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    #BtConcNext:focus{
-        border-radius: 0;
-        width: 100px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    #Find{
-        position: absolute;
-        width: 300px;
-        border: solid 1px blue ;
-        border-radius: 15px;
-        padding: 5px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        /* padding-left: 20px; */
-        margin: 7px;  
-        left: 335px;  
-        top: 470px; 
-    }
-    
-    #BtFind{
-        position: absolute;
-        top: 10px;
-        /* border-radius: 15px; */
-        width: 80px;
-        border: solid 1px black;
-        background-color: rgb(186, 218, 216);
-        
-    }
-
-    #BtFind:hover{
-        border-radius: 0;
-        width: 80px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    #BtFind:focus{
-        border-radius: 0;
-        width: 80px;
-        border: solid 1px black;
-        background-color: rgb(148, 233, 227);
-    }
-
-    
-    #TxFind{
-        margin-bottom: 7px;
-        width: 200px; 
-        /* border-radius: 15px; */
-        border: 1px solid black;
-    }
-
-    #TxFind:focus{
-        background-color: rgb(186, 218, 216);
-        border-radius: 0px; 
-        border: 1px solid black;
-    }
-
-    #test{
-        position: absolute;
-        top: 600px;
-    }
-  #Confirm{
-    border-radius: 15px;
-    width: 150px;
-    border: solid 1px black;
-    background-color: rgb(186, 218, 216);
-}
-
-#Confirm:hover{
-    border-radius: 0;
-    width: 200px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-}
-
-#Confirm:focus{
-    border-radius: 0;
-    width: 200px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-}
-
-table, td, th {
-    border: 1px solid black;
-    padding: 3px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 5px;
-    padding: 3px;
-    text-align: center; 
-    vertical-align: middle;
-  }
-
-  #BtCancelar{
-    position: absolute;
-    top: 1px;
-    border-radius: 15px;
-    width: 100px;
-    border: solid 1px black;
-    background-color: rgb(186, 218, 216);
-    padding: 4px;
-    margin: 3px;
-    margin-top: 10px;
-    left: 120px;
-    
-}
-
-#BtCancelar:hover{
-    border-radius: 0;
-    width: 100px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-}
-
-#BtCancelar:focus{
-    border-radius: 0;
-    width: 100px;
-    border: solid 1px black;
-    background-color: rgb(148, 233, 227);
-}
-
-a:link{ 
- text-decoration:none; 
- text-align: center;
-} 

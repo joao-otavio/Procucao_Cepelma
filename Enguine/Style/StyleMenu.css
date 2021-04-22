@@ -45,7 +45,7 @@ body{
 .popup .popuptext {
   visibility: hidden;
   width: 600px;
-  height: 600px;
+  height: 400px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -54,7 +54,7 @@ body{
   position: absolute;
   z-index: 1;
   bottom: 50%; 
-  left: 50%;
+  left: 30%;
   margin-left: -80px;
   overflow: auto;
 }

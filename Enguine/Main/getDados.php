@@ -41,7 +41,7 @@ if (isset($_GET["TxFind"])) {
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  $sql = "SELECT Jumb, Data, H_INICIO, H_FIM, Tipo, Tamanho, Rotacao, Peso, Temp_Fabr, Temp_Para,
+  $sql = "SELECT Jumb, Data, Data_Fim, H_INICIO, H_FIM, Tipo, Tamanho, Rotacao, Peso, Temp_Fabr, Temp_Para,
   Temp_Prod, Gram_Med, Gram_Str, Gram_Calc, Gram_Prim, Gram_Seg, Quant_Para, Operador, Ajudante 
   FROM producao_mp where Jumb = '$nome'";
   $result = $conn->query($sql);
@@ -53,7 +53,8 @@ if (isset($_GET["TxFind"])) {
     <thead>
         <tr>
             <th>Jumbo</th>
-            <th>Data</th> 
+            <th>Data Inicio</th> 
+            <th>Data Fim</th> 
             <th>H. Inicio</th>
             <th>H. Fim</th>
             <th>Tipo</th>
@@ -80,6 +81,7 @@ $return = "$tabela";
 while ($linha = mysqli_fetch_array($result)) {
 $return.= "<td>" . utf8_encode($linha["Jumb"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["Data"]) . "</td>";
+$return.= "<td>" . utf8_encode($linha["Data_Fim"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["H_INICIO"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["H_FIM"]) . "</td>";
 $return.= "<td>" . utf8_encode($linha["Tipo"]) . "</td>";
@@ -98,8 +100,8 @@ $return.= "<td>" . utf8_encode($linha["Quant_Para"]) . "</td>";
 $return.= "<td>" . $linha["Operador"] . "</td>";
 $return.= "<td>" . $linha["Ajudante"] . "</td>";
 $return.= "</tr>";
-$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"PshEdit()\">Confirmar dados</Button>";
-$return.= "<Button type=\"button\" id = \"Confirm\" onclick=\"CancelEdit()\">Cancelar</Button>";
+$return.= "<Button type=\"button\" class=\"Buts\" id = \"Confirm\" onclick=\"PshEdit()\"><i class=\"editar\"></i><small class=\"Sm\">Editar</small></Button>";
+$return.= "<Button type=\"button\" class=\"Buts\" id = \"Confirm\" onclick=\"CancelEdit()\"><i class=\"cancelar\"></i><small class=\"Sm\">Cancelar</small></Button>";
 }
 echo $return.="</tbody></table>"; 
 
@@ -114,7 +116,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT Descricao, H_Inicial, H_Final, Temp_Total FROM paradas_mp where Jum = '$nome'";
+$sql = "SELECT Descricao, D_Inicial, H_Inicial, D_Final, H_Final,Temp_Total, Tipo FROM paradas_mp where Jum = '$nome'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -123,9 +125,12 @@ if ($result->num_rows > 0) {
   <thead>
       <tr>
           <th>Descricao</th>
-          <th>H_Inicial</th> 
-          <th>H_Final</th>
-          <th>Temp_Total</th>
+          <th>Data Inicial</th> 
+          <th>Hora Inicial</th>
+          <th>Data Final</th>
+          <th>Hora Final</th>
+          <th>Temp Total</th>
+          <th>Tipo</th>
        </tr>
   </thead>
   <tbody>
@@ -135,15 +140,16 @@ $return = "$tabela";
 // Captura os dados da consulta e inseri na tabela HTML
 while ($linha = mysqli_fetch_array($result)) {
 $return.= "<td class ='Mn$i'>" . $linha["Descricao"] . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["D_Inicial"]) . "</td>";
 $return.= "<td class ='Mn$i'>" . utf8_encode($linha["H_Inicial"]) . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["D_Final"]) . "</td>";
 $return.= "<td class ='Mn$i'>" . utf8_encode($linha["H_Final"]) . "</td>";
 $return.= "<td class ='Mn$i'>" . utf8_encode($linha["Temp_Total"]) . "</td>";
+$return.= "<td class ='Mn$i'>" . utf8_encode($linha["Tipo"]) . "</td>";
 $return.= "</tr>";
 $i = $i +1;
 }
 echo $return.="</tbody></table>"; 
-
-
   } else {
        echo "Não foram encontradas Paradas!";
   }

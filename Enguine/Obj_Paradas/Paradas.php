@@ -11,14 +11,19 @@
 
 </head>
 <body>
+<div class="Container">
+<h3>Paradas do Equipamento</h3>
+<hr>
 <div id="lines">
-<button type="button" onclick="addInput('lines')" id="BtAdd" class="Buts"><i class="ferramentas"></i><small>Parada</small></button>
 </div>
+<button type="button" onclick="addInput('lines')" id="BtAdd" class="Buts"><i class="ferramentas"></i><small>Parada</small></button>
 <input type="text" name="NumMan" id="NumMan" hidden>
+</div>
 
 <script>
 var line = 1;
 var Adicted = 0;
+
 function addInput(divName) {
 
 MySelect = document.createElement('select')
@@ -72,7 +77,7 @@ MySelect.appendChild(newOption4);
   newdiv.innerHTML += '<input type="date" id="D_fn_'+line +'" name="D_fn_'+line +'" class="Inpts" onblur="CalcPar('+line+')" required>';
   newdiv.innerHTML += '<input type="time" id="H_fn_'+line +'" name="H_fn_'+line +'" class="Inpts" onblur="CalcPar('+line+')" required>';
   newdiv.innerHTML += '</div>';
-  newdiv.innerHTML += '<input type="text" name="TemPar_'+line+'" id="TemPar_'+line+'">';
+  newdiv.innerHTML += '<input type="text" name="TemPar_'+line+'" id="TemPar_'+line+'" hidden>';
   newdiv.innerHTML += '<br>';
   newdiv.innerHTML += '<br>';
   newdiv.innerHTML += '<button type="button" onclick="excInput('+vrb+')" class="Buts" id="Exc_'+line +'"><i class="excluir"></i><small><small>Excluir ['+line +']</small></small></button>';
@@ -81,6 +86,36 @@ MySelect.appendChild(newOption4);
   line++;
   Adicted=Adicted+1;
   document.getElementById('NumMan').value = Adicted;
+  document.getElementById("Tip_"+Adicted).focus();
+}
+
+function excInput(DivExc){
+document.getElementById(DivExc).innerHTML = "";
+
+var loss = document.getElementById('NumMan').value;
+var Time2 = '00:00';
+for (i = loss; i >= 1; i--) {
+// var Time2 = '00:00';
+if (document.getElementById('TemPar_'+i) == null) {
+  Time2 = SunTime(
+  "00:00", 
+  Time2
+); 
+}else{
+Time2 = SunTime(
+  document.getElementById('TemPar_'+i).value, 
+  Time2
+); 
+}
+document.getElementById("TempG").value = Time2;
+
+var Time3  = Reduct1(
+  document.getElementById('TempG').value,
+  document.getElementById('TempProd').value
+);
+document.getElementById('TempF').value = Time3;
+}
+
 }
 
   function CalcPar(Param){
@@ -125,13 +160,59 @@ MySelect.appendChild(newOption4);
     document.getElementById("TemPar_"+Param).value = TempPrd;
     console.log("Tempo da parada "+Param+": " + TempPrd);
 
+
+
+
+
+var loss = document.getElementById('NumMan').value;
+var Time2 = '00:00';
+for (i = 1; i <= loss; i++) {
+// var Time2 = '00:00';
+
+if (document.getElementById('TemPar_'+i) == null) {
+  Time2 = SunTime(
+  "00:00", 
+  Time2
+); 
+}else{
+Time2 = SunTime(
+  document.getElementById('TemPar_'+i).value, 
+  Time2
+); 
+}
+document.getElementById("TempG").value = Time2;
+
+var Time3  = Reduct1(
+  document.getElementById('TempG').value,
+  document.getElementById('TempProd').value
+);
+document.getElementById('TempF').value = Time3;
+}
+
 }
 
 
-function excInput(DivExc){
-document.getElementById(DivExc).innerHTML = "";
-}
-    
+function SunTime(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin+sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+  function Reduct1(start,end){
+  var s = start.split(":"), sMin = +s[1] + s[0]*60,
+      e =   end.split(":"), eMin = +e[1] + (e[0])*60,
+   diff = eMin-sMin;
+   if (diff<0) { sMin-=12*60;  diff = eMin-sMin }
+  var h = Math.floor(diff / 60),
+      m = diff % 60;
+  return "" + pad(h) + ":" + pad(m);
+  }
+
+ 
 </script>
 </body>
 </html>

@@ -20,6 +20,9 @@
 <script type="text/javascript" src="jquery.reveal.js"></script>
 
 
+<script type="text/javascript" src="Return_Resume.js"></script>
+
+
 <script type="text/javascript" src="table/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="table/datatables.min.css"/>
@@ -133,6 +136,9 @@ print "</tbody></table>";
 </div>
 </div>
 
+<div class="popup" onclick="myFunction()">
+<span class="popuptext" id="myPopup"></span>
+</div>
 
 <div id="myModal" class="reveal-modal">
 <?php include "Cadastra_op.php";?>
@@ -170,6 +176,71 @@ print "</tbody></table>";
 
 
 <script>
+
+function SendPop(){
+  window.open('Cadastra_op.php', '_blank');
+pup.show();
+}
+function SendMP(){
+  window.open('Mp.php', '_blank');
+}
+function SendRB(){
+  window.open('Rebobinadeira.php', '_blank');
+}
+
+function  SendConf_RB(){
+  window.open('Cadastra_PD_CORTE.php', '_blank');
+}
+
+function Sending(SendIt){
+document.getElementById("JBSend").value = SendIt;
+document.forms["SendForm"].submit();
+}
+
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+
+
 function Includ_OP(){
 var x = document.getElementById("Ct1").innerHTML;
 document.getElementById("modal-body").innerHTML = x;
