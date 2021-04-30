@@ -19,6 +19,10 @@ if (isset($_GET["TxFind"])) {
       $Pic = $row[0];
     }
   }
+}
+if (isset($Pic)) {
   print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
+}
+else{
 }
 ?>

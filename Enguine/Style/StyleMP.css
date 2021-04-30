@@ -6,7 +6,7 @@ body{
 }
 
 .Container{
-    width: 420px;
+    width: 90%;
     border: solid 1px royalblue ;
     border-radius: 15px;
     padding: 10px;
@@ -16,7 +16,6 @@ body{
     font-size: 16px;
  
 }
-
 .Container:hover{
     border: solid 2px dodgerblue;
     padding-left: 11px;
@@ -24,7 +23,7 @@ body{
 }
 
 .Container_Major{
-    width: 871px;
+    width: 90%;
     border: solid 1px royalblue ;
     border-radius: 15px;
     padding: 10px;
@@ -33,7 +32,7 @@ body{
 }
 
 .Inpts{
-    width: 135px; 
+    width: 80%; 
     border-radius: 8px;
     border: 1px solid black;
     margin-bottom: 5px;
@@ -97,4 +96,32 @@ body{
 
     #test{
         clear: left;
+    }
+
+    @media(min-width: 800px){
+        .Container{
+            width: 800px;
+            border: solid 1px royalblue ;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 3px;
+            background: rgba(255, 255, 255, 0.747) ;
+            float: left;
+            font-size: 16px;
+         
+        }
+        .Container:hover{
+            border: solid 2px dodgerblue;
+            padding-left: 11px;
+            /* float: left; */
+        }
+        
+        .Container_Major{
+            width: 800px;
+            border: solid 1px royalblue ;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 5px;
+            background: rgba(255, 255, 255, 0.747) ;
+        }
     }

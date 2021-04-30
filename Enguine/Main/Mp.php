@@ -47,11 +47,6 @@ $username = "root";
 $password = "";
 $dbname = "producao";
 
-
-
-
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -68,6 +63,9 @@ print "<div id = \"Time_CT\" class=\"Container\">";
 include "../Obj_Data/Objet_data.php";
 print "</div>";
 
+print "<div id=\"Paradas_CT\" class=\"Container-parada\">";
+include "../Obj_Paradas/Paradas.php";
+print "</div>";
 
 print "<div id=\"produto_CT\" class=\"Container\">";
 
@@ -139,10 +137,6 @@ $conn->close();
 print "</div>";
 
 
-print "<div id=\"Paradas_CT\" calss=\"Container\">";
-include "../Obj_Paradas/Paradas.php";
-print "</div>";
-
 print "<div id=\"Buttons_CT\" class=\"Container\">";
 print "<button type=\"submit\" id=\"BtConcNext\" class=\"Buts\" value=\"Enviar\" name=\"Enviar\"><i class=\"confirmado\"></i><small class=\"Sm\">Enviar</small></button>";
 print "<button type=\"button\"id=\"BtAddm\" hidden>Teste</button>";
@@ -170,6 +164,8 @@ print "<input type=\"Text\" name=\"GramaturaB\" id=\"GramaturaB\" hidden>";
 print "<input type=\"text\" name=\"GramaturaC\" id=\"GramaturaC\" hidden>";
 print "<input type=\"text\" name=\"NumJum\" id=\"NumJum\" value=\"$NumJUmb\" hidden>";
 print "</form>";
+print "</div>";
+
 ?>
  
 

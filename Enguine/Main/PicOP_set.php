@@ -7,9 +7,9 @@ if (isset($_GET["TxFind"])) {
   $password = "";
   $dbname = "producao";
   // Create connectionW
-  
+
   $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
+
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
@@ -21,8 +21,13 @@ if (isset($_GET["TxFind"])) {
     while($row = mysqli_fetch_array($result)) {
    
       $Pic = $row[0];
-      print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
     }
   }
+}
+if (isset($Pic)) {
+  print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
+}
+else{
+
 }
 ?>

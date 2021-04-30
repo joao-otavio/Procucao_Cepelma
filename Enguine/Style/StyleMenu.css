@@ -1,7 +1,3 @@
-body{
-  
-}
-
  .Buts{
     border-radius: 5px;
     width: 100px;
@@ -20,7 +16,7 @@ body{
     border: solid 1px rgb(185, 184, 184);
     background-image: radial-gradient(#4F4F4F,#363636,#1C1C1C);
     color: white;
-
+    cursor: pointer;
 }
 
 .Buts:focus{
@@ -180,4 +176,70 @@ td{
 #Link_Modal:focus{
   border: solid 2px rgb(0, 0, 0);
   border-radius: 5px;
+}
+
+
+.ButsIn{
+  border-radius: 100%;
+  width: 30px;
+  height: 30px; 
+  border: solid 1px #698B69;
+  background-image: radial-gradient(#C1FFC1,#B4EEB4,#9BCD9B);
+  padding: 2px;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.ButsIn:hover{
+  border-radius: 100%; 
+  cursor: pointer;
+  border: solid 1px #698B69;
+  background-image: radial-gradient(#698B69,#698B69,#698B69);
+  color: white;
+}
+
+.ButsIn:focus{
+border-radius: 100%; 
+border: solid 2px rgb(0, 0, 0); 
+}
+
+.ButsIo{
+  border-radius: 100%;
+  width: 30px;
+  height: 30px; 
+  border: solid 1px #8b6969;
+  background-image: radial-gradient(#ffc1c1,#eeb4b4,#cd9b9b);
+  padding: 2px;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.ButsIo:hover{
+  border-radius: 100%; 
+  cursor: pointer;
+  border: solid 1px #8b6969;
+  background-image: radial-gradient(#8b6969,#8b6969,#8b6969);
+  color: white;
+}
+
+.ButsIc{
+  border-radius: 100%;
+  width: 30px;
+  height: 30px; 
+  border: solid 1px #69798b;
+  background-image: radial-gradient(#c1caff,#b4c3ee,#9badcd);
+  padding: 2px;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.ButsIc:hover{
+  border-radius: 100%; 
+  cursor: pointer;
+  border: solid 1px #69718b;
+  background-image: radial-gradient(#69778b,#69748b,#69758b);
+  color: white;
 }

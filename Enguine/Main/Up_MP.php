@@ -114,63 +114,62 @@ if (mysqli_query($conn, $sql)) {
   mysqli_close($conn);
 
 
-
 $line =1;
 for ($i=1; $i < ($Quant_Para+1); $i++) { 
 
-  
-    $Jum = $_POST['NumJum'];
-    $Descricao = $_POST['Pddesc'.$i.'_1'];
-    $Tip = $_POST['Tip_'.$i];
-    $D_inp = $_POST['D_in_'.$i];
-    $H_inp = $_POST['H_in_'.$i];
-    $D_fnp = $_POST['D_fn_'.$i];
-    $H_fnp = $_POST['H_fn_'.$i];
-    $Temp_Parad = $_POST['TemPar_'.$i];
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    };
-    
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    $sql = "INSERT INTO paradas_mp 
-    ( 
-        Jum,
-        Descricao,
-        D_Inicial,
-        H_Inicial,
-        D_Final,
-        H_Final,
-        Temp_Total,
-        Tipo
-    ) 
-    VALUES
-    (
-       '$Jum',
-       '$Descricao',
-       '$D_inp',
-       '$H_inp',
-       '$D_fnp',
-       '$H_fnp',
-       '$Temp_Parad',
-        '$Tip'
-    )";
-    
-    
-    if (mysqli_query($conn, $sql)) {
-        print "<H3>Lançamento concluido</H3>";
-        
-        } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
-        }
-      mysqli_close($conn);
-      $line = $line +1;
+$Jum = $_POST['NumJum'];
+$Descricao = $_POST['Pddesc'.$i.'_1'];
+$Tip = $_POST['Tip_'.$i];
+$D_inp = $_POST['D_in_'.$i];
+$H_inp = $_POST['H_in_'.$i];
+$D_fnp = $_POST['D_fn_'.$i];
+$H_fnp = $_POST['H_fn_'.$i];
+$Temp_Parad = $_POST['TemPar_'.$i];
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+};
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+die("Connection failed: " . mysqli_connect_error());
+}
+$sql = "INSERT INTO paradas_mp 
+( 
+Jum,
+Descricao,
+D_Inicial,
+H_Inicial,
+D_Final,
+H_Final,
+Temp_Total,
+Tipo
+) 
+VALUES
+(
+'$Jum',
+'$Descricao',
+'$D_inp',
+'$H_inp',
+'$D_fnp',
+'$H_fnp',
+'$Temp_Parad',
+'$Tip'
+)";
+
+
+if (mysqli_query($conn, $sql)) {
+print "<H3>Lançamento concluido</H3>";
+
+} else {
+echo "Error: " . $sql . "<br>" . mysqli_error($conn);   
+}
+mysqli_close($conn);
+$line = $line +1;
 }
 
 // echo "<script>window.close();</script>";

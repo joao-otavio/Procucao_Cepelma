@@ -77,7 +77,7 @@ print"<th>Peso</th>";
 print"<th>Q. Paradas</th>";
 print"<th>Rebobinadeira</th>";
 print"<th>Cortadeira</th>";
-print"<th>Refugo</th>";
+print"<th>Status</th>";
 
 print"</tr>";
 print "</thead>";
@@ -101,7 +101,6 @@ $result = $conn->query($sql);
 
 $MyArray = array();
 if ($result->num_rows > 0) {
-
   while($row = mysqli_fetch_array($result)) {
 
     $Jumb = $row[0];
@@ -110,25 +109,62 @@ if ($result->num_rows > 0) {
     $Peso = $row[3];
     $Quant_Para = $row[4];
     $Gram_Str = $row[5];
-    
+    $Existis = 0;
     if ($result->num_rows > 0) {
+  
         // print "$Jumb - $Data - $Temp_Fabr - $Peso - $Quant_Para";
         // print "<br>";
 
         print "<tr>";
         // Print "<td><label><input type=\"Button\"></label></td>";
-        print "<td><a href=\"#\" onclick=\"getDados('$Jumb')\">$Jumb</a></td> ";
+        print "<td><a href=\"#\" onclick=\"getDados('$Jumb')\">$Jumb</a></td>";
         print "<td>$Data</td> ";
-        print "<td>$Temp_Fabr</td> ";
+        print "<td><a href=\"#\" onclick=\"GET_DDS_Tempo('$Jumb')\">$Temp_Fabr</a></td> ";
         print "<td>$Gram_Str</td> ";
         print "<td>$Peso</td> ";
-        print "<td>$Quant_Para</td> ";
-        Print "<td><label><input type=\"Button\"></label></td>";
-        Print "<td><label><input type=\"Button\"></label></td>";
-        Print "<td><label><input type=\"Button\"></label></td>";
-        print "</tr>";
-        } 
+        print "<td><a href=\"#\" onclick=\"GET_DDS_manutencao('$Jumb')\">$Quant_Para</a></td>";
 
+        $sql_rb = "SELECT jumb FROM rebobinadeira where jumb = '$Jumb';";
+        $result_rb = $conn->query($sql_rb);
+        $MyArray_rb = array();
+        if ($result_rb->num_rows > 0) {
+        print "<td><button class=\"ButsIn\" onclick=\"GET_DDS_Rebobinadeira('$Jumb')\"><small></small></button></td>";
+        $Existis = $Existis +1;
+        }else{
+          print "<td></td>";
+        $Existis = $Existis +0;
+        }
+
+
+        $sqlCr = "SELECT jumbo FROM banco_de_carga where Jumbo = '$Jumb';";
+        $resultCr = $conn->query($sqlCr);
+        $MyArrayCr = array();
+        if ($resultCr->num_rows > 0) {
+        print "<td><button class=\"ButsIc\" onclick=\"GET_DDS_Carregados('$Jumb')\"><small></small></button></td>";
+        $Existis = $Existis +1;
+      }else{
+        $sql_Ct = "SELECT * FROM `cortadeira`WHERE `Selects` LIKE '% $Jumb %'";
+        $result_Ct = $conn->query($sql_Ct);
+        $MyArray_Ct = array();
+        if ($result_Ct->num_rows > 0) {
+        print "<td><button class=\"ButsIn\" onclick=\"GET_DDS_Cortadeira('$Jumb')\"><small></small></button></td>";
+        $Existis = $Existis +1;
+      }else{
+        print "<td></td>";
+        $Existis = $Existis +0;
+        }
+      }
+
+
+
+        // print "<td><button class=\"ButsIo\" onclick=\"GET_DDS_Cortadeira('$Jumb')\"><small></small></button></td>";
+        if($Existis > 0){
+        print "<td></td>";
+        }else{
+        print "<td><button class=\"ButsIo\" onclick=\"GET_DDS_Cortadeira('$Jumb')\"><small></small></button></td>";
+      }
+        print "</tr>";
+        }
    }
 }
 print "</tbody></table>"; 
@@ -166,7 +202,6 @@ print "</tbody></table>";
 <?php include "Cadastro_Equipamento.html";?>
 </div>
 
-
 <a href="" class="big-link" data-reveal-id="Conclusions" id="link_conc"></a>
 <div id="Conclusions" class="reveal-modal">
 <h3>Cadastro concluido</h3>
@@ -174,8 +209,42 @@ print "</tbody></table>";
 <a id="ClsOp" class="close-reveal-modal">&#215;</a>
 </div>
 
+<div id="Rel_Rebobinadiera" class="reveal-modal">
+
+</div>
+
 
 <script>
+
+function GET_DDS_Rebobinadeira(Param){
+ 
+  var nome   = document.getElementById("TxFind").value;
+     var result = document.getElementById("Rel_Rebobinadiera");
+     var xmlreq = CriaRequest();
+     
+     
+     // Iniciar uma requisição
+     xmlreq.open("GET", "Consulta_Rb_PopUp.php?TxFind=" + Param, true);
+
+    // Atribui uma função para ser executada sempre que houver uma mudança de ado
+     xmlreq.onreadystatechange = function(){
+
+                
+         // Verifica se foi concluído com sucesso e a conexão fechada (readyState=4)
+         if (xmlreq.readyState == 4) {
+            sleep(2000);
+             // Verifica se o arquivo foi encontrado com sucesso
+             if (xmlreq.status == 200) {
+                 result.innerHTML = xmlreq.responseText;
+             }else{
+                 result.innerHTML = "Erro: " + xmlreq.statusText;
+             }
+         }
+     };
+     xmlreq.send(null);
+ 
+  
+}
 
 function SendPop(){
   window.open('Cadastra_op.php', '_blank');
@@ -294,6 +363,8 @@ $(document).ready(function() {
         "dom": '<"top"i>rt<"bottom"flp><"clear">'
     } );
 } );
+
+
 
 </script>
 

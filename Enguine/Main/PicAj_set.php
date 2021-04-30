@@ -18,11 +18,15 @@ if (isset($_GET["TxFind"])) {
   $conn = new mysqli($servername, $username, $password, $dbname);
   
   if ($result->num_rows > 0){
-    while($row = mysqli_fetch_array($result)) {
-   
+    while($row = mysqli_fetch_array($result)) {  
       $Pic = $row[0];
-      print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
     }
   }
+}
+if (isset($Pic)) {
+  print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
+}
+else{
+
 }
 ?>

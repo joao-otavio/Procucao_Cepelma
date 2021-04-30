@@ -13,7 +13,6 @@ if (isset($_GET["TxPar"])) {
   $password = "";
   $dbname = "producao";
 
-  $i = 0;
   $conn = new mysqli($servername, $username, $password, $dbname);
 
   if ($conn->connect_error) {
@@ -25,11 +24,15 @@ if (isset($_GET["TxPar"])) {
   
   if ($result->num_rows > 0){
     while($row = mysqli_fetch_array($result)) {
-      $Pic[$i] = $row[0];
-      $i++;
+   
+      $Pic = $row[0];
     }
   }
 }
-print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
+if (isset($Pic)) {
+  print "<img src=\"http://".$_SERVER['HTTP_HOST']."/SkyBry/IMAGENS/".$Pic."\" alt=\"PicOPs\" id=\"PicPer1\">";
+}
+else{
 
+}
 ?>
