@@ -8,9 +8,17 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
 <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="ChamaOperador_Cadastro.js"></script>
-
-
 </head>
+
+<div id="loading" style="display: block">
+<p id="text-title">Cepelma Industria artefatos de papel</p>
+<p id="text-subtitle">SkyBry - Producão</p>
+    <img id="Load-charge" src="/ProdCepelma/Enguine/pic/Loading_2.gif" style="width:150px;height:150px;"/>
+    <img id="Load-logo" src="/ProdCepelma/Enguine/pic/LOGO_CEPELMA-removebg-preview.png"/>
+    <img id="Load-sistem" src="/ProdCepelma/Enguine/pic/SkyBry.png" style="width:50px;height:50px;"/>
+  </div>
+
+<div id="Content-menu" style="display: none">
 <body>
 
 <!-- CSS do plugin -->
@@ -28,6 +36,9 @@
 <link rel="stylesheet" type="text/css" href="table/datatables.min.css"/>
 
 <script type="text/javascript" src="table/datatables.min.js"></script>
+
+<script type="text/javascript" src="jquery-3.5.1.js"></script>
+<script type="text/javascript" src="jquery.dataTables.min.js"></script>
 
 <div id= "Title">
 <h2>Menu Produção</h2>
@@ -78,7 +89,6 @@ print"<th>Q. Paradas</th>";
 print"<th>Rebobinadeira</th>";
 print"<th>Cortadeira</th>";
 print"<th>Status</th>";
-
 print"</tr>";
 print "</thead>";
 print "<tbody>";
@@ -167,9 +177,185 @@ if ($result->num_rows > 0) {
         }
    }
 }
-print "</tbody></table>"; 
+print "</tbody>";
+print "<tfoot>";
+print "<tr>";
+print"<th>Jumbo</th>";
+print"<th>Data</th>";
+print"<th>T. Fabricação</th>";
+print"<th>Gramatura</th>";
+print"<th>Peso</th>";
+print"<th>Q. Paradas</th>";
+print"<th>Rebobinadeira</th>";
+print"<th>Cortadeira</th>";
+print"<th>Status</th>";
+print "</tr>";
+print "</tfoot>";
+print "</table>"; 
 ?>
 </div>
+</div>
+
+
+
+<div id="cortadeira">
+<br>
+<hr>
+<span><strong>Lançamentos - Cortadeira</strong></span>
+<hr>
+<?php
+print "<table id=\"cortadeira-tabel\" class=\"display\" style=\"width:100%\">";
+print"<thead>";
+print"<tr>";
+print"<th>Carga</th>";
+print"<th>Jumbos</th>";
+print"<th>Data Fab.</th>";
+print"<th>T. Produtivo</th>";
+print"<th>Bancas</th>";
+print"<th>Formatos</th>";
+print"<th>Papel</th>";
+print"<th>Peso</th>";
+print"</tr>";
+print "</thead>";
+print "<tbody>";
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT carga, Selects, D_in, Tempo_Produtivo, Bancas, Formatos, Papel, Peso FROM cortadeira order by carga DESC;";
+$result = $conn->query($sql);
+
+
+$MyArray = array();
+if ($result->num_rows > 0) {
+  while($row = mysqli_fetch_array($result)) {
+
+    $carga = $row[0];
+    $Selects = $row[1];
+    $D_in = $row[2];
+    $Tempo_Produtivo = $row[3];
+    $Bancas = $row[4];
+    $Formatos = $row[5];
+    $Papel = $row[6];
+    $Peso = $row[7];
+    if ($result->num_rows > 0) {
+        print "<tr>";
+        print "<td>$carga</td>";
+        print "<td>$Selects</td> ";
+        print "<td>$D_in</td> ";
+        print "<td>$Tempo_Produtivo</td> ";
+        print "<td>$Bancas</td> ";
+        print "<td>$Formatos</td> ";
+        print "<td>$Papel</td> ";
+        print "<td>$Peso</td> ";
+        print "</tr>";
+        }
+   }
+}
+print "</tbody>";
+print "<tfoot>";
+print"<tr>";
+print"<th>Carga</th>";
+print"<th>Jumbos</th>";
+print"<th>Data Fab.</th>";
+print"<th>T. Produtivo</th>";
+print"<th>Bancas</th>";
+print"<th>Formatos</th>";
+print"<th>Papel</th>";
+print"<th>Peso</th>";
+print"</tr>";
+print "</tfoot>";
+print "</table>";
+
+?>
+</div>
+
+
+
+<div id="rebobinadeira">
+<br>
+<hr>
+<span><strong>Lançamentos - Rebobinadeira</strong></span>
+<hr>
+<?php
+print "<table id=\"Rebobinadira-tabel\" class=\"display\" style=\"width:100%\">";
+print"<thead>";
+print"<tr>";
+print"<th>Lote</th>";
+print"<th>Jumbo</th>";
+print"<th>Data Fab.</th>";
+print"<th>Padrão</th>";
+print"<th>Conf.Corte</th>";
+print"<th>Pes. Acabado</th>";
+print"<th>Pes. Refugado</th>";
+print"</tr>";
+print "</thead>";
+print "<tbody>";
+
+$servername = "localhost:3308";
+$username = "root";
+$password = "";
+$dbname = "producao";
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT lote, jumb, D_in, Padrao, MySelectConf, PesAcabado, PesSegregado FROM rebobinadeira order by D_fn DESC;";
+$result = $conn->query($sql);
+
+
+$MyArray = array();
+if ($result->num_rows > 0) {
+  while($row = mysqli_fetch_array($result)) {
+
+    $lote = $row[0];
+    $jumb = $row[1];
+    $D_in = $row[2];
+    $Padrao = $row[3];
+    $MySelectConf = $row[4];
+    $PesAcabado = $row[5];
+    $PesSegregado = $row[6];
+    if ($result->num_rows > 0) {
+        print "<tr>";
+        print "<td>$lote</td>";
+        print "<td>$jumb</td> ";
+        print "<td>$D_in</td> ";
+        print "<td>$Padrao</td> ";
+        print "<td>$MySelectConf</td> ";
+        print "<td>$PesAcabado</td> ";
+        print "<td>$PesSegregado</td> ";
+        print "</tr>";
+        }
+   }
+}
+print "</tbody>";
+print "<tfoot>";
+print"<tr>";
+print"<th>Lote</th>";
+print"<th>Jumbo</th>";
+print"<th>Data Fab.</th>";
+print"<th>Padrão</th>";
+print"<th>Conf.Corte</th>";
+print"<th>Pes. Acabado</th>";
+print"<th>Pes. Refugado</th>";
+print"</tr>";
+print "</tfoot>";
+print "</table>";
+
+?>
 </div>
 
 <div class="popup" onclick="myFunction()">
@@ -358,12 +544,106 @@ function RelatorMP(){
   window.open('../Obj_Relators/Mp_Star_rating.php', '_blank');
 }
 
+// $(document).ready(function() {
+//     $('#example').DataTable( {
+//         "dom": '<"top"i>rt<"bottom"flp><"clear">'
+//     } );
+    
+// } );
+
+
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "dom": '<"top"i>rt<"bottom"flp><"clear">'
+    // Setup - add a text input to each footer cell
+    $('#example tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
     } );
+ 
+    // DataTable
+    var table = $('#example').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every( function () {
+                var that = this;
+ 
+                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        }
+    });
+ 
 } );
 
+
+
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#Rebobinadira-tabel tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+ 
+    // DataTable
+    var table = $('#Rebobinadira-tabel').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every( function () {
+                var that = this;
+ 
+                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        }
+    });
+ 
+} );
+
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#cortadeira-tabel tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+ 
+    // DataTable
+    var table = $('#cortadeira-tabel').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every( function () {
+                var that = this;
+ 
+                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                    if ( that.search() !== this.value ) {
+                        that
+                            .search( this.value )
+                            .draw();
+                    }
+                } );
+            } );
+        }
+    });
+ 
+} );
+
+var i = setInterval(function () {
+    
+    clearInterval(i);
+  
+    // O código desejado é apenas isto:
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("Content-menu").style.display = "inline";
+
+}, 4000);
 
 
 </script>
@@ -371,5 +651,6 @@ $(document).ready(function() {
 <form action="" method="post" name="SendForm">
 <input type="text" name="Jumb" id="JBSend" hidden>
 </form>
+</div>
 </body>
 </html>

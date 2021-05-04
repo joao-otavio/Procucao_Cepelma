@@ -30,7 +30,6 @@
         <?php $Param = "CT"; include "../Obj_Pessoal/Objet_pessoal.php"; ?>
         </div>
 
-   
 
         <div class="Container" id="Data">
         <?php include "../Obj_Data/Objet_data.php"; ?>

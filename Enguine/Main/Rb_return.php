@@ -71,8 +71,10 @@ print "<input type=\"text\" id=\"PesJUmb_get\" name=\"PesJUmb_get\" value =\"".$
 
 }
 }else {
- 
   echo "Não foi encontrado este Registro!";
+  echo "<br>";
+  echo "<br>";
+  print"<img id=\"Alert-pec\" src=\"alert.png\" alt=\"\">";
   echo "<br>";
 }
 }

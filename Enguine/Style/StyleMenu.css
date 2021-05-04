@@ -243,3 +243,47 @@ border: solid 2px rgb(0, 0, 0);
   background-image: radial-gradient(#69778b,#69748b,#69758b);
   color: white;
 }
+
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+}
+
+#loading{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: rgb(255,255,255);
+  background: linear-gradient(357deg, rgba(255,255,255,1) 0%, rgba(0,212,255,1) 85%, rgba(0,133,159,1) 100%);
+}
+
+#Load-charge{
+  bottom: 10px;
+  left: 5px;
+  position: absolute;
+}
+
+#text-title{
+  font-size: 400%;
+  color: white;
+}
+#text-subtitle{
+  font-size: 250%;
+  color: white;
+}
+
+@-webkit-keyframes rotate-in-br{0%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);-webkit-transform-origin:bottom right;transform-origin:bottom right;opacity:0}100%{-webkit-transform:rotate(0deg);transform:rotate(0deg);-webkit-transform-origin:bottom right;transform-origin:bottom right;opacity:1}}@keyframes rotate-in-br{0%{-webkit-transform:rotate(-360deg);transform:rotate(-360deg);-webkit-transform-origin:bottom right;transform-origin:bottom right;opacity:0}100%{-webkit-transform:rotate(0deg);transform:rotate(0deg);-webkit-transform-origin:bottom right;transform-origin:bottom right;opacity:1}}
+#Load-logo{
+  -webkit-animation:rotate-in-br 2s cubic-bezier(.25,.46,.45,.94) both;animation:rotate-in-br 2s cubic-bezier(.25,.46,.45,.94) both;
+  width: 20%;
+  height: 45%;
+}
+
+#Load-sistem{
+  top: 10px;
+  left: 5px;
+  position: absolute;
+}

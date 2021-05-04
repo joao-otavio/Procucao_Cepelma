@@ -1004,12 +1004,12 @@ if (isset($_POST['Md_2'])) {
     ) 
     VALUES 
     (
-      '$chave',
-      '$PesAcabado',
-      '$PesSegregado',
-      '$Tp_Fabric',
-      '$Op1',
-      'MP'
+  '$chave',
+  '$PesAcabado',
+  '$PesSegregado',
+  '$Tp_Fabric',
+  '$Op1',
+  'MP'
       
     )";
     

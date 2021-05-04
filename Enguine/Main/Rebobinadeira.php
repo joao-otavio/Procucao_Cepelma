@@ -9,7 +9,8 @@
 
 </head>
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <!-- <script src="/ProdCepelma/Enguine/Main/Rb_FindJumb.js"></script> -->
     <script src="/ProdCepelma/Enguine/Main/PicOp_Return.js"></script>
     <script src="/ProdCepelma/Enguine/Main/PicAj_Return.js"></script>
@@ -19,7 +20,7 @@
         </div>
 <div id="FormSet">
 
-            <form action="Insert_reb.php" id="ReboBinadeiras" name="Lct" method="POST" novalidate>
+<form action="Insert_reb.php" id="ReboBinadeiras" name="Lct" method="POST" >
 
             <div class="Content" id="Content">
                 <div id="EquipamentoD">
@@ -49,14 +50,14 @@
                     
                     <label for="D_in">Data/Hora de Inicio:</label>
                     <br>
-                    <input type="date" id="D_in" name="D_in" class="Inpts" require>
-                    <input type="time" id="H_in" name="H_in" class="Inpts" require>
+                    <input type="date" id="D_in" name="D_in" class="Inpts" required>
+                    <input type="time" id="H_in" name="H_in" class="Inpts" required>
                     <br>
                    
                     <label for="D_fn">Data/Hora de Fim:   </label>
                     <br>
-                    <input type="date" id="D_fn" name="D_fn" class="Inpts" require>
-                    <input type="time" id="H_fn" name="H_fn" class="Inpts" require>
+                    <input type="date" id="D_fn" name="D_fn" class="Inpts" required>
+                    <input type="time" id="H_fn" name="H_fn" class="Inpts" required>
                 </div>
                 </div>
            
@@ -106,7 +107,7 @@
                    <div id="Mescl1">
                     <label for="Md_1">Tiradas:</label>
                     <br>
-                    <input type="number" class="Inpts" id="Tiradas" name="Tiradas" min="1" require>
+                    <input type="number" class="Inpts" id="Tiradas" name="Tiradas" min="1" required>
                     </div>
                     <?php include "Padrao_RB.php"; ?>
                     <br>
@@ -116,14 +117,21 @@
                     <div id="Dados">
                     </div>
                     <br>
+                    <input type="radio" name="Ending" id="Process" onclick="CalcMeds()" checked>
+                    <label for="Process"> <strong>Processando: </strong></label>
+                    <br>
+                    <input type="radio" name="Ending" id="Refug" onclick="CalcMeds()">
                     <label for="Refug"> <strong>Finalizado: </strong></label>
-                    <input type="checkbox" name="Refug" id="Refug" onclick="CalcMeds()">
+                    <br>
+                    <input type="radio" name="Ending" id="Semia" onclick="CalcMeds()">
+                    <label for="Semia"> <strong>Semi Acabado: </strong></label>
+                    <br>
                 </div>
                 </div>
               
                        
                 <div id="Buttons">
-                    <input type="submit" class="BuTs" value="Enviar">
+                    <button type="submit" class="BuTs" id="Enviar" value="Enviar">Enviar</button>
                     <input type="reset" class="BuTs" value="Resetar">
                     <!-- <button type="button" onclick="Includ_OP()" data-modal-target="#modal" class="BuTs">Cadastrar Op.</button>
                     <button type="button" onclick="Includ_CF()" data-modal-target="#modal" class="BuTs">Config Rb</button> -->
@@ -185,14 +193,6 @@
 </div>
 </div>
 <div id="overlay"></div>
-
-<div hidden id="Ct1">
-<?php include "Cadastra_op.php";?>
-</div>
-<div hidden id="Ct2">
-<?php include "Cadastra_PD_CORTE.php";?>
-</div>
-
 </form>
 <script>
 function sleep(milliseconds) {
@@ -274,6 +274,14 @@ document.getElementById("Load").style.display = 'block';
 if (xmlreq.readyState == 4) {
 if (xmlreq.status == 200) {
 result.innerHTML = xmlreq.responseText;
+var element = document.getElementById("Alert-pec");
+if (typeof(element) != 'undefined' && element != null)
+{
+   var Stringer = document.getElementById("Jumb").value;
+alert("Jumbo "+Stringer+" Não localizado!")
+document.getElementById("Jumb").value = "";
+}
+
 }else{
 result.innerHTML = "Erro: " + xmlreq.statusText;
 }
@@ -325,9 +333,27 @@ document.getElementById("Tp_Fabric").value = TempPrd;
 
 TpVida();
 TpEspera();
-                
-var TipP = document.getElementById("Tipo").value;
-let GramP = (parseFloat(document.getElementById("Calc").value)).toFixed(2);
+      var TipP = "";  
+      let GramP = "";      
+var element = document.getElementById("Tipo");
+if (typeof(element) != 'undefined' && element != null)
+{
+TipP = document.getElementById("Tipo").value;
+}else{
+TipP = "Nenhum Jumbo Selecionado";
+}
+
+var element = document.getElementById("Calc");
+if (typeof(element) != 'undefined' && element != null)
+{
+GramP = (parseFloat(document.getElementById("Calc").value)).toFixed(2);
+}else{
+GramP = "Sem Jumbo para parametro!";
+alert("Necessarion informar Jumbo, 'Selecionados campos de data negligenciando o campo de jumbo'")
+document.getElementById("Jumb").focus();
+
+}
+
 let Tesp = document.getElementById("TempEspera").value;
 let TProd = document.getElementById("Tp_Fabric").value;
 let TVida = document.getElementById("TempVida").value;
@@ -344,11 +370,30 @@ document.getElementById("chave").value = 3003 + dtini + hrini + letChar;
 }
 
 function TpVida(){
-document.getElementById("Load").style.display = 'block';
-    
-    var Sdata = document.getElementById("DtIni_VIDA").value;
+
+    var Sdata="";
+    var Stime="";
+
+    document.getElementById("Load").style.display = 'block';
+
+var element = document.getElementById("DtIni_VIDA");
+if (typeof(element) != 'undefined' && element != null)
+{
+Sdata = document.getElementById("DtIni_VIDA").value
+}else{
+Sdata = "01/01/2000"
+}
+  
+var element = document.getElementById("HrIni_vida");
+if (typeof(element) != 'undefined' && element != null)
+{
+Stime = document.getElementById("HrIni_vida").value
+}else{
+Stime = "00:00:00"
+}
+
     Sdata = Sdata.split('/').reverse().join('-');
-    var hrini = document.getElementById("HrIni_vida").value;
+    var hrini = Stime;
     var dtfin = document.getElementById("D_fn").value;
     var hrfin = document.getElementById("H_fn").value;
     var prdinicial = Sdata+' '+hrini;
@@ -373,11 +418,29 @@ document.getElementById("Load").style.display = 'none';
 
 
 function TpEspera(){
+    var Sdata="";
+    var Stime="";
+
+
+var element = document.getElementById("DtIni_VIDA");
+if (typeof(element) != 'undefined' && element != null)
+{
+Sdata = document.getElementById("DtIni_VIDA").value
+}else{
+Sdata = "01/01/2000"
+}
+
+var element = document.getElementById("HrIni_Esp");
+if (typeof(element) != 'undefined' && element != null)
+{
+Stime = document.getElementById("HrIni_Esp").value
+}else{
+Stime = "00:00:00"
+}
 
 document.getElementById("Load").style.display = 'block';    
-var Sdata = document.getElementById("DtIni_VIDA").value;
 Sdata = Sdata.split('/').reverse().join('-');
-var hrini = document.getElementById("HrIni_Esp").value;
+var hrini = Stime;
 var dtfin = document.getElementById("D_in").value;
 var hrfin = document.getElementById("H_in").value;
 
@@ -990,6 +1053,18 @@ function closeModal(modal) {
   overlay.classList.remove('active')
 }
 
-</script>   
+var formID = document.getElementById("ReboBinadeiras");
+var send = $("#Enviar");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+
+
+</script>  
+
 </body>
 </html>
